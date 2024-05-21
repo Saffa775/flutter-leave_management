@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "21291416762",
+    "project_id": "leave-status-management",
+    "storage_bucket": "leave-status-management.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:21291416762:android:73d9768d6c65ce36ea1683",
+        "android_client_info": {
+          "package_name": "com.example.leave_manegment"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAkFjqZTVV5twm47TWGTRAAvYKaZfeJ4_8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
