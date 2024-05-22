@@ -1,7 +1,7 @@
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:leave_manegment/homepage1.dart';
-
+import 'package:lottie/lottie.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key});
@@ -31,24 +31,11 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
-
     return AnimatedSplashScreen(
-        animationDuration: Duration(seconds: 2),
-        splash: Container(
-          alignment: Alignment.center,
-          color: Colors.white,
-          child: Text(
-            "Leave Status",
-            style: TextStyle(
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
-                fontSize: 25,
-                fontStyle: FontStyle.italic),
-          ),
-        ),
-        nextScreen: Homepage(),
-        splashTransition: SplashTransition.scaleTransition);
-
- 
+      animationDuration: Duration(seconds: 3),
+      splash: Center(child: LottieBuilder.asset("images/Lottie/annii.json")),
+      nextScreen: Homepage(),
+      splashIconSize: 300,
+    );
   }
 }
