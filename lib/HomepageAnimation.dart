@@ -37,7 +37,8 @@ class _SplashScreenState extends State<SplashScreen> {
         children: [
           Text(
             "Apply For Leave",
-            style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold,fontSize: 20),
+            style: TextStyle(
+                color: Colors.white, fontWeight: FontWeight.bold, fontSize: 20),
           ),
           Center(
               child:
