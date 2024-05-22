@@ -33,8 +33,19 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return AnimatedSplashScreen(
       animationDuration: Duration(seconds: 3),
-      splash: Center(child: LottieBuilder.asset("images/Lottie/annii.json")),
+      splash: Column(
+        children: [
+          Text(
+            "Apply For Leave",
+            style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold,fontSize: 20),
+          ),
+          Center(
+              child:
+                  LottieBuilder.asset("images/Lottie/HomepageAnimation.json")),
+        ],
+      ),
       nextScreen: Homepage(),
+      backgroundColor: Color.fromARGB(255, 14, 90, 152),
       splashIconSize: 300,
     );
   }
