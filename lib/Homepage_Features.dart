@@ -6,7 +6,6 @@ import 'package:leave_manegment/IMAGES-DECORATION/SLIDER-2.dart';
 import 'package:leave_manegment/IMAGES-DECORATION/SLIDER-3.dart';
 import 'package:leave_manegment/IMAGES-DECORATION/SLIDER-4.dart';
 import 'package:leave_manegment/IMAGES-DECORATION/SLIDER-5.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({super.key});
@@ -17,7 +16,7 @@ class Homepage extends StatefulWidget {
 
 class _HomepageState extends State<Homepage> {
   int index = 0;
-  CarouselController controller=CarouselController();
+  CarouselController controller = CarouselController();
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
@@ -52,7 +51,7 @@ class _HomepageState extends State<Homepage> {
                         width: width,
                         // color: Colors.amber,
                         child: CarouselSlider(
-carouselController: controller,
+                            carouselController: controller,
                             //slider ingredients here//
                             items: [
                               Firstslider(),
@@ -144,7 +143,7 @@ carouselController: controller,
                           children: [
                             InkWell(
                               onTap: () {
-                                controller.jumpToPage(index-1);
+                                controller.jumpToPage(index - 1);
                               },
                               child: Icon(
                                 Icons.arrow_back,
@@ -153,7 +152,7 @@ carouselController: controller,
                             ),
                             InkWell(
                               onTap: () {
-                                controller.jumpToPage(index+1);
+                                controller.jumpToPage(index + 1);
                               },
                               child: Icon(
                                 Icons.arrow_forward,
