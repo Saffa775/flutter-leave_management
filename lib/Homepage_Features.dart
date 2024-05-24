@@ -159,7 +159,7 @@ carouselController: controller,
                                 Icons.arrow_forward,
                                 size: 30,
                               ),
-                            )
+                            ),
                           ],
                         ),
                       ),

@@ -12,7 +12,6 @@ class Firstslider extends StatelessWidget {
         height: height,
         width: width * 0.8,
         decoration: BoxDecoration(
-            color: Colors.amber,
             borderRadius: BorderRadius.circular(20),
             image: const DecorationImage(
                 fit: BoxFit.cover, image: AssetImage("images/secure.jpeg"))),
