@@ -1,7 +1,9 @@
+// ignore: file_names
 import 'package:flutter/material.dart';
 import 'package:leave_manegment/PAINTERS/Lower-Painter-Dashboard.dart';
 import 'package:leave_manegment/PAINTERS/Uper-Painter-dashboard1.dart';
 import 'package:leave_manegment/STUDENT/SIGN-UP.dart';
+import 'package:leave_manegment/TEACHER/Sign_Up.dart';
 
 class MyDashboard extends StatefulWidget {
   const MyDashboard({super.key});
@@ -120,35 +122,43 @@ class _MyDashboardState extends State<MyDashboard> {
                         borderRadius: BorderRadius.only(
                             topLeft: Radius.circular(15),
                             topRight: Radius.circular(15))),
-                    child: Column(
-                      children: [
-                        Container(
-                          height: height * 0.18,
-                          width: width * 0.6,
-                          decoration: BoxDecoration(
-                              border: Border.all(color: Colors.black),
-                              color: Colors.white,
-                              borderRadius: BorderRadius.only(
-                                  topLeft: Radius.circular(15),
-                                  topRight: Radius.circular(15)),
-                              image: DecorationImage(
-                                image: AssetImage("images/teacher.jpeg"),
-                                fit: BoxFit.cover,
-                              )),
-                        ),
-                        Container(
-                          alignment: Alignment.center,
-                          height: height * 0.07,
-                          width: width * 0.5,
-                          child: Text(
-                            "Departemental Staff",
-                            style: TextStyle(
+                    child: InkWell(
+                      onTap:  () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => TeacherSignUp()));
+                          },
+                      child: Column(
+                        children: [
+                          Container(
+                            height: height * 0.18,
+                            width: width * 0.6,
+                            decoration: BoxDecoration(
+                                border: Border.all(color: Colors.black),
                                 color: Colors.white,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 18),
+                                borderRadius: BorderRadius.only(
+                                    topLeft: Radius.circular(15),
+                                    topRight: Radius.circular(15)),
+                                image: DecorationImage(
+                                  image: AssetImage("images/teacher.jpeg"),
+                                  fit: BoxFit.cover,
+                                )),
                           ),
-                        )
-                      ],
+                          Container(
+                            alignment: Alignment.center,
+                            height: height * 0.07,
+                            width: width * 0.5,
+                            child: Text(
+                              "Departemental Staff",
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 18),
+                            ),
+                          )
+                        ],
+                      ),
                     ),
                   ),
                 ],

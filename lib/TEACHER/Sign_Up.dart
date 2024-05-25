@@ -1,23 +1,24 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:leave_manegment/MODELS/Student-Model.dart';
-import 'package:leave_manegment/STUDENT/Student-Login.dart';
+import 'package:leave_manegment/MODELS/Teacher-Model.dart';
+
+import 'package:leave_manegment/TEACHER/Login.dart';
 import 'package:uuid/uuid.dart';
 
-class StudentsSignUp extends StatefulWidget {
-  const StudentsSignUp({super.key});
+class TeacherSignUp extends StatefulWidget {
+  const TeacherSignUp({super.key});
 
   @override
-  State<StudentsSignUp> createState() => _StudentsSignUpState();
+  State<TeacherSignUp> createState() => _TeacherSignUpState();
 }
 
-class _StudentsSignUpState extends State<StudentsSignUp> {
+class _TeacherSignUpState extends State<TeacherSignUp> {
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
     final Fullnamecontroller = TextEditingController();
-    final RollNumbercontroller = TextEditingController();
+    final CNICcontroller = TextEditingController();
     final Emailcontroller = TextEditingController();
     final Passwordcontroller = TextEditingController();
     final Confirmpasswordcontroller = TextEditingController();
@@ -118,9 +119,9 @@ class _StudentsSignUpState extends State<StudentsSignUp> {
                                   ),
                                   hintText: 'Name',
                                   hintStyle: TextStyle(
-                                      color: Color.fromARGB(255, 6, 47, 80),
-                                      fontSize: 12,
-                                    ),
+                                    color: Color.fromARGB(255, 6, 47, 80),
+                                    fontSize: 12,
+                                  ),
                                   labelStyle: TextStyle(color: Colors.red),
                                 ),
                                 validator: (String? value) {
@@ -160,8 +161,8 @@ class _StudentsSignUpState extends State<StudentsSignUp> {
                                   ),
                                   hintText: 'Email',
                                   hintStyle: TextStyle(
-                                      color: Color.fromARGB(255, 6, 47, 80),
-                                      fontSize: 12,
+                                    color: Color.fromARGB(255, 6, 47, 80),
+                                    fontSize: 12,
                                   ),
                                   labelStyle: TextStyle(color: Colors.red),
                                 ),
@@ -190,7 +191,7 @@ class _StudentsSignUpState extends State<StudentsSignUp> {
                                 style: TextStyle(
                                   color: Color.fromARGB(255, 6, 47, 80),
                                 ),
-                                controller: RollNumbercontroller,
+                                controller: CNICcontroller,
                                 decoration: InputDecoration(
                                   border: InputBorder.none,
                                   // fillColor: Colors.red,
@@ -200,11 +201,11 @@ class _StudentsSignUpState extends State<StudentsSignUp> {
                                   prefixIcon: Icon(
                                     Icons.book,
                                   ),
-                                  hintText: 'Roll Number',
+                                  hintText: 'CNIC without dashes',
                                   hintStyle: TextStyle(
-                                      color: Color.fromARGB(255, 6, 47, 80),
-                                      fontSize: 12,
-                                     ),
+                                    color: Color.fromARGB(255, 6, 47, 80),
+                                    fontSize: 12,
+                                  ),
                                   labelStyle: TextStyle(color: Colors.red),
                                 ),
                                 validator: (String? value) {
@@ -244,9 +245,9 @@ class _StudentsSignUpState extends State<StudentsSignUp> {
                                   ),
                                   hintText: "Create Password",
                                   hintStyle: TextStyle(
-                                      color: Color.fromARGB(255, 6, 47, 80),
-                                      fontSize: 12,
-                                   ),
+                                    color: Color.fromARGB(255, 6, 47, 80),
+                                    fontSize: 12,
+                                  ),
                                   labelStyle: TextStyle(color: Colors.red),
                                 ),
                                 validator: (String? value) {
@@ -286,9 +287,9 @@ class _StudentsSignUpState extends State<StudentsSignUp> {
                                   ),
                                   hintText: 'Confirm Password',
                                   hintStyle: TextStyle(
-                                      color: Color.fromARGB(255, 6, 47, 80),
-                                      fontSize: 12,
-                                     ),
+                                    color: Color.fromARGB(255, 6, 47, 80),
+                                    fontSize: 12,
+                                  ),
                                   labelStyle: TextStyle(color: Colors.red),
                                 ),
                                 validator: (String? value) {
@@ -304,24 +305,24 @@ class _StudentsSignUpState extends State<StudentsSignUp> {
                             onTap: () {
                               var id = Uuid();
                               String uid = id.v4();
-                              StudentModel model = StudentModel(
-                                studentemail: Emailcontroller.text,
-                                studentid: uid,
-                                studentname: Fullnamecontroller.text,
-                                studentpassword: Passwordcontroller.text,
-                                studentrollnumber: RollNumbercontroller.text,
+                              TeacherModel model = TeacherModel(
+                                teachername: Fullnamecontroller.text,
+                                teacherid: uid,
+                                teacheremail: Emailcontroller.text,
+                                teachercnic: CNICcontroller.text,
+                                teacherpassword: Passwordcontroller.text,
                               );
                               print(model.toMap());
                               print(uid);
                               FirebaseFirestore.instance
-                                  .collection("Student-Registration")
+                                  .collection("Teacher-Registration")
                                   .doc(uid)
                                   .set(model.toMap());
 
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => StudentLogin(),
+                                    builder: (context) => TeacherLogin(),
                                   ));
                             },
                             child: Container(
@@ -350,7 +351,6 @@ class _StudentsSignUpState extends State<StudentsSignUp> {
                                   alignment: Alignment.centerRight,
                                   height: height * 0.05,
                                   width: width * 0.5,
-                               
                                   child: Text(
                                     "Already have an account?",
                                     style: TextStyle(
@@ -369,7 +369,7 @@ class _StudentsSignUpState extends State<StudentsSignUp> {
                                           context,
                                           MaterialPageRoute(
                                               builder: (context) =>
-                                                  StudentLogin()));
+                                                  TeacherLogin()));
                                     },
                                     child: Text(
                                       "Login",

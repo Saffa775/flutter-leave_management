@@ -1,26 +1,26 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:leave_manegment/MODELS/Student-Model.dart';
+import 'package:leave_manegment/MODELS/Teacher-Model.dart';
 import 'package:leave_manegment/MODELS/staticdata.dart';
-import 'package:leave_manegment/STUDENT/SIGN-UP.dart';
 
-import 'package:leave_manegment/STUDENT/Student-Dashboard.dart';
+import 'package:leave_manegment/TEACHER/Sign_Up.dart';
+import 'package:leave_manegment/TEACHER/Teacher-Dashboard.dart';
 
-class StudentLogin extends StatefulWidget {
-  const StudentLogin({super.key});
+class TeacherLogin extends StatefulWidget {
+  const TeacherLogin({super.key});
 
   @override
-  State<StudentLogin> createState() => _StudentLoginState();
+  State<TeacherLogin> createState() => _TeacherLoginState();
 }
 
-class _StudentLoginState extends State<StudentLogin> {
+class _TeacherLoginState extends State<TeacherLogin> {
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
     final Passwordcontroller = TextEditingController();
 
-    final RollNumbercontroller = TextEditingController();
+    final CNICcontroller = TextEditingController();
 
     return Scaffold(
       body: SafeArea(
@@ -114,7 +114,7 @@ class _StudentLoginState extends State<StudentLogin> {
                                     style: TextStyle(
                                       color: Color.fromARGB(255, 6, 47, 80),
                                     ),
-                                    controller: RollNumbercontroller,
+                                    controller: CNICcontroller,
                                     decoration: InputDecoration(
                                       border: InputBorder.none,
                                       // fillColor: Colors.red,
@@ -124,7 +124,7 @@ class _StudentLoginState extends State<StudentLogin> {
                                       prefixIcon: Icon(
                                         Icons.book,
                                       ),
-                                      hintText: 'Roll Number',
+                                      hintText: 'CNIC without dashes',
                                       hintStyle: TextStyle(
                                         color: Color.fromARGB(255, 6, 47, 80),
                                         fontSize: 12,
@@ -186,28 +186,28 @@ class _StudentLoginState extends State<StudentLogin> {
                                 onTap: () async {
                                   QuerySnapshot Snapshot =
                                       await FirebaseFirestore.instance
-                                          .collection("Student-Registration")
-                                          .where("studentrollnumber",
+                                          .collection("Teacher-Registration")
+                                          .where("teachercnic",
                                               isEqualTo:
-                                                  RollNumbercontroller.text)
-                                          .where("studentpassword",
+                                                  CNICcontroller.text)
+                                          .where("teacherpassword",
                                               isEqualTo:
                                                   Passwordcontroller.text)
                                           .get();
                                   if (Snapshot.docs.isEmpty) {
-                                    print("Invalid roll number or password");
+                                    print("Invalid cnic or password");
                                   } else {
-                                    StudentModel model = StudentModel.fromMap(
+                                    TeacherModel model = TeacherModel.fromMap(
                                         Snapshot.docs[0].data()
                                             as Map<String, dynamic>);
                                     print("Login Succesfull");
                                     print(model.toString());
-                                    StaticData.studentModel = model;
+                                    StaticData.teacherModel = model;
                                     Navigator.push(
                                         context,
                                         MaterialPageRoute(
                                           builder: (context) =>
-                                              StudentDashboard(),
+                                              TeacherDashboard(),
                                         ));
                                   }
                                 },
@@ -274,7 +274,7 @@ class _StudentLoginState extends State<StudentLogin> {
                                                 context,
                                                 MaterialPageRoute(
                                                   builder: (context) =>
-                                                      StudentsSignUp(),
+                                                      TeacherSignUp(),
                                                 ));
                                           },
                                           child: Text(
