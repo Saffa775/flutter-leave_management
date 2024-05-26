@@ -4,7 +4,7 @@ import 'package:leave_manegment/MODELS/Student-Model.dart';
 import 'package:leave_manegment/MODELS/staticdata.dart';
 import 'package:leave_manegment/STUDENT/SIGN-UP.dart';
 
-import 'package:leave_manegment/STUDENT/Student-Dashboard.dart';
+import 'package:leave_manegment/STUDENT-DASHBOARD/Student-Dashboard.dart';
 
 class StudentLogin extends StatefulWidget {
   const StudentLogin({super.key});
