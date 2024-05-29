@@ -1,13 +1,15 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:leave_manegment/MODELS/AdminModel.dart';
 import 'package:leave_manegment/MODELS/ApplyModel.dart';
-import 'package:leave_manegment/MODELS/Student-Model.dart';
+
 import 'package:leave_manegment/staticdata.dart';
 import 'package:uuid/uuid.dart';
 
+// ignore: must_be_immutable
 class ApplyLeave extends StatefulWidget {
-  StudentModel model;
-  ApplyLeave({super.key, required this.model});
+  AdminModel modeladmin;
+  ApplyLeave({super.key, required this.modeladmin});
 
   @override
   State<ApplyLeave> createState() => _ApplyLeaveState();
@@ -25,7 +27,7 @@ class _ApplyLeaveState extends State<ApplyLeave> {
   var height, width;
 
   void initState() {
-    print(widget.model);
+    print(widget.modeladmin);
     super.initState();
   }
 
@@ -445,35 +447,32 @@ class _ApplyLeaveState extends State<ApplyLeave> {
                               ),
                             ),
                             InkWell(
-                      //           onTap: () {
-                      //   var reqId = Uuid();
-                      //   String id = reqId.v4();
-                      //   print(object)
-                        
+                              onTap: () {
+                                var reqId = Uuid();
+                                String id = reqId.v4();
+                                print(widget.modeladmin);
 
-                      //   StudentApplyModel model = StudentApplyModel(
-                      //       adminid: cmodel.contractorid,
-                      //       contractorname: cmodel.contractorname,
-                      //       workername: usernamecontroller.text,
-                      //       workernumber: phonenumbercontroller.text,
-                      //       address: addresscontroller.text,
-                      //       workerid: StaticData.modelw!.workerid,
-                      //       applyid: id,
-                      //       dob: widget.model.date,
-                      //       gender: gendercontroller.text,
-                      //       experience: experiencecontroller.text,
-                      //       jobtitle: cmodel.jobtitle,
-                      //       postid: cmodel.postid,
-                      //       description: cmodel.description,
-                      //       hourlyprice: cmodel.hourlyprice,
-                      //       status: "pending");
-                      //   print(model);
+                                StudentApplyModel model = StudentApplyModel(
+                                  adminid: id,
+                                  adminname: widget.modeladmin.adminname,
+                                  studentname: StaticData.modelstu!.studentname,
+                                  studentid: StaticData.modelstu!.studentid,
+                                  studentdept: departmentcontroller.text,
+                                  studentleaveduration:
+                                      leavedurationcontroller.text,
+                                  studentleavestatus:
+                                      leavedurationcontroller.text,
+                                  studentrollnumber: rollNumbercontroller.text,
+                                  studentsemester: semestercontroller.text,
+                                  studentsession: sessioncontroller.text,
+                                );
+                                print(widget.modeladmin);
 
-                      //   FirebaseFirestore.instance
-                      //       .collection("JobApplications")
-                      //       .doc(id)
-                      //       .set(model.toMap());
-                      // },
+                                FirebaseFirestore.instance
+                                    .collection("LeaveApplications")
+                                    .doc(id)
+                                    .set(model.toMap());
+                              },
                               child: Container(
                                 alignment: Alignment.center,
                                 height: height * 0.06,

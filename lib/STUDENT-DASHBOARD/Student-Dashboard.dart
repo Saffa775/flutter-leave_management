@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:leave_manegment/MODELS/Student-Model.dart';
+import 'package:leave_manegment/MODELS/AdminModel.dart';
+
 import 'package:leave_manegment/PAINTERS/Lower-Painter-Dashboard.dart';
 import 'package:leave_manegment/STUDENT-DASHBOARD/Applyleave.dart';
+import 'package:leave_manegment/staticdata.dart';
 
 class StudentDashboard extends StatefulWidget {
   const StudentDashboard({super.key});
@@ -232,8 +234,11 @@ class _StudentDashboardState extends State<StudentDashboard> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) =>
-                                    ApplyLeave(model: StudentModel())));
+                                builder: (context) => ApplyLeave(
+                                    modeladmin: AdminModel(
+                                        adminid: StaticData.modeladmin!.adminid,
+                                        adminname: StaticData
+                                            .modeladmin!.adminname))));
                       },
                       child: Container(
                         height: height * 0.2,
