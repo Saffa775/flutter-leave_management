@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:leave_manegment/MODELS/Student-Model.dart';
 import 'package:leave_manegment/PAINTERS/Lower-Painter-Dashboard.dart';
 import 'package:leave_manegment/STUDENT-DASHBOARD/Applyleave.dart';
 
@@ -231,7 +232,8 @@ class _StudentDashboardState extends State<StudentDashboard> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => ApplyLeave()));
+                                builder: (context) =>
+                                    ApplyLeave(model: StudentModel())));
                       },
                       child: Container(
                         height: height * 0.2,

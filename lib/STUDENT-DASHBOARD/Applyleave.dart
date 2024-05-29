@@ -1,57 +1,77 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:leave_manegment/MODELS/ApplyModel.dart';
+import 'package:leave_manegment/MODELS/Student-Model.dart';
+import 'package:leave_manegment/staticdata.dart';
+import 'package:uuid/uuid.dart';
 
 class ApplyLeave extends StatefulWidget {
-  const ApplyLeave({super.key});
+  StudentModel model;
+  ApplyLeave({super.key, required this.model});
 
   @override
   State<ApplyLeave> createState() => _ApplyLeaveState();
 }
-class ListItem {
-  int value;
-  String name;
 
-  ListItem(this.value, this.name);
-}
+// class ListItem {
+//   int value;
+//   String name;
+
+//   ListItem(this.value, this.name);
+// }
+
+@override
 class _ApplyLeaveState extends State<ApplyLeave> {
-  @override
-  Widget build(BuildContext context) {
-    final fullnamecontroller = TextEditingController();
-    final rollNumbercontroller = TextEditingController();
-    final departmentcontroller = TextEditingController();
-    final sessioncontroller = TextEditingController();
-    final leavestatuscontroller = TextEditingController();
-    final semestercontroller = TextEditingController();
-    final leavedurationcontroller = TextEditingController();
-    final height = MediaQuery.of(context).size.height;
-    final width = MediaQuery.of(context).size.width;
-    /////////dropdown/////////
-      List<ListItem> _dropdownItems = [
-    ListItem(1, "Plumber"),
-    ListItem(2, "Painter"),
-    ListItem(3, "Carpanter"),
-    ListItem(4, "electrician")
-  ];
-  List<DropdownMenuItem<ListItem>>? _dropdownMenuItems;
-  ListItem? _selectedItem;
-  List<DropdownMenuItem<ListItem>> buildDropDownMenuItems(List listItems) {
-    List<DropdownMenuItem<ListItem>> items = [];
-    for (ListItem listItem in listItems) {
-      items.add(
-        DropdownMenuItem(
-          child: Text(listItem.name),
-          value: listItem,
-        ),
-      );
-    }
-    return items;
-  }
-    @override
+  var height, width;
+
   void initState() {
-    _dropdownMenuItems = buildDropDownMenuItems(_dropdownItems);
-    print(_dropdownItems.length);
-    _selectedItem = _dropdownMenuItems![0].value!;
+    print(widget.model);
     super.initState();
   }
+
+  final fullnamecontroller = TextEditingController();
+  final rollNumbercontroller = TextEditingController();
+  final departmentcontroller = TextEditingController();
+  final sessioncontroller = TextEditingController();
+  final leavestatuscontroller = TextEditingController();
+  final semestercontroller = TextEditingController();
+  final leavedurationcontroller = TextEditingController();
+  // List<ListItem> _dropdownItems = [
+  //   ListItem(1, "Plumber"),
+  //   ListItem(2, "Painter"),
+  //   ListItem(3, "Carpanter"),
+  //   ListItem(4, "electrician")
+  // ];
+  // List<DropdownMenuItem<ListItem>>? _dropdownMenuItems;
+  // ListItem? _selectedItem;
+  // List<DropdownMenuItem<ListItem>> buildDropDownMenuItems(List listItems) {
+  //   List<DropdownMenuItem<ListItem>> items = [];
+  //   for (ListItem listItem in listItems) {
+  //     items.add(
+  //       DropdownMenuItem(
+  //         child: Text(listItem.name),
+  //         value: listItem,
+  //       ),
+  //     );
+  //   }
+  //   return items;
+  // }
+
+  @override
+  // void initState() {
+  //   _dropdownMenuItems = buildDropDownMenuItems(_dropdownItems);
+  //   print(_dropdownItems.length);
+  //   _selectedItem = _dropdownMenuItems![0].value!;
+  //   super.initState();
+  // }
+
+  @override
+  Widget build(BuildContext context) {
+    final height = MediaQuery.of(context).size.height;
+    final width = MediaQuery.of(context).size.width;
+
+    /////////dropdown/////////
+
     return Scaffold(
       backgroundColor: Colors.amber,
       body: SafeArea(
@@ -240,7 +260,7 @@ class _ApplyLeaveState extends State<ApplyLeave> {
                                     prefixIcon: Icon(
                                       Icons.book,
                                     ),
-                                    hintText: 'Department',
+                                    hintText: 'Departement',
                                     hintStyle: TextStyle(
                                       color: Color.fromARGB(255, 6, 47, 80),
                                       fontSize: 12,
@@ -425,29 +445,35 @@ class _ApplyLeaveState extends State<ApplyLeave> {
                               ),
                             ),
                             InkWell(
-                              // onTap: () {
-                              //   var id = Uuid();
-                              //   String uid = id.v4();
-                              //   StudentModel model = StudentModel(
-                              //     studentemail: Emailcontroller.text,
-                              //     studentid: uid,
-                              //     studentname: Fullnamecontroller.text,
-                              //     studentpassword: Passwordcontroller.text,
-                              //     studentrollnumber: RollNumbercontroller.text,
-                              //   );
-                              //   print(model.toMap());
-                              //   print(uid);
-                              //   FirebaseFirestore.instance
-                              //       .collection("Student-Registration")
-                              //       .doc(uid)
-                              //       .set(model.toMap());
+                      //           onTap: () {
+                      //   var reqId = Uuid();
+                      //   String id = reqId.v4();
+                      //   print(object)
+                        
 
-                              //   Navigator.push(
-                              //       context,
-                              //       MaterialPageRoute(
-                              //         builder: (context) => StudentLogin(),
-                              //       ));
-                              // },
+                      //   StudentApplyModel model = StudentApplyModel(
+                      //       adminid: cmodel.contractorid,
+                      //       contractorname: cmodel.contractorname,
+                      //       workername: usernamecontroller.text,
+                      //       workernumber: phonenumbercontroller.text,
+                      //       address: addresscontroller.text,
+                      //       workerid: StaticData.modelw!.workerid,
+                      //       applyid: id,
+                      //       dob: widget.model.date,
+                      //       gender: gendercontroller.text,
+                      //       experience: experiencecontroller.text,
+                      //       jobtitle: cmodel.jobtitle,
+                      //       postid: cmodel.postid,
+                      //       description: cmodel.description,
+                      //       hourlyprice: cmodel.hourlyprice,
+                      //       status: "pending");
+                      //   print(model);
+
+                      //   FirebaseFirestore.instance
+                      //       .collection("JobApplications")
+                      //       .doc(id)
+                      //       .set(model.toMap());
+                      // },
                               child: Container(
                                 alignment: Alignment.center,
                                 height: height * 0.06,

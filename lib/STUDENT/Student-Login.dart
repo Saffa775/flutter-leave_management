@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:leave_manegment/MODELS/Student-Model.dart';
-import 'package:leave_manegment/MODELS/staticdata.dart';
+import 'package:leave_manegment/staticdata.dart';
 import 'package:leave_manegment/STUDENT/SIGN-UP.dart';
 
 import 'package:leave_manegment/STUDENT-DASHBOARD/Student-Dashboard.dart';
@@ -202,7 +202,7 @@ class _StudentLoginState extends State<StudentLogin> {
                                             as Map<String, dynamic>);
                                     print("Login Succesfull");
                                     print(model.toString());
-                                    StaticData.studentModel = model;
+                                    StaticData.modelstu = model;
                                     Navigator.push(
                                         context,
                                         MaterialPageRoute(
