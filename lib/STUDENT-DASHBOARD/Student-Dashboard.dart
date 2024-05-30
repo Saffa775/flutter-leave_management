@@ -3,6 +3,7 @@ import 'package:leave_manegment/MODELS/AdminModel.dart';
 
 import 'package:leave_manegment/PAINTERS/Lower-Painter-Dashboard.dart';
 import 'package:leave_manegment/STUDENT-DASHBOARD/Applyleave.dart';
+import 'package:leave_manegment/STUDENT-DASHBOARD/Leave-history.dart';
 import 'package:leave_manegment/staticdata.dart';
 
 class StudentDashboard extends StatefulWidget {
@@ -234,11 +235,8 @@ class _StudentDashboardState extends State<StudentDashboard> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => ApplyLeave(
-                                    modeladmin: AdminModel(
-                                        adminid: StaticData.modeladmin!.adminid,
-                                        adminname: StaticData
-                                            .modeladmin!.adminname))));
+                                builder: (context) =>
+                                    ApplyLeave(modeladmin: AdminModel())));
                       },
                       child: Container(
                         height: height * 0.2,
@@ -332,18 +330,27 @@ class _StudentDashboardState extends State<StudentDashboard> {
                           borderRadius: BorderRadius.circular(20)),
                       child: Column(
                         children: [
-                          Container(
-                            height: height * 0.15,
-                            width: width * 0.4,
-                            decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.only(
-                                    topLeft: Radius.circular(20),
-                                    topRight: Radius.circular(20)),
-                                image: DecorationImage(
-                                  image: AssetImage("images/history.jpeg"),
-                                  fit: BoxFit.cover,
-                                )),
+                          InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => MyApplyHistory(),
+                                  ));
+                            },
+                            child: Container(
+                              height: height * 0.15,
+                              width: width * 0.4,
+                              decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.only(
+                                      topLeft: Radius.circular(20),
+                                      topRight: Radius.circular(20)),
+                                  image: DecorationImage(
+                                    image: AssetImage("images/history.jpeg"),
+                                    fit: BoxFit.cover,
+                                  )),
+                            ),
                           ),
                           Container(
                             alignment: Alignment.center,

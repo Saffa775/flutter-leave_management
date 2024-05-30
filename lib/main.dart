@@ -1,12 +1,20 @@
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:leave_manegment/HomepageAnimation.dart';
 
-
-
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  if (kIsWeb) {
+    await Firebase.initializeApp(
+        options: const FirebaseOptions(
+            apiKey: "AIzaSyD95K4A1xGr-cedshXyHxTjGQ2tmHliPjQ",
+            appId: "1:21291416762:web:5613524f48049146ea1683",
+            messagingSenderId: "21291416762",
+            projectId: "leave-status-management"));
+  } else {
+    await Firebase.initializeApp();
+  }
 
   runApp(const MyApp());
 }

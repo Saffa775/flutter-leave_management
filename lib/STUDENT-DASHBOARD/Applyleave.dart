@@ -1,7 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:leave_manegment/Flush.dart';
 import 'package:leave_manegment/MODELS/AdminModel.dart';
 import 'package:leave_manegment/MODELS/ApplyModel.dart';
+import 'package:leave_manegment/STUDENT-DASHBOARD/Youractivity.dart';
 
 import 'package:leave_manegment/staticdata.dart';
 import 'package:uuid/uuid.dart';
@@ -15,12 +17,12 @@ class ApplyLeave extends StatefulWidget {
   State<ApplyLeave> createState() => _ApplyLeaveState();
 }
 
-// class ListItem {
-//   int value;
-//   String name;
+class ListItem {
+  int value;
+  String name;
 
-//   ListItem(this.value, this.name);
-// }
+  ListItem(this.value, this.name);
+}
 
 @override
 class _ApplyLeaveState extends State<ApplyLeave> {
@@ -28,6 +30,10 @@ class _ApplyLeaveState extends State<ApplyLeave> {
 
   void initState() {
     print(widget.modeladmin);
+
+    _dropdownMenuItems = buildDropDownMenuItems(_dropdownItems);
+    print(_dropdownItems.length);
+    _selectedItem = _dropdownMenuItems![0].value!;
     super.initState();
   }
 
@@ -38,34 +44,26 @@ class _ApplyLeaveState extends State<ApplyLeave> {
   final leavestatuscontroller = TextEditingController();
   final semestercontroller = TextEditingController();
   final leavedurationcontroller = TextEditingController();
-  // List<ListItem> _dropdownItems = [
-  //   ListItem(1, "Plumber"),
-  //   ListItem(2, "Painter"),
-  //   ListItem(3, "Carpanter"),
-  //   ListItem(4, "electrician")
-  // ];
-  // List<DropdownMenuItem<ListItem>>? _dropdownMenuItems;
-  // ListItem? _selectedItem;
-  // List<DropdownMenuItem<ListItem>> buildDropDownMenuItems(List listItems) {
-  //   List<DropdownMenuItem<ListItem>> items = [];
-  //   for (ListItem listItem in listItems) {
-  //     items.add(
-  //       DropdownMenuItem(
-  //         child: Text(listItem.name),
-  //         value: listItem,
-  //       ),
-  //     );
-  //   }
-  //   return items;
-  // }
-
-  @override
-  // void initState() {
-  //   _dropdownMenuItems = buildDropDownMenuItems(_dropdownItems);
-  //   print(_dropdownItems.length);
-  //   _selectedItem = _dropdownMenuItems![0].value!;
-  //   super.initState();
-  // }
+  List<ListItem> _dropdownItems = [
+    ListItem(1, "software engineering"),
+    ListItem(2, "artificial intelligence"),
+    ListItem(3, "Data sciences"),
+    ListItem(4, "information tecgnology")
+  ];
+  List<DropdownMenuItem<ListItem>>? _dropdownMenuItems;
+  ListItem? _selectedItem;
+  List<DropdownMenuItem<ListItem>> buildDropDownMenuItems(List listItems) {
+    List<DropdownMenuItem<ListItem>> items = [];
+    for (ListItem listItem in listItems) {
+      items.add(
+        DropdownMenuItem(
+          child: Text(listItem.name),
+          value: listItem,
+        ),
+      );
+    }
+    return items;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -236,48 +234,32 @@ class _ApplyLeaveState extends State<ApplyLeave> {
                                 ),
                               ),
                             ),
-                            Card(
-                              elevation: 10,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(15.0),
-                              ),
-                              child: Container(
+                            Container(
+                                alignment: Alignment.center,
                                 height: height * 0.07,
                                 width: width * 0.7,
                                 decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(15),
-                                    color: Colors.white),
-                                child: TextFormField(
-                                  keyboardType: TextInputType.text,
-                                  style: TextStyle(
-                                    color: Color.fromARGB(255, 6, 47, 80),
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(15)),
+                                child: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Container(
+                                    height: height * 0.04,
+                                    width: width*0.5,
+                                    child: DropdownButton<ListItem>(
+                                        isExpanded: true,
+                                        style: TextStyle(
+                                          color: Color.fromARGB(255, 6, 47, 80),
+                                        ),
+                                        value: _selectedItem!,
+                                        items: _dropdownMenuItems,
+                                        onChanged: (value) {
+                                          setState(() {
+                                            _selectedItem = value;
+                                          });
+                                        }),
                                   ),
-                                  controller: departmentcontroller,
-                                  decoration: InputDecoration(
-                                    border: InputBorder.none,
-                                    // fillColor: Colors.red,
-                                    // filled: true,
-                                    contentPadding:
-                                        EdgeInsets.symmetric(vertical: 20),
-                                    prefixIcon: Icon(
-                                      Icons.book,
-                                    ),
-                                    hintText: 'Departement',
-                                    hintStyle: TextStyle(
-                                      color: Color.fromARGB(255, 6, 47, 80),
-                                      fontSize: 12,
-                                    ),
-                                    labelStyle: TextStyle(color: Colors.red),
-                                  ),
-                                  validator: (String? value) {
-                                    if (value!.isEmpty) {
-                                      return 'Please enter some text';
-                                    }
-                                    return null;
-                                  },
-                                ),
-                              ),
-                            ),
+                                )),
                             Card(
                               elevation: 10,
                               shape: RoundedRectangleBorder(
@@ -448,16 +430,24 @@ class _ApplyLeaveState extends State<ApplyLeave> {
                             ),
                             InkWell(
                               onTap: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => MyActivity(),
+                                    ));
                                 var reqId = Uuid();
                                 String id = reqId.v4();
                                 print(widget.modeladmin);
 
+                                var applyId = Uuid();
+                                String aid = applyId.v4();
+
                                 StudentApplyModel model = StudentApplyModel(
                                   adminid: id,
-                                  adminname: widget.modeladmin.adminname,
+                                  applyid: aid,
                                   studentname: StaticData.modelstu!.studentname,
                                   studentid: StaticData.modelstu!.studentid,
-                                  studentdept: departmentcontroller.text,
+                                  studentdept: _selectedItem!.name,
                                   studentleaveduration:
                                       leavedurationcontroller.text,
                                   studentleavestatus:
@@ -469,9 +459,14 @@ class _ApplyLeaveState extends State<ApplyLeave> {
                                 print(widget.modeladmin);
 
                                 FirebaseFirestore.instance
-                                    .collection("LeaveApplications")
+                                    .collection("Student-LeaveApplications")
                                     .doc(id)
                                     .set(model.toMap());
+                                MyFlushBar.showSimpleFlushBar(
+                                    "Leave Applied successfully",
+                                    context,
+                                    Color.fromARGB(255, 6, 47, 80),
+                                    Colors.white);
                               },
                               child: Container(
                                 alignment: Alignment.center,

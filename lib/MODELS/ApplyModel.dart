@@ -2,7 +2,6 @@
 import 'dart:convert';
 
 class StudentApplyModel {
-  String? adminname;
   String? adminid;
   String? studentname;
   String? studentid;
@@ -15,7 +14,6 @@ class StudentApplyModel {
   String? studentleaveduration;
 
   StudentApplyModel({
-    this.adminname,
     this.adminid,
     this.studentname,
     this.studentid,
@@ -29,7 +27,6 @@ class StudentApplyModel {
   });
 
   StudentApplyModel copyWith({
-    String? adminname,
     String? adminid,
     String? studentname,
     String? studentid,
@@ -42,7 +39,6 @@ class StudentApplyModel {
     String? studentleaveduration,
   }) {
     return StudentApplyModel(
-      adminname: adminname ?? this.adminname,
       adminid: adminid ?? this.adminid,
       studentname: studentname ?? this.studentname,
       studentid: studentid ?? this.studentid,
@@ -58,7 +54,6 @@ class StudentApplyModel {
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
-      'adminname': adminname,
       'adminid': adminid,
       'studentname': studentname,
       'studentid': studentid,
@@ -74,7 +69,6 @@ class StudentApplyModel {
 
   factory StudentApplyModel.fromMap(Map<String, dynamic> map) {
     return StudentApplyModel(
-      adminname: map['adminname'] != null ? map['adminname'] as String : null,
       adminid: map['adminid'] != null ? map['adminid'] as String : null,
       studentname: map['studentname'] != null ? map['studentname'] as String : null,
       studentid: map['studentid'] != null ? map['studentid'] as String : null,
@@ -94,7 +88,7 @@ class StudentApplyModel {
 
   @override
   String toString() {
-    return 'StudentApplyModel(adminname: $adminname, adminid: $adminid, studentname: $studentname, studentid: $studentid, studentrollnumber: $studentrollnumber, studentdept: $studentdept, studentsemester: $studentsemester, studentsession: $studentsession, studentleavestatus: $studentleavestatus, applyid: $applyid, studentleaveduration: $studentleaveduration)';
+    return 'StudentApplyModel(adminid: $adminid, studentname: $studentname, studentid: $studentid, studentrollnumber: $studentrollnumber, studentdept: $studentdept, studentsemester: $studentsemester, studentsession: $studentsession, studentleavestatus: $studentleavestatus, applyid: $applyid, studentleaveduration: $studentleaveduration)';
   }
 
   @override
@@ -102,7 +96,6 @@ class StudentApplyModel {
     if (identical(this, other)) return true;
   
     return 
-      other.adminname == adminname &&
       other.adminid == adminid &&
       other.studentname == studentname &&
       other.studentid == studentid &&
@@ -117,8 +110,7 @@ class StudentApplyModel {
 
   @override
   int get hashCode {
-    return adminname.hashCode ^
-      adminid.hashCode ^
+    return adminid.hashCode ^
       studentname.hashCode ^
       studentid.hashCode ^
       studentrollnumber.hashCode ^
@@ -129,4 +121,4 @@ class StudentApplyModel {
       applyid.hashCode ^
       studentleaveduration.hashCode;
   }
-  }
+}
