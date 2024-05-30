@@ -17,11 +17,27 @@ class ApplyLeave extends StatefulWidget {
   State<ApplyLeave> createState() => _ApplyLeaveState();
 }
 
-class ListItem {
+class DepList {
   int value;
   String name;
 
-  ListItem(this.value, this.name);
+  DepList(this.value, this.name);
+}
+
+//////////////////////
+class SemList {
+  int value;
+  String name;
+
+  SemList(this.value, this.name);
+}
+
+/////////////////////
+class SessionList {
+  int value;
+  String name;
+
+  SessionList(this.value, this.name);
 }
 
 @override
@@ -29,11 +45,14 @@ class _ApplyLeaveState extends State<ApplyLeave> {
   var height, width;
 
   void initState() {
-    print(widget.modeladmin);
-
-    _dropdownMenuItems = buildDropDownMenuItems(_dropdownItems);
+    _dropdownMenuItems = buildDropDownMenuItems(
+      _dropdownItems,
+    );
     print(_dropdownItems.length);
-    _selectedItem = _dropdownMenuItems![0].value!;
+    _selectedItem1 = _dropdownMenuItems![0].value!;
+
+    ////////////////////////semester///////////////
+
     super.initState();
   }
 
@@ -44,17 +63,18 @@ class _ApplyLeaveState extends State<ApplyLeave> {
   final leavestatuscontroller = TextEditingController();
   final semestercontroller = TextEditingController();
   final leavedurationcontroller = TextEditingController();
-  List<ListItem> _dropdownItems = [
-    ListItem(1, "software engineering"),
-    ListItem(2, "artificial intelligence"),
-    ListItem(3, "Data sciences"),
-    ListItem(4, "information tecgnology")
+  List<DepList> _dropdownItems = [
+    DepList(1, "software engineering"),
+    DepList(2, "artificial intelligence"),
+    DepList(3, "Data sciences"),
+    DepList(4, "information tecgnology")
   ];
-  List<DropdownMenuItem<ListItem>>? _dropdownMenuItems;
-  ListItem? _selectedItem;
-  List<DropdownMenuItem<ListItem>> buildDropDownMenuItems(List listItems) {
-    List<DropdownMenuItem<ListItem>> items = [];
-    for (ListItem listItem in listItems) {
+
+  List<DropdownMenuItem<DepList>>? _dropdownMenuItems;
+  DepList? _selectedItem1;
+  List<DropdownMenuItem<DepList>> buildDropDownMenuItems(List listItems) {
+    List<DropdownMenuItem<DepList>> items = [];
+    for (DepList listItem in listItems) {
       items.add(
         DropdownMenuItem(
           child: Text(listItem.name),
@@ -245,17 +265,17 @@ class _ApplyLeaveState extends State<ApplyLeave> {
                                   padding: const EdgeInsets.all(8.0),
                                   child: Container(
                                     height: height * 0.04,
-                                    width: width*0.5,
-                                    child: DropdownButton<ListItem>(
+                                    width: width * 0.5,
+                                    child: DropdownButton<DepList>(
                                         isExpanded: true,
                                         style: TextStyle(
                                           color: Color.fromARGB(255, 6, 47, 80),
                                         ),
-                                        value: _selectedItem!,
+                                        value: _selectedItem1!,
                                         items: _dropdownMenuItems,
                                         onChanged: (value) {
                                           setState(() {
-                                            _selectedItem = value;
+                                            _selectedItem1 = value;
                                           });
                                         }),
                                   ),
@@ -447,7 +467,7 @@ class _ApplyLeaveState extends State<ApplyLeave> {
                                   applyid: aid,
                                   studentname: StaticData.modelstu!.studentname,
                                   studentid: StaticData.modelstu!.studentid,
-                                  studentdept: _selectedItem!.name,
+                                  studentdept: _selectedItem1!.name,
                                   studentleaveduration:
                                       leavedurationcontroller.text,
                                   studentleavestatus:
