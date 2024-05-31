@@ -4,7 +4,7 @@ import 'package:leave_manegment/MODELS/AdminModel.dart';
 import 'package:leave_manegment/PAINTERS/Lower-Painter-Dashboard.dart';
 import 'package:leave_manegment/STUDENT-DASHBOARD/Applyleave.dart';
 import 'package:leave_manegment/STUDENT-DASHBOARD/Leave-history.dart';
-import 'package:leave_manegment/staticdata.dart';
+
 
 class StudentDashboard extends StatefulWidget {
   const StudentDashboard({super.key});

@@ -1,6 +1,8 @@
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:leave_manegment/Admin.dart';
 import 'package:leave_manegment/Homepage_Features.dart';
+import 'package:leave_manegment/responsive.dart';
 import 'package:lottie/lottie.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -11,21 +13,21 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-  // void movePage() {
-  //   Future.delayed(Duration(seconds: 6), () {
-  //     Navigator.push(
-  //       context,
-  //       MaterialPageRoute(
-  //           builder: (context) => Responsive.isMobile(context)
-  //               ? const SplashScreen()
-  //               : const SplashScreen()),
-  //     );
-  //   });
-  // }
+  void movePage() {
+    Future.delayed(Duration(seconds: 6), () {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+            builder: (context) => Responsive.isMobile(context)
+                ? const Homepage()
+                : const MyAdmin()),
+      );
+    });
+  }
 
   @override
   void initState() {
-    // movePage();
+    //  movePage();
     super.initState();
   }
 
@@ -45,7 +47,8 @@ class _SplashScreenState extends State<SplashScreen> {
                   LottieBuilder.asset("images/Lottie/HomepageAnimation.json")),
         ],
       ),
-      nextScreen: Homepage(),
+      nextScreen:
+          Responsive.isMobile(context) ? const Homepage() : const MyAdmin(),
       backgroundColor: Color.fromARGB(255, 14, 90, 152),
       splashIconSize: 300,
     );

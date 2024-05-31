@@ -24,22 +24,6 @@ class DepList {
   DepList(this.value, this.name);
 }
 
-//////////////////////
-class SemList {
-  int value;
-  String name;
-
-  SemList(this.value, this.name);
-}
-
-/////////////////////
-class SessionList {
-  int value;
-  String name;
-
-  SessionList(this.value, this.name);
-}
-
 @override
 class _ApplyLeaveState extends State<ApplyLeave> {
   var height, width;
@@ -52,7 +36,23 @@ class _ApplyLeaveState extends State<ApplyLeave> {
     _selectedItem1 = _dropdownMenuItems![0].value!;
 
     ////////////////////////semester///////////////
-
+    _smesterdropdownMenuItems = buildsmesterDropDownMenuItems(
+      _smesterdropdownItems,
+    );
+    print(_dropdownItems.length);
+    _selectedsmesterItem1 = _smesterdropdownMenuItems![0].value!;
+    ////////////////////////////session//////////////
+    _sessiondropdownMenuItems = buildsessionDropDownMenuItems(
+      _sessiondropdownItems,
+    );
+    print(_dropdownItems.length);
+    _selectedsessionItem1 = _sessiondropdownMenuItems![0].value!;
+    ///////////////////reason//////////////
+    _reasondropdownMenuItems = buildreasonDropDownMenuItems(
+      _reasondropdownItems,
+    );
+    print(_dropdownItems.length);
+    _selectedreasonItem1 = _reasondropdownMenuItems![0].value!;
     super.initState();
   }
 
@@ -64,15 +64,93 @@ class _ApplyLeaveState extends State<ApplyLeave> {
   final semestercontroller = TextEditingController();
   final leavedurationcontroller = TextEditingController();
   List<DepList> _dropdownItems = [
+    ///////////departement
     DepList(1, "software engineering"),
     DepList(2, "artificial intelligence"),
     DepList(3, "Data sciences"),
     DepList(4, "information tecgnology")
   ];
 
+  List<DepList> _smesterdropdownItems = [
+    ///////////semester
+    DepList(1, "1st smester"),
+    DepList(2, "2nd smester"),
+    DepList(3, "3rd smester"),
+    DepList(4, "4th smester"),
+    DepList(5, "5th smester"),
+    DepList(6, "6th smester"),
+    DepList(7, "7th smester"),
+    DepList(8, "8th smester"),
+  ];
+  List<DepList> _sessiondropdownItems = [
+    ////////////session
+   
+    DepList(1, "2023-2027"),
+    DepList(2, "2022-2026"),
+    DepList(3, "2021-2025"),
+  ];
+  List<DepList> _reasondropdownItems = [
+    ///////reason/leave-status
+    DepList(1, "Sick leave"),
+    DepList(2, "Casual Leave"),
+    DepList(3, "Urget work leave"),
+    DepList(4, "Other"),
+  ];
+
   List<DropdownMenuItem<DepList>>? _dropdownMenuItems;
   DepList? _selectedItem1;
+////////////////
+  List<DropdownMenuItem<DepList>>? _smesterdropdownMenuItems;
+  DepList? _selectedsmesterItem1;
+//////////////
+  List<DropdownMenuItem<DepList>>? _sessiondropdownMenuItems;
+  DepList? _selectedsessionItem1;
+  /////////
+  List<DropdownMenuItem<DepList>>? _reasondropdownMenuItems;
+  DepList? _selectedreasonItem1;
+
   List<DropdownMenuItem<DepList>> buildDropDownMenuItems(List listItems) {
+    List<DropdownMenuItem<DepList>> items = [];
+    for (DepList listItem in listItems) {
+      items.add(
+        DropdownMenuItem(
+          child: Text(listItem.name),
+          value: listItem,
+        ),
+      );
+    }
+    return items;
+  }
+
+  List<DropdownMenuItem<DepList>> buildsmesterDropDownMenuItems(
+      List listItems) {
+    List<DropdownMenuItem<DepList>> items = [];
+    for (DepList listItem in listItems) {
+      items.add(
+        DropdownMenuItem(
+          child: Text(listItem.name),
+          value: listItem,
+        ),
+      );
+    }
+    return items;
+  }
+
+  List<DropdownMenuItem<DepList>> buildsessionDropDownMenuItems(
+      List listItems) {
+    List<DropdownMenuItem<DepList>> items = [];
+    for (DepList listItem in listItems) {
+      items.add(
+        DropdownMenuItem(
+          child: Text(listItem.name),
+          value: listItem,
+        ),
+      );
+    }
+    return items;
+  }
+
+  List<DropdownMenuItem<DepList>> buildreasonDropDownMenuItems(List listItems) {
     List<DropdownMenuItem<DepList>> items = [];
     for (DepList listItem in listItems) {
       items.add(
@@ -280,132 +358,84 @@ class _ApplyLeaveState extends State<ApplyLeave> {
                                         }),
                                   ),
                                 )),
-                            Card(
-                              elevation: 10,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(15.0),
-                              ),
-                              child: Container(
+                            Container(
+                                alignment: Alignment.center,
                                 height: height * 0.07,
                                 width: width * 0.7,
                                 decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(15),
-                                    color: Colors.white),
-                                child: TextFormField(
-                                  keyboardType: TextInputType.text,
-                                  style: TextStyle(
-                                    color: Color.fromARGB(255, 6, 47, 80),
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(15)),
+                                child: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Container(
+                                    height: height * 0.04,
+                                    width: width * 0.5,
+                                    child: DropdownButton<DepList>(
+                                        isExpanded: true,
+                                        style: TextStyle(
+                                          color: Color.fromARGB(255, 6, 47, 80),
+                                        ),
+                                        value: _selectedsmesterItem1!,
+                                        items: _smesterdropdownMenuItems,
+                                        onChanged: (value) {
+                                          setState(() {
+                                            _selectedsmesterItem1 = value;
+                                          });
+                                        }),
                                   ),
-                                  controller: semestercontroller,
-                                  decoration: InputDecoration(
-                                    border: InputBorder.none,
-                                    // fillColor: Colors.red,
-                                    // filled: true,
-                                    contentPadding:
-                                        EdgeInsets.symmetric(vertical: 20),
-                                    prefixIcon: Icon(
-                                      Icons.book,
-                                    ),
-                                    hintText: 'Semester',
-                                    hintStyle: TextStyle(
-                                      color: Color.fromARGB(255, 6, 47, 80),
-                                      fontSize: 12,
-                                    ),
-                                    labelStyle: TextStyle(color: Colors.red),
-                                  ),
-                                  validator: (String? value) {
-                                    if (value!.isEmpty) {
-                                      return 'Please enter some text';
-                                    }
-                                    return null;
-                                  },
-                                ),
-                              ),
-                            ),
-                            Card(
-                              elevation: 10,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(15.0),
-                              ),
-                              child: Container(
+                                )),
+                            Container(
+                                alignment: Alignment.center,
                                 height: height * 0.07,
                                 width: width * 0.7,
                                 decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(15),
-                                    color: Colors.white),
-                                child: TextFormField(
-                                  keyboardType: TextInputType.text,
-                                  style: TextStyle(
-                                    color: Color.fromARGB(255, 6, 47, 80),
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(15)),
+                                child: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Container(
+                                    height: height * 0.04,
+                                    width: width * 0.5,
+                                    child: DropdownButton<DepList>(
+                                        isExpanded: true,
+                                        style: TextStyle(
+                                          color: Color.fromARGB(255, 6, 47, 80),
+                                        ),
+                                        value: _selectedsessionItem1!,
+                                        items: _sessiondropdownMenuItems,
+                                        onChanged: (value) {
+                                          setState(() {
+                                            _selectedsessionItem1 = value;
+                                          });
+                                        }),
                                   ),
-                                  controller: sessioncontroller,
-                                  decoration: InputDecoration(
-                                    border: InputBorder.none,
-                                    // fillColor: Colors.red,
-                                    // filled: true,
-                                    contentPadding:
-                                        EdgeInsets.symmetric(vertical: 20),
-                                    prefixIcon: Icon(
-                                      Icons.password,
-                                    ),
-                                    hintText: "Session",
-                                    hintStyle: TextStyle(
-                                      color: Color.fromARGB(255, 6, 47, 80),
-                                      fontSize: 12,
-                                    ),
-                                    labelStyle: TextStyle(color: Colors.red),
-                                  ),
-                                  validator: (String? value) {
-                                    if (value!.isEmpty) {
-                                      return 'Please enter some text';
-                                    }
-                                    return null;
-                                  },
-                                ),
-                              ),
-                            ),
-                            Card(
-                              elevation: 10,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(15.0),
-                              ),
-                              child: Container(
+                                )),
+                            Container(
+                                alignment: Alignment.center,
                                 height: height * 0.07,
                                 width: width * 0.7,
                                 decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(15),
-                                    color: Colors.white),
-                                child: TextFormField(
-                                  keyboardType: TextInputType.text,
-                                  style: TextStyle(
-                                    color: Color.fromARGB(255, 6, 47, 80),
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(15)),
+                                child: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Container(
+                                    height: height * 0.04,
+                                    width: width * 0.5,
+                                    child: DropdownButton<DepList>(
+                                        isExpanded: true,
+                                        style: TextStyle(
+                                          color: Color.fromARGB(255, 6, 47, 80),
+                                        ),
+                                        value: _selectedreasonItem1!,
+                                        items: _reasondropdownMenuItems,
+                                        onChanged: (value) {
+                                          setState(() {
+                                            _selectedsmesterItem1 = value;
+                                          });
+                                        }),
                                   ),
-                                  controller: leavestatuscontroller,
-                                  decoration: InputDecoration(
-                                    border: InputBorder.none,
-                                    // fillColor: Colors.red,
-                                    // filled: true,
-                                    contentPadding:
-                                        EdgeInsets.symmetric(vertical: 20),
-                                    prefixIcon: Icon(
-                                      Icons.book,
-                                    ),
-                                    hintText: 'Status/Reasosn',
-                                    hintStyle: TextStyle(
-                                      color: Color.fromARGB(255, 6, 47, 80),
-                                      fontSize: 12,
-                                    ),
-                                    labelStyle: TextStyle(color: Colors.red),
-                                  ),
-                                  validator: (String? value) {
-                                    if (value!.isEmpty) {
-                                      return 'Please enter some text';
-                                    }
-                                    return null;
-                                  },
-                                ),
-                              ),
-                            ),
+                                )),
                             Card(
                               elevation: 10,
                               shape: RoundedRectangleBorder(
@@ -471,10 +501,10 @@ class _ApplyLeaveState extends State<ApplyLeave> {
                                   studentleaveduration:
                                       leavedurationcontroller.text,
                                   studentleavestatus:
-                                      leavedurationcontroller.text,
+                                      _selectedreasonItem1!.name,
                                   studentrollnumber: rollNumbercontroller.text,
-                                  studentsemester: semestercontroller.text,
-                                  studentsession: sessioncontroller.text,
+                                  studentsemester: _selectedsmesterItem1!.name,
+                                  studentsession: _selectedsessionItem1!.name,
                                 );
                                 print(widget.modeladmin);
 
@@ -493,7 +523,7 @@ class _ApplyLeaveState extends State<ApplyLeave> {
                                 height: height * 0.06,
                                 width: width * 0.3,
                                 decoration: BoxDecoration(
-                                    color: Colors.amber,
+                                    color: Colors.white,
                                     borderRadius: BorderRadius.circular(10)),
                                 child: Text(
                                   "Apply",
