@@ -2,9 +2,8 @@
 import 'package:flutter/material.dart';
 import 'package:leave_manegment/PAINTERS/Lower-Painter-Dashboard.dart';
 import 'package:leave_manegment/PAINTERS/Uper-Painter-dashboard1.dart';
-import 'package:leave_manegment/STUDENT/SIGN-UP.dart';
-import 'package:leave_manegment/TEACHER/Sign_Up.dart';
-
+import 'package:leave_manegment/STUDENT/Student-Login.dart';
+import 'package:leave_manegment/TEACHER/Login.dart';
 class MyDashboard extends StatefulWidget {
   const MyDashboard({super.key});
 
@@ -72,7 +71,7 @@ class _MyDashboardState extends State<MyDashboard> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => StudentsSignUp()));
+                                    builder: (context) => StudentLogin()));
                           },
                     child: Container(
                       height: height * 0.25,
@@ -127,7 +126,7 @@ class _MyDashboardState extends State<MyDashboard> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => TeacherSignUp()));
+                                    builder: (context) => TeacherLogin()));
                           },
                       child: Column(
                         children: [

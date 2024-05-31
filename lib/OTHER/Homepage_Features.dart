@@ -1,6 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:leave_manegment/Dashboard.dart';
+import 'package:leave_manegment/OTHER/AllDashboard.dart';
 import 'package:leave_manegment/IMAGES-DECORATION/SLIDER-1.dart';
 import 'package:leave_manegment/IMAGES-DECORATION/SLIDER-2.dart';
 import 'package:leave_manegment/IMAGES-DECORATION/SLIDER-3.dart';

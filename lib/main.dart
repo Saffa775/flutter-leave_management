@@ -1,7 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:leave_manegment/HomepageAnimation.dart';
+import 'package:leave_manegment/OTHER/HomepageAnimation.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

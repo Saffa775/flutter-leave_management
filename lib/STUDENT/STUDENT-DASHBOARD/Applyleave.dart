@@ -1,11 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:leave_manegment/Flush.dart';
+import 'package:leave_manegment/OTHER/Flush.dart';
 import 'package:leave_manegment/MODELS/AdminModel.dart';
-import 'package:leave_manegment/MODELS/ApplyModel.dart';
-import 'package:leave_manegment/STUDENT-DASHBOARD/Youractivity.dart';
+import 'package:leave_manegment/MODELS/StudentApplyModel.dart';
+import 'package:leave_manegment/STUDENT/STUDENT-DASHBOARD/Youractivity.dart';
 
-import 'package:leave_manegment/staticdata.dart';
+import 'package:leave_manegment/OTHER/staticdata.dart';
 import 'package:uuid/uuid.dart';
 
 // ignore: must_be_immutable
@@ -84,7 +84,7 @@ class _ApplyLeaveState extends State<ApplyLeave> {
   ];
   List<DepList> _sessiondropdownItems = [
     ////////////session
-   
+
     DepList(1, "2023-2027"),
     DepList(2, "2022-2026"),
     DepList(3, "2021-2025"),
@@ -431,7 +431,7 @@ class _ApplyLeaveState extends State<ApplyLeave> {
                                         items: _reasondropdownMenuItems,
                                         onChanged: (value) {
                                           setState(() {
-                                            _selectedsmesterItem1 = value;
+                                            _selectedreasonItem1 = value;
                                           });
                                         }),
                                   ),
@@ -491,7 +491,9 @@ class _ApplyLeaveState extends State<ApplyLeave> {
 
                                 var applyId = Uuid();
                                 String aid = applyId.v4();
-
+                                var now = DateTime.now();
+                                String date =
+                                    "${now.day} _${now.month} _${now.year}";
                                 StudentApplyModel model = StudentApplyModel(
                                   adminid: id,
                                   applyid: aid,
@@ -505,6 +507,7 @@ class _ApplyLeaveState extends State<ApplyLeave> {
                                   studentrollnumber: rollNumbercontroller.text,
                                   studentsemester: _selectedsmesterItem1!.name,
                                   studentsession: _selectedsessionItem1!.name,
+                                  applydate: date,
                                 );
                                 print(widget.modeladmin);
 

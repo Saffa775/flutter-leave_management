@@ -1,10 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:leave_manegment/MODELS/Teacher-Model.dart';
-import 'package:leave_manegment/staticdata.dart';
+import 'package:leave_manegment/OTHER/staticdata.dart';
 
 import 'package:leave_manegment/TEACHER/Sign_Up.dart';
-import 'package:leave_manegment/TEACHER/Teacher-Dashboard.dart';
+import 'package:leave_manegment/TEACHER/TEACHER-DASHBOARD/Teacher-Dashboard.dart';
 
 class TeacherLogin extends StatefulWidget {
   const TeacherLogin({super.key});

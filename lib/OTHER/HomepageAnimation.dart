@@ -1,8 +1,8 @@
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:leave_manegment/Admin.dart';
-import 'package:leave_manegment/Homepage_Features.dart';
-import 'package:leave_manegment/responsive.dart';
+import 'package:leave_manegment/ADMIN/Admin.dart';
+import 'package:leave_manegment/OTHER/Homepage_Features.dart';
+import 'package:leave_manegment/OTHER/responsive.dart';
 import 'package:lottie/lottie.dart';
 
 class SplashScreen extends StatefulWidget {

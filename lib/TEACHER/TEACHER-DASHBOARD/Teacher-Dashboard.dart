@@ -1,19 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:leave_manegment/MODELS/AdminModel.dart';
-
 import 'package:leave_manegment/PAINTERS/Lower-Painter-Dashboard.dart';
-import 'package:leave_manegment/STUDENT-DASHBOARD/Applyleave.dart';
-import 'package:leave_manegment/STUDENT-DASHBOARD/Leave-history.dart';
+import 'package:leave_manegment/TEACHER/TEACHER-DASHBOARD/teacher-apply-leave.dart';
+import 'package:leave_manegment/TEACHER/TEACHER-LEAVE-HISTORY.dart';
 
-
-class StudentDashboard extends StatefulWidget {
-  const StudentDashboard({super.key});
+class TeacherDashboard extends StatefulWidget {
+  const TeacherDashboard({super.key});
 
   @override
-  State<StudentDashboard> createState() => _StudentDashboardState();
+  State<TeacherDashboard> createState() => _TeacherDashboardState();
 }
 
-class _StudentDashboardState extends State<StudentDashboard> {
+class _TeacherDashboardState extends State<TeacherDashboard> {
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
@@ -235,8 +233,8 @@ class _StudentDashboardState extends State<StudentDashboard> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) =>
-                                    ApplyLeave(modeladmin: AdminModel())));
+                                builder: (context) => TeacherApplyLeave(
+                                    modeladmin: AdminModel())));
                       },
                       child: Container(
                         height: height * 0.2,
@@ -335,7 +333,7 @@ class _StudentDashboardState extends State<StudentDashboard> {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => MyApplyHistory(),
+                                    builder: (context) => TeacherApplyHistory()
                                   ));
                             },
                             child: Container(

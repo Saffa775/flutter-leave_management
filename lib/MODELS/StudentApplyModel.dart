@@ -11,6 +11,7 @@ class StudentApplyModel {
   String? studentsession;
   String? studentleavestatus;
   String? applyid;
+    String? applydate;
   String? studentleaveduration;
 
   StudentApplyModel({
@@ -23,6 +24,7 @@ class StudentApplyModel {
     this.studentsession,
     this.studentleavestatus,
     this.applyid,
+    this.applydate,
     this.studentleaveduration,
   });
 
@@ -36,6 +38,7 @@ class StudentApplyModel {
     String? studentsession,
     String? studentleavestatus,
     String? applyid,
+    String? applydate,
     String? studentleaveduration,
   }) {
     return StudentApplyModel(
@@ -48,6 +51,7 @@ class StudentApplyModel {
       studentsession: studentsession ?? this.studentsession,
       studentleavestatus: studentleavestatus ?? this.studentleavestatus,
       applyid: applyid ?? this.applyid,
+      applydate: applydate ?? this.applydate,
       studentleaveduration: studentleaveduration ?? this.studentleaveduration,
     );
   }
@@ -63,6 +67,7 @@ class StudentApplyModel {
       'studentsession': studentsession,
       'studentleavestatus': studentleavestatus,
       'applyid': applyid,
+      'applydate': applydate,
       'studentleaveduration': studentleaveduration,
     };
   }
@@ -78,6 +83,7 @@ class StudentApplyModel {
       studentsession: map['studentsession'] != null ? map['studentsession'] as String : null,
       studentleavestatus: map['studentleavestatus'] != null ? map['studentleavestatus'] as String : null,
       applyid: map['applyid'] != null ? map['applyid'] as String : null,
+      applydate: map['applydate'] != null ? map['applydate'] as String : null,
       studentleaveduration: map['studentleaveduration'] != null ? map['studentleaveduration'] as String : null,
     );
   }
@@ -88,7 +94,7 @@ class StudentApplyModel {
 
   @override
   String toString() {
-    return 'StudentApplyModel(adminid: $adminid, studentname: $studentname, studentid: $studentid, studentrollnumber: $studentrollnumber, studentdept: $studentdept, studentsemester: $studentsemester, studentsession: $studentsession, studentleavestatus: $studentleavestatus, applyid: $applyid, studentleaveduration: $studentleaveduration)';
+    return 'StudentApplyModel(adminid: $adminid, studentname: $studentname, studentid: $studentid, studentrollnumber: $studentrollnumber, studentdept: $studentdept, studentsemester: $studentsemester, studentsession: $studentsession, studentleavestatus: $studentleavestatus, applyid: $applyid, applydate: $applydate, studentleaveduration: $studentleaveduration)';
   }
 
   @override
@@ -105,6 +111,7 @@ class StudentApplyModel {
       other.studentsession == studentsession &&
       other.studentleavestatus == studentleavestatus &&
       other.applyid == applyid &&
+      other.applydate == applydate &&
       other.studentleaveduration == studentleaveduration;
   }
 
@@ -119,6 +126,7 @@ class StudentApplyModel {
       studentsession.hashCode ^
       studentleavestatus.hashCode ^
       applyid.hashCode ^
+      applydate.hashCode ^
       studentleaveduration.hashCode;
   }
-}
+  }
