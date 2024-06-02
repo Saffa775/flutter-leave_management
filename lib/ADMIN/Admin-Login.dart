@@ -1,3 +1,6 @@
+
+// ignore_for_file: non_constant_identifier_names, file_names
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:leave_manegment/ADMIN/Admin-Signup.dart';
@@ -28,13 +31,13 @@ class _AdminLoginState extends State<AdminLogin> {
             Container(
               height: height,
               width: width,
-              color: Color.fromARGB(255, 6, 47, 80),
+              color: const Color.fromARGB(255, 6, 47, 80),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
+                  const Padding(
+                    padding: EdgeInsets.all(8.0),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -46,11 +49,11 @@ class _AdminLoginState extends State<AdminLogin> {
                       ],
                     ),
                   ),
-                  Container(
+                  SizedBox(
                     height: height * 0.09,
                     width: width,
                     // color: Colors.amber,
-                    child: Column(
+                    child: const Column(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         Text(
@@ -73,7 +76,7 @@ class _AdminLoginState extends State<AdminLogin> {
                   Container(
                     height: height * 0.6,
                     width: width,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.only(
                             topLeft: Radius.circular(20),
@@ -105,11 +108,11 @@ class _AdminLoginState extends State<AdminLogin> {
                                       color: Colors.white),
                                   child: TextFormField(
                                     keyboardType: TextInputType.text,
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                       color: Color.fromARGB(255, 6, 47, 80),
                                     ),
                                     controller: Emailcontroller,
-                                    decoration: InputDecoration(
+                                    decoration: const InputDecoration(
                                       border: InputBorder.none,
                                       // fillColor: Colors.red,
                                       // filled: true,
@@ -147,11 +150,11 @@ class _AdminLoginState extends State<AdminLogin> {
                                       color: Colors.white),
                                   child: TextFormField(
                                     keyboardType: TextInputType.text,
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                       color: Color.fromARGB(255, 6, 47, 80),
                                     ),
                                     controller: Passwordcontroller,
-                                    decoration: InputDecoration(
+                                    decoration: const InputDecoration(
                                       border: InputBorder.none,
                                       // fillColor: Colors.red,
                                       // filled: true,
@@ -178,6 +181,7 @@ class _AdminLoginState extends State<AdminLogin> {
                               ),
                               InkWell(
                                 onTap: () async {
+                                  
                                   QuerySnapshot Snapshot =
                                       await FirebaseFirestore.instance
                                           .collection("Admin-Registration")
@@ -188,18 +192,16 @@ class _AdminLoginState extends State<AdminLogin> {
                                                   Passwordcontroller.text)
                                           .get();
                                   if (Snapshot.docs.isEmpty) {
-                                    print("Invalid email or password");
                                   } else {
                                     AdminModel modeladmin = AdminModel.fromMap(
                                         Snapshot.docs[0].data()
                                             as Map<String, dynamic>);
-                                    print("Login Succesfull");
-                                    print(modeladmin.toString());
                                     StaticData.modeladmin = modeladmin;
+                                    // ignore: use_build_context_synchronously
                                     Navigator.push(
                                         context,
                                         MaterialPageRoute(
-                                          builder: (context) => MyAdmin(),
+                                          builder: (context) => const MyAdmin(),
                                         ));
                                   }
                                 },
@@ -208,9 +210,9 @@ class _AdminLoginState extends State<AdminLogin> {
                                   height: height * 0.06,
                                   width: width * 0.1,
                                   decoration: BoxDecoration(
-                                      color: Color.fromARGB(255, 6, 47, 80),
+                                      color: const Color.fromARGB(255, 6, 47, 80),
                                       borderRadius: BorderRadius.circular(10)),
-                                  child: Text(
+                                  child: const Text(
                                     "Login",
                                     style: TextStyle(
                                         color: Colors.white,
@@ -222,21 +224,21 @@ class _AdminLoginState extends State<AdminLogin> {
                             ],
                           ),
                         ),
-                        Container(
+                        SizedBox(
                             height: height * 0.2,
                             width: width,
                             // color: Colors.amber,
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
-                                Text(
+                                const Text(
                                   "Forgot password?",
                                   style: TextStyle(
                                       color: Color.fromARGB(255, 6, 47, 80),
                                       fontWeight: FontWeight.bold,
                                       fontSize: 14),
                                 ),
-                                Container(
+                                SizedBox(
                                   height: height * 0.04,
                                   width: width * 0.7,
                                   child: Row(
@@ -247,7 +249,7 @@ class _AdminLoginState extends State<AdminLogin> {
                                         alignment: Alignment.topRight,
                                         height: height * 0.05,
                                         width: width * 0.4,
-                                        child: Text(
+                                        child: const Text(
                                           "Don't have an account?",
                                           style: TextStyle(
                                               color: Color.fromARGB(
@@ -266,10 +268,10 @@ class _AdminLoginState extends State<AdminLogin> {
                                                 context,
                                                 MaterialPageRoute(
                                                   builder: (context) =>
-                                                      AdminSignup(),
+                                                      const AdminSignup(),
                                                 ));
                                           },
-                                          child: Text(
+                                          child: const Text(
                                             "Sign Up",
                                             style: TextStyle(
                                                 color: Color.fromARGB(
@@ -295,7 +297,7 @@ class _AdminLoginState extends State<AdminLogin> {
               child: Container(
                 height: height * 0.1,
                 width: width * 0.2,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                     shape: BoxShape.circle,
                     image: DecorationImage(
                         image: AssetImage("images/signup.jpeg"),

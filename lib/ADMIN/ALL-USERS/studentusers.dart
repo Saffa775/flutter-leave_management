@@ -22,9 +22,7 @@ class _StudentUserState extends State<StudentUser> {
           StudentModel.fromMap(data.data() as Map<String, dynamic>);
       setState(() {
         alluser.add(modelstudentusers);
-        print("length of  users");
-
-        print(alluser.length);
+       
       });
     }
   }
@@ -54,13 +52,13 @@ class _StudentUserState extends State<StudentUser> {
                   height: height * 0.3,
                   width: width * 0.6,
                   decoration: BoxDecoration(
-                    color: Color.fromARGB(255, 6, 47, 80),
+                    color: const Color.fromARGB(255, 6, 47, 80),
                     borderRadius: BorderRadius.circular(25),
                   ),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Container(
+                      SizedBox(
                         height: height * 0.12,
                         width: width * 0.6,
                         // color: Colors.red,
@@ -73,7 +71,7 @@ class _StudentUserState extends State<StudentUser> {
                                 onTap: () {
                                   Navigator.pop(context);
                                 },
-                                child: Icon(
+                                child: const Icon(
                                   Icons.arrow_back,
                                   size: 30,
                                   color: Colors.white,
@@ -82,7 +80,7 @@ class _StudentUserState extends State<StudentUser> {
                               Container(
                                 height: height * 0.1,
                                 width: width * 0.2,
-                                decoration: BoxDecoration(
+                                decoration: const BoxDecoration(
                                     color: Colors.white,
                                     shape: BoxShape.circle),
                               )
@@ -94,7 +92,7 @@ class _StudentUserState extends State<StudentUser> {
                         alignment: Alignment.topCenter,
                         height: height * 0.12,
                         width: width * 0.7,
-                        child: Text(
+                        child: const Text(
                           "Student Users",
                           style: TextStyle(
                               color: Colors.amber,
@@ -108,7 +106,7 @@ class _StudentUserState extends State<StudentUser> {
                 Container(
                   height: height * 0.65,
                   width: width * 0.6,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                       color: Color.fromARGB(255, 6, 47, 80),
                       borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(25),
@@ -136,10 +134,10 @@ class _StudentUserState extends State<StudentUser> {
                                         color: Colors.blue,
                                         borderRadius: BorderRadius.circular(5)),
                                     child: Center(
-                                      child: Container(
+                                      child: SizedBox(
                                         height: height * 0.05,
                                         width: width * 0.3,
-                                        child: Container(
+                                        child: SizedBox(
                                           height: height * 0.05,
                                           width: width * 0.4,
                                           child: Row(
@@ -148,7 +146,7 @@ class _StudentUserState extends State<StudentUser> {
                                             children: [
                                               Text(
                                                 alluser[index].studentname!,
-                                                style: TextStyle(
+                                                style: const TextStyle(
                                                     fontSize: 12,
                                                     fontWeight: FontWeight.bold,
                                                     color: Color.fromARGB(
@@ -160,7 +158,7 @@ class _StudentUserState extends State<StudentUser> {
                                       ),
                                     ),
                                   ),
-                                  Container(
+                                  SizedBox(
                                     height: height * 0.05,
                                     width: width * 0.6,
                                     // color: Colors.amber,
@@ -172,7 +170,7 @@ class _StudentUserState extends State<StudentUser> {
                                           alignment: Alignment.centerLeft,
                                           height: height * 0.05,
                                           width: width * 0.2,
-                                          child: Text(
+                                          child: const Text(
                                             "Email:",
                                             style: TextStyle(
                                                 color: Colors.blue,
@@ -186,7 +184,7 @@ class _StudentUserState extends State<StudentUser> {
                                           width: width * 0.3,
                                           child: Text(
                                             alluser[index].studentemail!,
-                                            style: TextStyle(
+                                            style: const TextStyle(
                                                 fontSize: 12,
                                                 fontWeight: FontWeight.bold,
                                                 color: Color.fromARGB(
@@ -198,7 +196,7 @@ class _StudentUserState extends State<StudentUser> {
                                       ],
                                     ),
                                   ),
-                                  Container(
+                                  SizedBox(
                                     height: height * 0.05,
                                     width: width * 0.65,
                                     // color: Colors.amber,
@@ -210,7 +208,7 @@ class _StudentUserState extends State<StudentUser> {
                                           alignment: Alignment.centerLeft,
                                           height: height * 0.05,
                                           width: width * 0.2,
-                                          child: Text(
+                                          child: const Text(
                                             "Roll Number:",
                                             style: TextStyle(
                                                 color: Colors.blue,
@@ -224,7 +222,7 @@ class _StudentUserState extends State<StudentUser> {
                                           width: width * 0.3,
                                           child: Text(
                                             alluser[index].studentrollnumber!,
-                                            style: TextStyle(
+                                            style: const TextStyle(
                                                 fontSize: 12,
                                                 fontWeight: FontWeight.bold,
                                                 color: Color.fromARGB(

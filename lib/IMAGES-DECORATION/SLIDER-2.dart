@@ -1,3 +1,5 @@
+// ignore_for_file: sized_box_for_whitespace
+
 import 'package:flutter/material.dart';
 
 class SecondSlider extends StatelessWidget {
@@ -19,7 +21,7 @@ class SecondSlider extends StatelessWidget {
           height: height,
           width: width * 0.8,
           decoration: BoxDecoration(
-              color: Color.fromARGB(255, 23, 123, 205).withOpacity(0.3),
+              color: const Color.fromARGB(255, 23, 123, 205).withOpacity(0.3),
               borderRadius: BorderRadius.circular(20)),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -28,8 +30,8 @@ class SecondSlider extends StatelessWidget {
               Container(
                 height: height * 0.06,
                 width: width * 0.6,
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
+                child: const Padding(
+                  padding: EdgeInsets.all(8.0),
                   child: Text(
                     "SigUp for further details!",
                     textAlign: TextAlign.left,

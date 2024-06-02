@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -7,6 +9,7 @@ import 'package:leave_manegment/OTHER/responsive.dart';
 import 'package:lottie/lottie.dart';
 
 class SplashScreen extends StatefulWidget {
+  // ignore: use_key_in_widget_constructors
   const SplashScreen({Key? key});
 
   @override
@@ -38,10 +41,10 @@ class _SplashScreenState extends State<SplashScreen> {
     return 
   
     AnimatedSplashScreen(
-      animationDuration: Duration(seconds: 3),
+      animationDuration: const Duration(seconds: 3),
       splash: Column(
         children: [
-          Text(
+          const Text(
             "Leave Management System",
             style: TextStyle(
                 color: Colors.white, fontWeight: FontWeight.bold, fontSize: 20),
@@ -54,7 +57,7 @@ class _SplashScreenState extends State<SplashScreen> {
       nextScreen:
           Responsive.isMobile(context) ? const Homepage() : const
           MyAdmin(),
-      backgroundColor: Color.fromARGB(255, 14, 90, 152),
+      backgroundColor: const Color.fromARGB(255, 14, 90, 152),
       splashIconSize: 300,
     );
   }

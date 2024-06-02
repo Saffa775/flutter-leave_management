@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:leave_manegment/OTHER/AllDashboard.dart';
@@ -33,27 +35,27 @@ class _HomepageState extends State<Homepage> {
                   onTap: () {
                     Navigator.pop(context);
                   },
-                  child: Icon(
+                  child: const Icon(
                     Icons.arrow_back,
                     size: 30,
                     color: Colors.black,
                   ),
                 ),
-                Container(
+                SizedBox(
                   height: height * 0.85,
                   width: width,
                   // color: Colors.red,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      Container(
+                      SizedBox(
                         height: height * 0.5,
                         width: width,
                         // color: Colors.amber,
                         child: CarouselSlider(
                             carouselController: controller,
                             //slider ingredients here//
-                            items: [
+                            items: const [
                               Firstslider(),
                               SecondSlider(),
                               ThirdSlider(),
@@ -134,7 +136,7 @@ class _HomepageState extends State<Homepage> {
                           ],
                         ),
                       ),
-                      Container(
+                      SizedBox(
                         height: height * 0.04,
                         width: width * 0.7,
                         // color: Colors.amber,
@@ -145,7 +147,7 @@ class _HomepageState extends State<Homepage> {
                               onTap: () {
                                 controller.jumpToPage(index - 1);
                               },
-                              child: Icon(
+                              child: const Icon(
                                 Icons.arrow_back,
                                 size: 30,
                               ),
@@ -154,7 +156,7 @@ class _HomepageState extends State<Homepage> {
                               onTap: () {
                                 controller.jumpToPage(index + 1);
                               },
-                              child: Icon(
+                              child: const Icon(
                                 Icons.arrow_forward,
                                 size: 30,
                               ),
@@ -169,7 +171,7 @@ class _HomepageState extends State<Homepage> {
                         decoration: BoxDecoration(
                             color: const Color.fromARGB(255, 14, 75, 124),
                             borderRadius: BorderRadius.circular(10)),
-                        child: Text(
+                        child: const Text(
                           "Skip",
                           style: TextStyle(
                               color: Colors.white,
@@ -182,7 +184,7 @@ class _HomepageState extends State<Homepage> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => MyDashboard()));
+                                  builder: (context) => const MyDashboard()));
                         },
                         child: Container(
                           alignment: Alignment.center,
@@ -191,7 +193,7 @@ class _HomepageState extends State<Homepage> {
                           decoration: BoxDecoration(
                               color: const Color.fromARGB(255, 14, 75, 124),
                               borderRadius: BorderRadius.circular(10)),
-                          child: Text(
+                          child: const Text(
                             "Next",
                             style: TextStyle(
                                 color: Colors.white,

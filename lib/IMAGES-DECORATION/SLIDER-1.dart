@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 
 class Firstslider extends StatelessWidget {
@@ -19,17 +21,17 @@ class Firstslider extends StatelessWidget {
           height: height,
           width: width * 0.8,
           decoration: BoxDecoration(
-              color: Color.fromARGB(255, 23, 123, 205).withOpacity(0.3),
+              color: const Color.fromARGB(255, 23, 123, 205).withOpacity(0.3),
               borderRadius: BorderRadius.circular(20)),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Container(
+              SizedBox(
                 height: height * 0.2,
                 width: width * 0.5,
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
+                child: const Padding(
+                  padding: EdgeInsets.all(8.0),
                   child: Text(
                     "A Safe and secure Plateform for managing your daily basis applications.",
                     textAlign: TextAlign.left,
@@ -40,11 +42,11 @@ class Firstslider extends StatelessWidget {
                   ),
                 ),
               ),
-              Container(
+              SizedBox(
                 height: height * 0.06,
                 width: width * 0.5,
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
+                child: const Padding(
+                  padding: EdgeInsets.all(8.0),
                   child: Text(
                     "Make your work easy!",
                     textAlign: TextAlign.left,

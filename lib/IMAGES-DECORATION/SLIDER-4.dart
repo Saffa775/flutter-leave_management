@@ -1,3 +1,5 @@
+// ignore_for_file: sized_box_for_whitespace, file_names
+
 import 'package:flutter/material.dart';
 
 class FourthSlider extends StatelessWidget {
@@ -28,8 +30,8 @@ class FourthSlider extends StatelessWidget {
               Container(
                 height: height * 0.15,
                 width: width * 0.6,
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
+                child: const Padding(
+                  padding: EdgeInsets.all(8.0),
                   child: Text(
                     "A fully functional effort to keep you in dicipline and lined_up.",
                     textAlign: TextAlign.left,

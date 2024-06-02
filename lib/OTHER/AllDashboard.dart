@@ -20,21 +20,21 @@ class _MyDashboardState extends State<MyDashboard> {
       backgroundColor: Colors.white,
       body: Stack(
         children: [
-          Container(
+          SizedBox(
               height: height,
               width: width,
               // color: Colors.amber,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Container(
+                  SizedBox(
                     height: height * 0.2,
                     width: width,
                     child: CustomPaint(
                       painter: UperPainter(),
                     ),
                   ),
-                  Container(
+                  SizedBox(
                     height: height * 0.2,
                     width: width,
                     child: CustomPaint(
@@ -45,7 +45,7 @@ class _MyDashboardState extends State<MyDashboard> {
               )),
           Padding(
             padding: EdgeInsets.only(top: height * 0.15),
-            child: Container(
+            child: SizedBox(
               height: height * 0.67,
               width: width,
               // color: Colors.amber,
@@ -57,7 +57,7 @@ class _MyDashboardState extends State<MyDashboard> {
                     width: width * 0.7,
                     // color: Colors.amber,
                     alignment: Alignment.center,
-                    child: Text(
+                    child: const Text(
                       "Register",
                       style: TextStyle(
                           color: Color.fromARGB(255, 6, 47, 80),
@@ -71,12 +71,12 @@ class _MyDashboardState extends State<MyDashboard> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => StudentLogin()));
+                                    builder: (context) => const StudentLogin()));
                           },
                     child: Container(
                       height: height * 0.25,
                       width: width * 0.6,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                           color: Color.fromARGB(255, 6, 47, 80),
                           borderRadius: BorderRadius.only(
                               topLeft: Radius.circular(15),
@@ -89,10 +89,10 @@ class _MyDashboardState extends State<MyDashboard> {
                             decoration: BoxDecoration(
                                 border: Border.all(color: Colors.black),
                                 color: Colors.white,
-                                borderRadius: BorderRadius.only(
+                                borderRadius: const BorderRadius.only(
                                     topLeft: Radius.circular(15),
                                     topRight: Radius.circular(15)),
-                                image: DecorationImage(
+                                image: const DecorationImage(
                                   image: AssetImage("images/student.jpeg"),
                                   fit: BoxFit.cover,
                                 )),
@@ -101,7 +101,7 @@ class _MyDashboardState extends State<MyDashboard> {
                             alignment: Alignment.center,
                             height: height * 0.07,
                             width: width * 0.5,
-                            child: Text(
+                            child: const Text(
                               "Student",
                               style: TextStyle(
                                   color: Colors.white,
@@ -116,7 +116,7 @@ class _MyDashboardState extends State<MyDashboard> {
                   Container(
                     height: height * 0.25,
                     width: width * 0.6,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                         color: Color.fromARGB(255, 6, 47, 80),
                         borderRadius: BorderRadius.only(
                             topLeft: Radius.circular(15),
@@ -126,7 +126,7 @@ class _MyDashboardState extends State<MyDashboard> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => TeacherLogin()));
+                                    builder: (context) => const TeacherLogin()));
                           },
                       child: Column(
                         children: [
@@ -136,10 +136,10 @@ class _MyDashboardState extends State<MyDashboard> {
                             decoration: BoxDecoration(
                                 border: Border.all(color: Colors.black),
                                 color: Colors.white,
-                                borderRadius: BorderRadius.only(
+                                borderRadius: const BorderRadius.only(
                                     topLeft: Radius.circular(15),
                                     topRight: Radius.circular(15)),
-                                image: DecorationImage(
+                                image: const DecorationImage(
                                   image: AssetImage("images/teacher.jpeg"),
                                   fit: BoxFit.cover,
                                 )),
@@ -148,7 +148,7 @@ class _MyDashboardState extends State<MyDashboard> {
                             alignment: Alignment.center,
                             height: height * 0.07,
                             width: width * 0.5,
-                            child: Text(
+                            child: const Text(
                               "Departemental Staff",
                               style: TextStyle(
                                   color: Colors.white,

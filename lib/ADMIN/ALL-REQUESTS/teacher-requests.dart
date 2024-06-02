@@ -1,4 +1,6 @@
 // ignore: file_names
+// ignore_for_file: file_names, duplicate_ignore
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:leave_manegment/MODELS/TeacherApplyModel.dart';
@@ -24,9 +26,7 @@ class _TeacherLeaveRequestState extends State<TeacherLeaveRequest> {
           TeacherApplyModel.fromMap(data.data() as Map<String, dynamic>);
       setState(() {
         teachertreq.add(modelTeacherLeaveRequests);
-        print("length of requests");
-
-        print(teachertreq.length);
+      
       });
     }
   }
@@ -56,13 +56,13 @@ class _TeacherLeaveRequestState extends State<TeacherLeaveRequest> {
                   height: height * 0.3,
                   width: width * 0.6,
                   decoration: BoxDecoration(
-                    color: Color.fromARGB(255, 6, 47, 80),
+                    color: const Color.fromARGB(255, 6, 47, 80),
                     borderRadius: BorderRadius.circular(25),
                   ),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Container(
+                      SizedBox(
                         height: height * 0.12,
                         width: width * 0.6,
                         // color: Colors.red,
@@ -75,7 +75,7 @@ class _TeacherLeaveRequestState extends State<TeacherLeaveRequest> {
                                 onTap: () {
                                   Navigator.pop(context);
                                 },
-                                child: Icon(
+                                child: const Icon(
                                   Icons.arrow_back,
                                   size: 30,
                                   color: Colors.white,
@@ -84,7 +84,7 @@ class _TeacherLeaveRequestState extends State<TeacherLeaveRequest> {
                               Container(
                                 height: height * 0.1,
                                 width: width * 0.2,
-                                decoration: BoxDecoration(
+                                decoration: const BoxDecoration(
                                     color: Colors.white,
                                     shape: BoxShape.circle),
                               )
@@ -96,7 +96,7 @@ class _TeacherLeaveRequestState extends State<TeacherLeaveRequest> {
                         alignment: Alignment.topCenter,
                         height: height * 0.12,
                         width: width * 0.7,
-                        child: Text(
+                        child: const Text(
                           "Teacher Leave Requests",
                           style: TextStyle(
                               color: Colors.white,
@@ -110,7 +110,7 @@ class _TeacherLeaveRequestState extends State<TeacherLeaveRequest> {
                 Container(
                   height: height * 0.65,
                   width: width * 0.6,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                       color: Color.fromARGB(255, 6, 47, 80),
                       borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(25),
@@ -142,15 +142,15 @@ class _TeacherLeaveRequestState extends State<TeacherLeaveRequest> {
                                         width: width * 0.2,
                                         decoration: BoxDecoration(
                                             color:
-                                                Color.fromARGB(255, 6, 47, 80),
+                                                const Color.fromARGB(255, 6, 47, 80),
                                             borderRadius:
                                                 BorderRadius.circular(5)),
                                         child: Center(
-                                          child: Container(
+                                          child: SizedBox(
                                             height: height * 0.05,
                                             width: width * 0.3,
                                             // color: Color.fromARGB(255, 6, 47, 80),
-                                            child: Container(
+                                            child: SizedBox(
                                               height: height * 0.05,
                                               width: width * 0.4,
                                               child: Row(
@@ -160,7 +160,7 @@ class _TeacherLeaveRequestState extends State<TeacherLeaveRequest> {
                                                   Text(
                                                     teachertreq[index]
                                                         .teachername!,
-                                                    style: TextStyle(
+                                                    style: const TextStyle(
                                                         fontSize: 14,
                                                         fontWeight:
                                                             FontWeight.bold,
@@ -175,13 +175,13 @@ class _TeacherLeaveRequestState extends State<TeacherLeaveRequest> {
                                       Container(
                                         height: height * 0.1,
                                         width: width * 0.2,
-                                        decoration: BoxDecoration(
+                                        decoration: const BoxDecoration(
                                             color: Colors.blue,
                                             shape: BoxShape.circle),
                                       )
                                     ],
                                   ),
-                                  Container(
+                                  SizedBox(
                                     height: height * 0.05,
                                     width: width * 0.6,
                                     // color: Colors.amber,
@@ -193,7 +193,7 @@ class _TeacherLeaveRequestState extends State<TeacherLeaveRequest> {
                                           alignment: Alignment.centerLeft,
                                           height: height * 0.05,
                                           width: width * 0.2,
-                                          child: Text(
+                                          child: const Text(
                                             "CNIC:",
                                             style: TextStyle(
                                                 color: Colors.blue,
@@ -207,7 +207,7 @@ class _TeacherLeaveRequestState extends State<TeacherLeaveRequest> {
                                           width: width * 0.3,
                                           child: Text(
                                             teachertreq[index].teacherCNIC!,
-                                            style: TextStyle(
+                                            style: const TextStyle(
                                                 fontSize: 12,
                                                 fontWeight: FontWeight.bold,
                                                 color: Color.fromARGB(
@@ -219,7 +219,7 @@ class _TeacherLeaveRequestState extends State<TeacherLeaveRequest> {
                                       ],
                                     ),
                                   ),
-                                  Container(
+                                  SizedBox(
                                     height: height * 0.05,
                                     width: width * 0.65,
                                     // color: Colors.amber,
@@ -231,7 +231,7 @@ class _TeacherLeaveRequestState extends State<TeacherLeaveRequest> {
                                           alignment: Alignment.centerLeft,
                                           height: height * 0.05,
                                           width: width * 0.2,
-                                          child: Text(
+                                          child: const Text(
                                             "department:",
                                             style: TextStyle(
                                                 color: Colors.blue,
@@ -245,7 +245,7 @@ class _TeacherLeaveRequestState extends State<TeacherLeaveRequest> {
                                           width: width * 0.3,
                                           child: Text(
                                             teachertreq[index].teacherdept!,
-                                            style: TextStyle(
+                                            style: const TextStyle(
                                                 fontSize: 12,
                                                 fontWeight: FontWeight.bold,
                                                 color: Color.fromARGB(
@@ -255,7 +255,7 @@ class _TeacherLeaveRequestState extends State<TeacherLeaveRequest> {
                                       ],
                                     ),
                                   ),
-                                  Container(
+                                  SizedBox(
                                     height: height * 0.05,
                                     width: width * 0.65,
                                     // color: Colors.amber,
@@ -267,7 +267,7 @@ class _TeacherLeaveRequestState extends State<TeacherLeaveRequest> {
                                           alignment: Alignment.centerLeft,
                                           height: height * 0.05,
                                           width: width * 0.2,
-                                          child: Text(
+                                          child: const Text(
                                             "Leave Status",
                                             style: TextStyle(
                                                 color: Colors.blue,
@@ -282,7 +282,7 @@ class _TeacherLeaveRequestState extends State<TeacherLeaveRequest> {
                                           child: Text(
                                             teachertreq[index]
                                                 .teacherleavestatus!,
-                                            style: TextStyle(
+                                            style: const TextStyle(
                                                 fontSize: 12,
                                                 fontWeight: FontWeight.bold,
                                                 color: Color.fromARGB(
@@ -292,7 +292,7 @@ class _TeacherLeaveRequestState extends State<TeacherLeaveRequest> {
                                       ],
                                     ),
                                   ),
-                                  Container(
+                                  SizedBox(
                                     height: height * 0.05,
                                     width: width * 0.65,
                                     // color: Colors.amber,
@@ -304,7 +304,7 @@ class _TeacherLeaveRequestState extends State<TeacherLeaveRequest> {
                                           alignment: Alignment.centerLeft,
                                           height: height * 0.05,
                                           width: width * 0.2,
-                                          child: Text(
+                                          child: const Text(
                                             "Leave Duration:",
                                             style: TextStyle(
                                                 color: Colors.blue,
@@ -319,7 +319,7 @@ class _TeacherLeaveRequestState extends State<TeacherLeaveRequest> {
                                           child: Text(
                                             teachertreq[index]
                                                 .teacherleaveduration!,
-                                            style: TextStyle(
+                                            style: const TextStyle(
                                                 fontSize: 12,
                                                 fontWeight: FontWeight.bold,
                                                 color: Color.fromARGB(
@@ -329,7 +329,7 @@ class _TeacherLeaveRequestState extends State<TeacherLeaveRequest> {
                                       ],
                                     ),
                                   ),
-                                  Container(
+                                  SizedBox(
                                     height: height * 0.05,
                                     width: width * 0.65,
                                     // color: Colors.amber,
@@ -341,7 +341,7 @@ class _TeacherLeaveRequestState extends State<TeacherLeaveRequest> {
                                           alignment: Alignment.centerLeft,
                                           height: height * 0.05,
                                           width: width * 0.2,
-                                          child: Text(
+                                          child: const Text(
                                             "Applied on: ",
                                             style: TextStyle(
                                                 color: Colors.blue,
@@ -356,7 +356,7 @@ class _TeacherLeaveRequestState extends State<TeacherLeaveRequest> {
                                           child: Text(
                                             teachertreq[index]
                                                 .teacherapplydate!,
-                                            style: TextStyle(
+                                            style: const TextStyle(
                                                 fontSize: 12,
                                                 fontWeight: FontWeight.bold,
                                                 color: Color.fromARGB(
@@ -366,7 +366,7 @@ class _TeacherLeaveRequestState extends State<TeacherLeaveRequest> {
                                       ],
                                     ),
                                   ),
-                                  Container(
+                                  SizedBox(
                                     height: height * 0.05,
                                     width: width * 0.65,
                                     // color: Colors.amber,
@@ -378,7 +378,7 @@ class _TeacherLeaveRequestState extends State<TeacherLeaveRequest> {
                                           alignment: Alignment.centerLeft,
                                           height: height * 0.05,
                                           width: width * 0.2,
-                                          child: Text(
+                                          child: const Text(
                                             "Application status:",
                                             style: TextStyle(
                                                 color: Colors.blue,
@@ -393,7 +393,7 @@ class _TeacherLeaveRequestState extends State<TeacherLeaveRequest> {
                                           child: Text(
                                             teachertreq[index]
                                                 .applystatus!,
-                                            style: TextStyle(
+                                            style: const TextStyle(
                                                 fontSize: 12,
                                                 fontWeight: FontWeight.bold,
                                                 color: Color.fromARGB(
@@ -409,7 +409,8 @@ class _TeacherLeaveRequestState extends State<TeacherLeaveRequest> {
                                     children: [
                                       InkWell(
                                           onTap: () {
-                                          var AId = Uuid();
+                                          // ignore: non_constant_identifier_names
+                                          var AId = const Uuid();
                                           String id = AId.v4();
 
                                           TeacherApplyModel model = TeacherApplyModel(
@@ -448,9 +449,9 @@ class _TeacherLeaveRequestState extends State<TeacherLeaveRequest> {
                                           decoration: BoxDecoration(
                                             borderRadius:
                                                 BorderRadius.circular(10),
-                                            color: Color.fromARGB(255, 6, 47, 80),
+                                            color: const Color.fromARGB(255, 6, 47, 80),
                                           ),
-                                          child: Text(
+                                          child: const Text(
                                             "Approve",
                                             style: TextStyle(
                                                 color: Colors.white,
@@ -466,9 +467,9 @@ class _TeacherLeaveRequestState extends State<TeacherLeaveRequest> {
                                         decoration: BoxDecoration(
                                           borderRadius:
                                               BorderRadius.circular(10),
-                                          color: Color.fromARGB(255, 6, 47, 80),
+                                          color: const Color.fromARGB(255, 6, 47, 80),
                                         ),
-                                        child: Text(
+                                        child: const Text(
                                           "Reject",
                                           style: TextStyle(
                                               color: Colors.white,

@@ -1,14 +1,15 @@
 // ignore: file_names
+// ignore_for_file: file_names, duplicate_ignore
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:leave_manegment/MODELS/ApprovedModel.dart';
 import 'package:leave_manegment/MODELS/StudentApplyModel.dart';
 import 'package:leave_manegment/OTHER/staticdata.dart';
 import 'package:uuid/uuid.dart';
 
 // ignore: must_be_immutable
 class StudentLeaveRequest extends StatefulWidget {
-  StudentLeaveRequest({super.key});
+ const StudentLeaveRequest({super.key});
 
   @override
   State<StudentLeaveRequest> createState() => _StudentLeaveRequestState();
@@ -26,9 +27,9 @@ class _StudentLeaveRequestState extends State<StudentLeaveRequest> {
           StudentApplyModel.fromMap(data.data() as Map<String, dynamic>);
       setState(() {
         studentreq.add(modelStudentLeaveRequests);
-        print("length of requests");
+       
 
-        print(studentreq.length);
+      
       });
     }
   }
@@ -58,13 +59,13 @@ class _StudentLeaveRequestState extends State<StudentLeaveRequest> {
                   height: height * 0.3,
                   width: width * 0.6,
                   decoration: BoxDecoration(
-                    color: Color.fromARGB(255, 6, 47, 80),
+                    color: const Color.fromARGB(255, 6, 47, 80),
                     borderRadius: BorderRadius.circular(25),
                   ),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Container(
+                      SizedBox(
                         height: height * 0.12,
                         width: width * 0.6,
                         // color: Colors.red,
@@ -77,7 +78,7 @@ class _StudentLeaveRequestState extends State<StudentLeaveRequest> {
                                 onTap: () {
                                   Navigator.pop(context);
                                 },
-                                child: Icon(
+                                child: const Icon(
                                   Icons.arrow_back,
                                   size: 30,
                                   color: Colors.white,
@@ -86,7 +87,7 @@ class _StudentLeaveRequestState extends State<StudentLeaveRequest> {
                               Container(
                                 height: height * 0.1,
                                 width: width * 0.2,
-                                decoration: BoxDecoration(
+                                decoration: const BoxDecoration(
                                     color: Colors.white,
                                     shape: BoxShape.circle),
                               )
@@ -98,7 +99,7 @@ class _StudentLeaveRequestState extends State<StudentLeaveRequest> {
                         alignment: Alignment.topCenter,
                         height: height * 0.12,
                         width: width * 0.7,
-                        child: Text(
+                        child: const Text(
                           "Student Leave Requests",
                           style: TextStyle(
                               color: Colors.white,
@@ -112,7 +113,7 @@ class _StudentLeaveRequestState extends State<StudentLeaveRequest> {
                 Container(
                   height: height * 0.65,
                   width: width * 0.6,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                       color: Color.fromARGB(255, 6, 47, 80),
                       borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(25),
@@ -144,15 +145,15 @@ class _StudentLeaveRequestState extends State<StudentLeaveRequest> {
                                         width: width * 0.2,
                                         decoration: BoxDecoration(
                                             color:
-                                                Color.fromARGB(255, 6, 47, 80),
+                                                const Color.fromARGB(255, 6, 47, 80),
                                             borderRadius:
                                                 BorderRadius.circular(5)),
                                         child: Center(
-                                          child: Container(
+                                          child: SizedBox(
                                             height: height * 0.05,
                                             width: width * 0.3,
                                             // color: Color.fromARGB(255, 6, 47, 80),
-                                            child: Container(
+                                            child: SizedBox(
                                               height: height * 0.05,
                                               width: width * 0.4,
                                               child: Row(
@@ -162,7 +163,7 @@ class _StudentLeaveRequestState extends State<StudentLeaveRequest> {
                                                   Text(
                                                     studentreq[index]
                                                         .studentname!,
-                                                    style: TextStyle(
+                                                    style: const TextStyle(
                                                         fontSize: 14,
                                                         fontWeight:
                                                             FontWeight.bold,
@@ -177,13 +178,13 @@ class _StudentLeaveRequestState extends State<StudentLeaveRequest> {
                                       Container(
                                         height: height * 0.1,
                                         width: width * 0.2,
-                                        decoration: BoxDecoration(
+                                        decoration: const BoxDecoration(
                                             color: Colors.blue,
                                             shape: BoxShape.circle),
                                       )
                                     ],
                                   ),
-                                  Container(
+                                  SizedBox(
                                     height: height * 0.05,
                                     width: width * 0.6,
                                     // color: Colors.amber,
@@ -195,7 +196,7 @@ class _StudentLeaveRequestState extends State<StudentLeaveRequest> {
                                           alignment: Alignment.centerLeft,
                                           height: height * 0.05,
                                           width: width * 0.2,
-                                          child: Text(
+                                          child: const Text(
                                             "Roll Number:",
                                             style: TextStyle(
                                                 color: Colors.blue,
@@ -210,7 +211,7 @@ class _StudentLeaveRequestState extends State<StudentLeaveRequest> {
                                           child: Text(
                                             studentreq[index]
                                                 .studentrollnumber!,
-                                            style: TextStyle(
+                                            style: const TextStyle(
                                                 fontSize: 12,
                                                 fontWeight: FontWeight.bold,
                                                 color: Color.fromARGB(
@@ -222,7 +223,7 @@ class _StudentLeaveRequestState extends State<StudentLeaveRequest> {
                                       ],
                                     ),
                                   ),
-                                  Container(
+                                  SizedBox(
                                     height: height * 0.05,
                                     width: width * 0.65,
                                     // color: Colors.amber,
@@ -234,7 +235,7 @@ class _StudentLeaveRequestState extends State<StudentLeaveRequest> {
                                           alignment: Alignment.centerLeft,
                                           height: height * 0.05,
                                           width: width * 0.2,
-                                          child: Text(
+                                          child: const Text(
                                             "department:",
                                             style: TextStyle(
                                                 color: Colors.blue,
@@ -248,7 +249,7 @@ class _StudentLeaveRequestState extends State<StudentLeaveRequest> {
                                           width: width * 0.3,
                                           child: Text(
                                             studentreq[index].studentdept!,
-                                            style: TextStyle(
+                                            style: const TextStyle(
                                                 fontSize: 12,
                                                 fontWeight: FontWeight.bold,
                                                 color: Color.fromARGB(
@@ -258,7 +259,7 @@ class _StudentLeaveRequestState extends State<StudentLeaveRequest> {
                                       ],
                                     ),
                                   ),
-                                  Container(
+                                  SizedBox(
                                     height: height * 0.05,
                                     width: width * 0.65,
                                     // color: Colors.amber,
@@ -270,7 +271,7 @@ class _StudentLeaveRequestState extends State<StudentLeaveRequest> {
                                           alignment: Alignment.centerLeft,
                                           height: height * 0.05,
                                           width: width * 0.2,
-                                          child: Text(
+                                          child: const Text(
                                             "Semester:",
                                             style: TextStyle(
                                                 color: Colors.blue,
@@ -284,7 +285,7 @@ class _StudentLeaveRequestState extends State<StudentLeaveRequest> {
                                           width: width * 0.3,
                                           child: Text(
                                             studentreq[index].studentsemester!,
-                                            style: TextStyle(
+                                            style: const TextStyle(
                                                 fontSize: 12,
                                                 fontWeight: FontWeight.bold,
                                                 color: Color.fromARGB(
@@ -294,7 +295,7 @@ class _StudentLeaveRequestState extends State<StudentLeaveRequest> {
                                       ],
                                     ),
                                   ),
-                                  Container(
+                                  SizedBox(
                                     height: height * 0.05,
                                     width: width * 0.65,
                                     // color: Colors.amber,
@@ -306,7 +307,7 @@ class _StudentLeaveRequestState extends State<StudentLeaveRequest> {
                                           alignment: Alignment.centerLeft,
                                           height: height * 0.05,
                                           width: width * 0.2,
-                                          child: Text(
+                                          child: const Text(
                                             "Session:",
                                             style: TextStyle(
                                                 color: Colors.blue,
@@ -320,7 +321,7 @@ class _StudentLeaveRequestState extends State<StudentLeaveRequest> {
                                           width: width * 0.3,
                                           child: Text(
                                             studentreq[index].studentsession!,
-                                            style: TextStyle(
+                                            style: const TextStyle(
                                                 fontSize: 12,
                                                 fontWeight: FontWeight.bold,
                                                 color: Color.fromARGB(
@@ -330,7 +331,7 @@ class _StudentLeaveRequestState extends State<StudentLeaveRequest> {
                                       ],
                                     ),
                                   ),
-                                  Container(
+                                  SizedBox(
                                     height: height * 0.05,
                                     width: width * 0.65,
                                     // color: Colors.amber,
@@ -342,7 +343,7 @@ class _StudentLeaveRequestState extends State<StudentLeaveRequest> {
                                           alignment: Alignment.centerLeft,
                                           height: height * 0.05,
                                           width: width * 0.2,
-                                          child: Text(
+                                          child: const Text(
                                             "Leave Status:",
                                             style: TextStyle(
                                                 color: Colors.blue,
@@ -357,7 +358,7 @@ class _StudentLeaveRequestState extends State<StudentLeaveRequest> {
                                           child: Text(
                                             studentreq[index]
                                                 .studentleavestatus!,
-                                            style: TextStyle(
+                                            style: const TextStyle(
                                                 fontSize: 12,
                                                 fontWeight: FontWeight.bold,
                                                 color: Color.fromARGB(
@@ -367,7 +368,7 @@ class _StudentLeaveRequestState extends State<StudentLeaveRequest> {
                                       ],
                                     ),
                                   ),
-                                  Container(
+                                  SizedBox(
                                     height: height * 0.05,
                                     width: width * 0.65,
                                     // color: Colors.amber,
@@ -379,7 +380,7 @@ class _StudentLeaveRequestState extends State<StudentLeaveRequest> {
                                           alignment: Alignment.centerLeft,
                                           height: height * 0.05,
                                           width: width * 0.2,
-                                          child: Text(
+                                          child: const Text(
                                             "Leave Duration:",
                                             style: TextStyle(
                                                 color: Colors.blue,
@@ -394,7 +395,7 @@ class _StudentLeaveRequestState extends State<StudentLeaveRequest> {
                                           child: Text(
                                             studentreq[index]
                                                 .studentleaveduration!,
-                                            style: TextStyle(
+                                            style: const TextStyle(
                                                 fontSize: 12,
                                                 fontWeight: FontWeight.bold,
                                                 color: Color.fromARGB(
@@ -404,7 +405,7 @@ class _StudentLeaveRequestState extends State<StudentLeaveRequest> {
                                       ],
                                     ),
                                   ),
-                                  Container(
+                                  SizedBox(
                                     height: height * 0.05,
                                     width: width * 0.65,
                                     // color: Colors.amber,
@@ -416,7 +417,7 @@ class _StudentLeaveRequestState extends State<StudentLeaveRequest> {
                                           alignment: Alignment.centerLeft,
                                           height: height * 0.05,
                                           width: width * 0.2,
-                                          child: Text(
+                                          child: const Text(
                                             "Applied on: ",
                                             style: TextStyle(
                                                 color: Colors.blue,
@@ -430,7 +431,7 @@ class _StudentLeaveRequestState extends State<StudentLeaveRequest> {
                                           width: width * 0.3,
                                           child: Text(
                                             studentreq[index].applydate!,
-                                            style: TextStyle(
+                                            style: const TextStyle(
                                                 fontSize: 12,
                                                 fontWeight: FontWeight.bold,
                                                 color: Color.fromARGB(
@@ -440,7 +441,7 @@ class _StudentLeaveRequestState extends State<StudentLeaveRequest> {
                                       ],
                                     ),
                                   ),
-                                  Container(
+                                  SizedBox(
                                     height: height * 0.05,
                                     width: width * 0.65,
                                     // color: Colors.amber,
@@ -452,7 +453,7 @@ class _StudentLeaveRequestState extends State<StudentLeaveRequest> {
                                           alignment: Alignment.centerLeft,
                                           height: height * 0.05,
                                           width: width * 0.2,
-                                          child: Text(
+                                          child: const Text(
                                             "Application status:",
                                             style: TextStyle(
                                                 color: Colors.blue,
@@ -466,7 +467,7 @@ class _StudentLeaveRequestState extends State<StudentLeaveRequest> {
                                           width: width * 0.3,
                                           child: Text(
                                             studentreq[index].applystatus!,
-                                            style: TextStyle(
+                                            style: const TextStyle(
                                                 fontSize: 12,
                                                 fontWeight: FontWeight.bold,
                                                 color: Color.fromARGB(
@@ -482,7 +483,8 @@ class _StudentLeaveRequestState extends State<StudentLeaveRequest> {
                                     children: [
                                       InkWell(
                                         onTap: () {
-                                          var AId = Uuid();
+                                          // ignore: non_constant_identifier_names
+                                          var AId = const Uuid();
                                           String id = AId.v4();
 
                                           StudentApplyModel model = StudentApplyModel(
@@ -526,9 +528,9 @@ class _StudentLeaveRequestState extends State<StudentLeaveRequest> {
                                             borderRadius:
                                                 BorderRadius.circular(10),
                                             color:
-                                                Color.fromARGB(255, 6, 47, 80),
+                                                const Color.fromARGB(255, 6, 47, 80),
                                           ),
-                                          child: Text(
+                                          child: const Text(
                                             "Approve",
                                             style: TextStyle(
                                                 color: Colors.white,
@@ -544,9 +546,9 @@ class _StudentLeaveRequestState extends State<StudentLeaveRequest> {
                                         decoration: BoxDecoration(
                                           borderRadius:
                                               BorderRadius.circular(10),
-                                          color: Color.fromARGB(255, 6, 47, 80),
+                                          color: const Color.fromARGB(255, 6, 47, 80),
                                         ),
-                                        child: Text(
+                                        child: const Text(
                                           "Reject",
                                           style: TextStyle(
                                               color: Colors.white,

@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:leave_manegment/OTHER/Flush.dart';
@@ -26,32 +28,30 @@ class DepList {
 
 @override
 class _ApplyLeaveState extends State<ApplyLeave> {
+  // ignore: prefer_typing_uninitialized_variables
   var height, width;
 
+  // ignore: annotate_overrides
   void initState() {
     _dropdownMenuItems = buildDropDownMenuItems(
       _dropdownItems,
     );
-    print(_dropdownItems.length);
     _selectedItem1 = _dropdownMenuItems![0].value!;
 
     ////////////////////////semester///////////////
     _smesterdropdownMenuItems = buildsmesterDropDownMenuItems(
       _smesterdropdownItems,
     );
-    print(_dropdownItems.length);
     _selectedsmesterItem1 = _smesterdropdownMenuItems![0].value!;
     ////////////////////////////session//////////////
     _sessiondropdownMenuItems = buildsessionDropDownMenuItems(
       _sessiondropdownItems,
     );
-    print(_dropdownItems.length);
     _selectedsessionItem1 = _sessiondropdownMenuItems![0].value!;
     ///////////////////reason//////////////
     _reasondropdownMenuItems = buildreasonDropDownMenuItems(
       _reasondropdownItems,
     );
-    print(_dropdownItems.length);
     _selectedreasonItem1 = _reasondropdownMenuItems![0].value!;
     super.initState();
   }
@@ -63,7 +63,7 @@ class _ApplyLeaveState extends State<ApplyLeave> {
   final leavestatuscontroller = TextEditingController();
   final semestercontroller = TextEditingController();
   final leavedurationcontroller = TextEditingController();
-  List<DepList> _dropdownItems = [
+  final List<DepList> _dropdownItems = [
     ///////////departement
     DepList(1, "software engineering"),
     DepList(2, "artificial intelligence"),
@@ -71,7 +71,7 @@ class _ApplyLeaveState extends State<ApplyLeave> {
     DepList(4, "information tecgnology")
   ];
 
-  List<DepList> _smesterdropdownItems = [
+  final List<DepList> _smesterdropdownItems = [
     ///////////semester
     DepList(1, "1st smester"),
     DepList(2, "2nd smester"),
@@ -82,14 +82,14 @@ class _ApplyLeaveState extends State<ApplyLeave> {
     DepList(7, "7th smester"),
     DepList(8, "8th smester"),
   ];
-  List<DepList> _sessiondropdownItems = [
+  final List<DepList> _sessiondropdownItems = [
     ////////////session
 
     DepList(1, "2023-2027"),
     DepList(2, "2022-2026"),
     DepList(3, "2021-2025"),
   ];
-  List<DepList> _reasondropdownItems = [
+  final List<DepList> _reasondropdownItems = [
     ///////reason/leave-status
     DepList(1, "Sick leave"),
     DepList(2, "Casual Leave"),
@@ -114,8 +114,8 @@ class _ApplyLeaveState extends State<ApplyLeave> {
     for (DepList listItem in listItems) {
       items.add(
         DropdownMenuItem(
-          child: Text(listItem.name),
           value: listItem,
+          child: Text(listItem.name),
         ),
       );
     }
@@ -128,8 +128,8 @@ class _ApplyLeaveState extends State<ApplyLeave> {
     for (DepList listItem in listItems) {
       items.add(
         DropdownMenuItem(
-          child: Text(listItem.name),
           value: listItem,
+          child: Text(listItem.name),
         ),
       );
     }
@@ -142,8 +142,8 @@ class _ApplyLeaveState extends State<ApplyLeave> {
     for (DepList listItem in listItems) {
       items.add(
         DropdownMenuItem(
-          child: Text(listItem.name),
           value: listItem,
+          child: Text(listItem.name),
         ),
       );
     }
@@ -155,8 +155,8 @@ class _ApplyLeaveState extends State<ApplyLeave> {
     for (DepList listItem in listItems) {
       items.add(
         DropdownMenuItem(
-          child: Text(listItem.name),
           value: listItem,
+          child: Text(listItem.name),
         ),
       );
     }
@@ -187,13 +187,13 @@ class _ApplyLeaveState extends State<ApplyLeave> {
                   height: height * 0.2,
                   width: width,
                   decoration: BoxDecoration(
-                      color: Color.fromARGB(255, 6, 47, 80),
+                      color: const Color.fromARGB(255, 6, 47, 80),
                       borderRadius: BorderRadius.circular(30)),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
+                      const Padding(
+                        padding: EdgeInsets.all(8.0),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -215,7 +215,7 @@ class _ApplyLeaveState extends State<ApplyLeave> {
                         height: height * 0.12,
                         width: width * 0.4,
                         // color: Colors.amber,
-                        child: Text(
+                        child: const Text(
                           "Add Details",
                           style: TextStyle(
                               color: Colors.white,
@@ -229,7 +229,7 @@ class _ApplyLeaveState extends State<ApplyLeave> {
                 Container(
                   height: height * 0.73,
                   width: width,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                       color: Color.fromARGB(255, 6, 47, 80),
                       borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(30),
@@ -261,11 +261,11 @@ class _ApplyLeaveState extends State<ApplyLeave> {
                                     color: Colors.white),
                                 child: TextFormField(
                                   keyboardType: TextInputType.text,
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                     color: Color.fromARGB(255, 6, 47, 80),
                                   ),
                                   controller: fullnamecontroller,
-                                  decoration: InputDecoration(
+                                  decoration: const InputDecoration(
                                     border: InputBorder.none,
                                     // fillColor: Colors.red,
                                     // filled: true,
@@ -303,11 +303,11 @@ class _ApplyLeaveState extends State<ApplyLeave> {
                                     color: Colors.white),
                                 child: TextFormField(
                                   keyboardType: TextInputType.text,
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                     color: Color.fromARGB(255, 6, 47, 80),
                                   ),
                                   controller: rollNumbercontroller,
-                                  decoration: InputDecoration(
+                                  decoration: const InputDecoration(
                                     border: InputBorder.none,
                                     // fillColor: Colors.red,
                                     // filled: true,
@@ -341,12 +341,12 @@ class _ApplyLeaveState extends State<ApplyLeave> {
                                     borderRadius: BorderRadius.circular(15)),
                                 child: Padding(
                                   padding: const EdgeInsets.all(8.0),
-                                  child: Container(
+                                  child: SizedBox(
                                     height: height * 0.04,
                                     width: width * 0.5,
                                     child: DropdownButton<DepList>(
                                         isExpanded: true,
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                           color: Color.fromARGB(255, 6, 47, 80),
                                         ),
                                         value: _selectedItem1!,
@@ -367,12 +367,12 @@ class _ApplyLeaveState extends State<ApplyLeave> {
                                     borderRadius: BorderRadius.circular(15)),
                                 child: Padding(
                                   padding: const EdgeInsets.all(8.0),
-                                  child: Container(
+                                  child: SizedBox(
                                     height: height * 0.04,
                                     width: width * 0.5,
                                     child: DropdownButton<DepList>(
                                         isExpanded: true,
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                           color: Color.fromARGB(255, 6, 47, 80),
                                         ),
                                         value: _selectedsmesterItem1!,
@@ -393,12 +393,12 @@ class _ApplyLeaveState extends State<ApplyLeave> {
                                     borderRadius: BorderRadius.circular(15)),
                                 child: Padding(
                                   padding: const EdgeInsets.all(8.0),
-                                  child: Container(
+                                  child: SizedBox(
                                     height: height * 0.04,
                                     width: width * 0.5,
                                     child: DropdownButton<DepList>(
                                         isExpanded: true,
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                           color: Color.fromARGB(255, 6, 47, 80),
                                         ),
                                         value: _selectedsessionItem1!,
@@ -419,12 +419,12 @@ class _ApplyLeaveState extends State<ApplyLeave> {
                                     borderRadius: BorderRadius.circular(15)),
                                 child: Padding(
                                   padding: const EdgeInsets.all(8.0),
-                                  child: Container(
+                                  child: SizedBox(
                                     height: height * 0.04,
                                     width: width * 0.5,
                                     child: DropdownButton<DepList>(
                                         isExpanded: true,
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                           color: Color.fromARGB(255, 6, 47, 80),
                                         ),
                                         value: _selectedreasonItem1!,
@@ -449,11 +449,11 @@ class _ApplyLeaveState extends State<ApplyLeave> {
                                     color: Colors.white),
                                 child: TextFormField(
                                   keyboardType: TextInputType.text,
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                     color: Color.fromARGB(255, 6, 47, 80),
                                   ),
                                   controller: leavedurationcontroller,
-                                  decoration: InputDecoration(
+                                  decoration: const InputDecoration(
                                     border: InputBorder.none,
                                     // fillColor: Colors.red,
                                     // filled: true,
@@ -483,13 +483,12 @@ class _ApplyLeaveState extends State<ApplyLeave> {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                      builder: (context) => MyActivity(),
+                                      builder: (context) => const MyActivity(),
                                     ));
-                                var reqId = Uuid();
+                                var reqId = const Uuid();
                                 String id = reqId.v4();
-                                print(widget.modeladmin);
 
-                                var applyId = Uuid();
+                                var applyId = const Uuid();
                                 String aid = applyId.v4();
                                 var now = DateTime.now();
                                 String date =
@@ -510,7 +509,6 @@ class _ApplyLeaveState extends State<ApplyLeave> {
                                   applydate: date,
                                   applystatus: "Approved",
                                 );
-                                print(widget.modeladmin);
 
                                 FirebaseFirestore.instance
                                     .collection("Student-LeaveApplications")
@@ -519,7 +517,7 @@ class _ApplyLeaveState extends State<ApplyLeave> {
                                 MyFlushBar.showSimpleFlushBar(
                                     "Leave Applied successfully",
                                     context,
-                                    Color.fromARGB(255, 6, 47, 80),
+                                    const Color.fromARGB(255, 6, 47, 80),
                                     Colors.white);
                               },
                               child: Container(
@@ -529,7 +527,7 @@ class _ApplyLeaveState extends State<ApplyLeave> {
                                 decoration: BoxDecoration(
                                     color: Colors.white,
                                     borderRadius: BorderRadius.circular(10)),
-                                child: Text(
+                                child: const Text(
                                   "Apply",
                                   style: TextStyle(
                                       color: Color.fromARGB(255, 6, 47, 80),

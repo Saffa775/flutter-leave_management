@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:leave_manegment/ADMIN/ALL-REQUESTS/student-request.dart';
@@ -48,7 +50,7 @@ class _MyAdminState extends State<MyAdmin> {
                           height: height * 0.07,
                           width: width * 0.15,
                           color: const Color.fromARGB(255, 16, 75, 124),
-                          child: Text(
+                          child: const Text(
                             "Dashboard",
                             style: TextStyle(
                                 color: Colors.white,
@@ -56,7 +58,7 @@ class _MyAdminState extends State<MyAdmin> {
                                 fontSize: 14),
                           ),
                         ),
-                        Divider(
+                        const Divider(
                           color: Colors.white,
                           thickness: 2,
                         ),
@@ -64,14 +66,14 @@ class _MyAdminState extends State<MyAdmin> {
                           height: height * 0.071,
                           width: width * 0.15,
                           decoration: BoxDecoration(
-                              color: Color.fromARGB(255, 48, 119, 177),
+                              color: const Color.fromARGB(255, 48, 119, 177),
                               borderRadius: BorderRadius.circular(5)),
                           child: Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
-                                Icon(
+                                const Icon(
                                   Icons.home,
                                   size: 20,
                                   color: Colors.white,
@@ -79,7 +81,7 @@ class _MyAdminState extends State<MyAdmin> {
                                 SizedBox(
                                   width: width * 0.01,
                                 ),
-                                Text(
+                                const Text(
                                   "Dashboard",
                                   style: TextStyle(
                                       color: Colors.white,
@@ -90,7 +92,7 @@ class _MyAdminState extends State<MyAdmin> {
                             ),
                           ),
                         ),
-                        Container(
+                        SizedBox(
                           height: height * 0.071,
                           width: width * 0.15,
                           child: Padding(
@@ -98,14 +100,14 @@ class _MyAdminState extends State<MyAdmin> {
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
-                                Icon(
+                                const Icon(
                                   Icons.home,
                                   color: Colors.white,
                                 ),
                                 SizedBox(
                                   width: width * 0.01,
                                 ),
-                                Text(
+                                const Text(
                                   "All Users",
                                   style: TextStyle(
                                       color: Colors.white,
@@ -116,7 +118,7 @@ class _MyAdminState extends State<MyAdmin> {
                             ),
                           ),
                         ),
-                        Container(
+                        SizedBox(
                           height: height * 0.071,
                           width: width * 0.15,
                           child: Padding(
@@ -124,14 +126,14 @@ class _MyAdminState extends State<MyAdmin> {
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
-                                Icon(
+                                const Icon(
                                   Icons.person,
                                   color: Colors.white,
                                 ),
                                 SizedBox(
                                   width: width * 0.01,
                                 ),
-                                Text(
+                                const Text(
                                   "Leave Requests",
                                   style: TextStyle(
                                       color: Colors.white,
@@ -142,7 +144,7 @@ class _MyAdminState extends State<MyAdmin> {
                             ),
                           ),
                         ),
-                        Container(
+                        SizedBox(
                           height: height * 0.071,
                           width: width * 0.15,
                           child: Padding(
@@ -150,14 +152,14 @@ class _MyAdminState extends State<MyAdmin> {
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
-                                Icon(
+                                const Icon(
                                   Icons.home,
                                   color: Colors.white,
                                 ),
                                 SizedBox(
                                   width: width * 0.01,
                                 ),
-                                Text(
+                                const Text(
                                   "Activity",
                                   style: TextStyle(
                                       color: Colors.white,
@@ -168,7 +170,7 @@ class _MyAdminState extends State<MyAdmin> {
                             ),
                           ),
                         ),
-                        Container(
+                        SizedBox(
                           height: height * 0.071,
                           width: width * 0.15,
                           child: Padding(
@@ -176,14 +178,14 @@ class _MyAdminState extends State<MyAdmin> {
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
-                                Icon(
+                                const Icon(
                                   Icons.home,
                                   color: Colors.white,
                                 ),
                                 SizedBox(
                                   width: width * 0.01,
                                 ),
-                                Text(
+                                const Text(
                                   "History",
                                   style: TextStyle(
                                       color: Colors.white,
@@ -194,7 +196,7 @@ class _MyAdminState extends State<MyAdmin> {
                             ),
                           ),
                         ),
-                        Container(
+                        SizedBox(
                           height: height * 0.071,
                           width: width * 0.15,
                           child: Padding(
@@ -202,14 +204,14 @@ class _MyAdminState extends State<MyAdmin> {
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
-                                Icon(
+                                const Icon(
                                   Icons.home,
                                   color: Colors.white,
                                 ),
                                 SizedBox(
                                   width: width * 0.01,
                                 ),
-                                Text(
+                                const Text(
                                   "Logout",
                                   style: TextStyle(
                                       color: Colors.white,
@@ -224,7 +226,7 @@ class _MyAdminState extends State<MyAdmin> {
                           height: height * 0.2,
                           width: width * 0.15,
                           decoration: BoxDecoration(
-                              color: Color.fromARGB(255, 48, 119, 177),
+                              color: const Color.fromARGB(255, 48, 119, 177),
                               borderRadius: BorderRadius.circular(5)),
                         )
                       ],
@@ -242,7 +244,7 @@ class _MyAdminState extends State<MyAdmin> {
                         height: height * 0.1,
                         width: width * 0.9,
                         decoration: BoxDecoration(
-                            color: Color.fromARGB(255, 78, 154, 216),
+                            color: const Color.fromARGB(255, 78, 154, 216),
                             borderRadius: BorderRadius.circular(5)),
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
@@ -257,7 +259,7 @@ class _MyAdminState extends State<MyAdmin> {
                                     color:
                                         const Color.fromARGB(255, 16, 75, 124),
                                     borderRadius: BorderRadius.circular(5)),
-                                child: Text(
+                                child: const Text(
                                   "Leave Management System",
                                   style: TextStyle(
                                       color: Colors.white,
@@ -273,7 +275,7 @@ class _MyAdminState extends State<MyAdmin> {
                                     color:
                                         const Color.fromARGB(255, 16, 75, 124),
                                     borderRadius: BorderRadius.circular(5)),
-                                child: Text(
+                                child: const Text(
                                   "Logout",
                                   style: TextStyle(
                                       color: Colors.white,
@@ -285,7 +287,7 @@ class _MyAdminState extends State<MyAdmin> {
                           ),
                         ),
                       ),
-                      Container(
+                      SizedBox(
                         height: height * 0.4,
                         width: width,
                         // color: Color.fromARGB(255, 78, 154, 216),/////////1st line
@@ -302,13 +304,13 @@ class _MyAdminState extends State<MyAdmin> {
                                 //   color: const Color.fromARGB(255, 16, 75, 124),
                                 // )
                               ),
-                              child: Container(
+                              child: SizedBox(
                                 height: height * 0.38,
                                 width: width * 0.4,
                                 child: CarouselSlider(
 
                                     //slider ingredients here//
-                                    items: [
+                                    items: const [
                                       Firstslider(),
                                       SecondSlider(),
                                       ThirdSlider(),
@@ -334,7 +336,7 @@ class _MyAdminState extends State<MyAdmin> {
                                     )),
                               ),
                             ),
-                            Container(
+                            SizedBox(
                               height: height * 0.4,
                               width: width * 0.4,
                               // color: Colors.red,
@@ -350,10 +352,10 @@ class _MyAdminState extends State<MyAdmin> {
                                         // color: const Color.fromARGB(
                                         //     255, 16, 75, 124),
                                         borderRadius: BorderRadius.circular(5)),
-                                    child: Text(
+                                    child: const Text(
                                       "All Requests",
                                       style: TextStyle(
-                                          color: const Color.fromARGB(
+                                          color: Color.fromARGB(
                                               255, 16, 75, 124),
                                           fontWeight: FontWeight.bold,
                                           fontSize: 14),
@@ -380,7 +382,7 @@ class _MyAdminState extends State<MyAdmin> {
                                                 context,
                                                 MaterialPageRoute(
                                                   builder: (context) =>
-                                                     StudentLeaveRequest()
+                                                     const StudentLeaveRequest()
                                                 ));
                                           },
                                           child: Column(
@@ -392,7 +394,7 @@ class _MyAdminState extends State<MyAdmin> {
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             10),
-                                                    image: DecorationImage(
+                                                    image: const DecorationImage(
                                                         image: AssetImage(
                                                             "images/adminstudent.jpeg"),
                                                         fit: BoxFit.contain)),
@@ -401,9 +403,9 @@ class _MyAdminState extends State<MyAdmin> {
                                                 child: Container(
                                                   alignment: Alignment.center,
                                                   width: width * 0.2,
-                                                  decoration: BoxDecoration(
+                                                  decoration: const BoxDecoration(
                                                       color:
-                                                          const Color.fromARGB(
+                                                          Color.fromARGB(
                                                               255,
                                                               16,
                                                               75,
@@ -416,7 +418,7 @@ class _MyAdminState extends State<MyAdmin> {
                                                                   Radius
                                                                       .circular(
                                                                           10))),
-                                                  child: Text(
+                                                  child: const Text(
                                                     "Student",
                                                     style: TextStyle(
                                                         color: Colors.white,
@@ -449,7 +451,7 @@ class _MyAdminState extends State<MyAdmin> {
                                                   context,
                                                   MaterialPageRoute(
                                                     builder: (context) =>
-                                                        TeacherLeaveRequest(),
+                                                        const TeacherLeaveRequest(),
                                                   ));
                                             },
                                             child: Column(
@@ -461,7 +463,7 @@ class _MyAdminState extends State<MyAdmin> {
                                                       borderRadius:
                                                           BorderRadius.circular(
                                                               10),
-                                                      image: DecorationImage(
+                                                      image: const DecorationImage(
                                                           image: AssetImage(
                                                               "images/aminteacher.jpeg"),
                                                           fit: BoxFit.contain)),
@@ -470,9 +472,9 @@ class _MyAdminState extends State<MyAdmin> {
                                                   child: Container(
                                                     alignment: Alignment.center,
                                                     width: width * 0.2,
-                                                    decoration: BoxDecoration(
+                                                    decoration: const BoxDecoration(
                                                         color:
-                                                            const Color
+                                                            Color
                                                                 .fromARGB(255,
                                                                 16, 75, 124),
                                                         borderRadius:
@@ -483,7 +485,7 @@ class _MyAdminState extends State<MyAdmin> {
                                                                 bottomRight: Radius
                                                                     .circular(
                                                                         10))),
-                                                    child: Text(
+                                                    child: const Text(
                                                       "Teacher",
                                                       style: TextStyle(
                                                           color: Colors.white,
@@ -506,7 +508,7 @@ class _MyAdminState extends State<MyAdmin> {
                           ],
                         ),
                       ),
-                      Container(
+                      SizedBox(
                         height: height * 0.45,
                         width: width,
                         // color: Color.fromARGB(255, 78, 154, 216),
@@ -542,7 +544,7 @@ class _MyAdminState extends State<MyAdmin> {
                                                 255, 16, 75, 124),
                                             borderRadius:
                                                 BorderRadius.circular(5)),
-                                        child: Text(
+                                        child: const Text(
                                           "All Users",
                                           style: TextStyle(
                                               color: Colors.white,
@@ -555,7 +557,7 @@ class _MyAdminState extends State<MyAdmin> {
                                       decoration: BoxDecoration(
                                           borderRadius:
                                               BorderRadius.circular(10),
-                                          image: DecorationImage(
+                                          image: const DecorationImage(
                                               image: AssetImage(
                                                   "images/adminstudent.jpeg"),
                                               fit: BoxFit.contain)),
@@ -582,7 +584,7 @@ class _MyAdminState extends State<MyAdmin> {
                                                     context,
                                                     MaterialPageRoute(
                                                       builder: (context) =>
-                                                          StudentUser(),
+                                                          const StudentUser(),
                                                     ));
                                               },
                                               child: Container(
@@ -595,7 +597,7 @@ class _MyAdminState extends State<MyAdmin> {
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             5)),
-                                                child: Text(
+                                                child: const Text(
                                                   "Students",
                                                   style: TextStyle(
                                                       color: Colors.white,
@@ -611,7 +613,7 @@ class _MyAdminState extends State<MyAdmin> {
                                                     context,
                                                     MaterialPageRoute(
                                                       builder: (context) =>
-                                                          TeacherUser(),
+                                                          const TeacherUser(),
                                                     ));
                                               },
                                               child: Container(
@@ -624,7 +626,7 @@ class _MyAdminState extends State<MyAdmin> {
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             5)),
-                                                child: Text(
+                                                child: const Text(
                                                   "Teachers",
                                                   style: TextStyle(
                                                       color: Colors.white,
@@ -671,7 +673,7 @@ class _MyAdminState extends State<MyAdmin> {
                                                 255, 16, 75, 124),
                                             borderRadius:
                                                 BorderRadius.circular(5)),
-                                        child: Text(
+                                        child: const Text(
                                           "History",
                                           style: TextStyle(
                                               color: Colors.white,
@@ -684,7 +686,7 @@ class _MyAdminState extends State<MyAdmin> {
                                       decoration: BoxDecoration(
                                           borderRadius:
                                               BorderRadius.circular(10),
-                                          image: DecorationImage(
+                                          image: const DecorationImage(
                                               image: AssetImage(
                                                   "images/adminhistory.jpeg"),
                                               fit: BoxFit.contain)),
@@ -710,7 +712,7 @@ class _MyAdminState extends State<MyAdmin> {
                                                     context,
                                                     MaterialPageRoute(
                                                       builder: (context) =>
-                                                          StudentLeaveHistory(),
+                                                          const StudentLeaveHistory(),
                                                     ));
                                               },
                                               child: Container(
@@ -723,7 +725,7 @@ class _MyAdminState extends State<MyAdmin> {
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             5)),
-                                                child: Text(
+                                                child: const Text(
                                                   "Students",
                                                   style: TextStyle(
                                                       color: Colors.white,
@@ -739,7 +741,7 @@ class _MyAdminState extends State<MyAdmin> {
                                                     context,
                                                     MaterialPageRoute(
                                                       builder: (context) =>
-                                                          TeacherLeaveHistory(),
+                                                          const TeacherLeaveHistory(),
                                                     ));
                                               },
                                               child: Container(
@@ -752,7 +754,7 @@ class _MyAdminState extends State<MyAdmin> {
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             5)),
-                                                child: Text(
+                                                child: const Text(
                                                   "Teachers",
                                                   style: TextStyle(
                                                       color: Colors.white,
@@ -799,7 +801,7 @@ class _MyAdminState extends State<MyAdmin> {
                                                 255, 16, 75, 124),
                                             borderRadius:
                                                 BorderRadius.circular(5)),
-                                        child: Text(
+                                        child: const Text(
                                           "All Activity",
                                           style: TextStyle(
                                               color: Colors.white,
@@ -812,7 +814,7 @@ class _MyAdminState extends State<MyAdmin> {
                                       decoration: BoxDecoration(
                                           borderRadius:
                                               BorderRadius.circular(10),
-                                          image: DecorationImage(
+                                          image: const DecorationImage(
                                               image: AssetImage(
                                                   "images/adminactivity.jpeg"),
                                               fit: BoxFit.contain)),
@@ -841,7 +843,7 @@ class _MyAdminState extends State<MyAdmin> {
                                                       255, 16, 75, 124),
                                                   borderRadius:
                                                       BorderRadius.circular(5)),
-                                              child: Text(
+                                              child: const Text(
                                                 "Students",
                                                 style: TextStyle(
                                                     color: Colors.white,
@@ -859,7 +861,7 @@ class _MyAdminState extends State<MyAdmin> {
                                                       255, 16, 75, 124),
                                                   borderRadius:
                                                       BorderRadius.circular(5)),
-                                              child: Text(
+                                              child: const Text(
                                                 "Teachers",
                                                 style: TextStyle(
                                                     color: Colors.white,

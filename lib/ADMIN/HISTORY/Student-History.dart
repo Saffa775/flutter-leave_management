@@ -22,9 +22,7 @@ class _StudentLeaveHistoryState extends State<StudentLeaveHistory> {
           StudentApplyModel.fromMap(data.data() as Map<String, dynamic>);
       setState(() {
         allapplication.add(modelapply);
-        print("length of  applications");
-
-        print(allapplication.length);
+      
       });
     }
   }
@@ -54,13 +52,13 @@ class _StudentLeaveHistoryState extends State<StudentLeaveHistory> {
                   height: height * 0.25,
                   width: width*0.6,
                   decoration: BoxDecoration(
-                    color: Color.fromARGB(255, 6, 47, 80),
+                    color: const Color.fromARGB(255, 6, 47, 80),
                     borderRadius: BorderRadius.circular(25),
                   ),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Container(
+                      SizedBox(
                         height: height * 0.12,
                         width: width*0.6,
                         // color: Colors.red,
@@ -73,7 +71,7 @@ class _StudentLeaveHistoryState extends State<StudentLeaveHistory> {
                                  onTap: () {
                                   Navigator.pop(context);
                                 },
-                                child: Icon(
+                                child: const Icon(
                                   Icons.arrow_back,
                                   size: 30,
                                   color: Colors.white,
@@ -82,7 +80,7 @@ class _StudentLeaveHistoryState extends State<StudentLeaveHistory> {
                               Container(
                                 height: height * 0.1,
                                 width: width * 0.2,
-                                decoration: BoxDecoration(
+                                decoration: const BoxDecoration(
                                     color: Colors.white,
                                     shape: BoxShape.circle),
                               )
@@ -94,7 +92,7 @@ class _StudentLeaveHistoryState extends State<StudentLeaveHistory> {
                         alignment: Alignment.topCenter,
                         height: height * 0.12,
                         width: width * 0.7,
-                        child: Text(
+                        child: const Text(
                           "Student History",
                           style: TextStyle(
                               color: Colors.white,
@@ -108,7 +106,7 @@ class _StudentLeaveHistoryState extends State<StudentLeaveHistory> {
                 Container(
                   height: height * 0.7,
                  width: width*0.6,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                       color: Color.fromARGB(255, 6, 47, 80),
                       borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(25),
@@ -136,17 +134,17 @@ class _StudentLeaveHistoryState extends State<StudentLeaveHistory> {
                                         color: Colors.blue,
                                         borderRadius: BorderRadius.circular(5)),
                                     child: Center(
-                                      child: Container(
+                                      child: SizedBox(
                                         height: height * 0.05,
                                         width: width * 0.5,
-                                        child: Container(
+                                        child: SizedBox(
                                           height: height * 0.05,
                                           width: width * 0.4,
                                           child: Padding(
                                             padding: const EdgeInsets.all(8.0),
                                             child: Row(
                                               children: [
-                                                Text(
+                                                const Text(
                                                   "Departement of ",
                                                   style: TextStyle(
                                                       color: Color.fromARGB(
@@ -158,7 +156,7 @@ class _StudentLeaveHistoryState extends State<StudentLeaveHistory> {
                                                 Text(
                                                   allapplication[index]
                                                       .studentdept!,
-                                                  style: TextStyle(
+                                                  style: const TextStyle(
                                                       fontSize: 12,
                                                       fontWeight: FontWeight.bold,
                                                       color: Color.fromARGB(
@@ -171,7 +169,7 @@ class _StudentLeaveHistoryState extends State<StudentLeaveHistory> {
                                       ),
                                     ),
                                   ),
-                                  Container(
+                                  SizedBox(
                                     height: height * 0.05,
                                     width: width * 0.65,
                                     // color: Colors.amber,
@@ -183,7 +181,7 @@ class _StudentLeaveHistoryState extends State<StudentLeaveHistory> {
                                           alignment: Alignment.centerLeft,
                                           height: height * 0.05,
                                           width: width * 0.2,
-                                          child: Text(
+                                          child: const Text(
                                             "Name:",
                                             style: TextStyle(
                                                 color: Colors.blue,
@@ -197,7 +195,7 @@ class _StudentLeaveHistoryState extends State<StudentLeaveHistory> {
                                           width: width * 0.3,
                                           child: Text(
                                             allapplication[index].studentname!,
-                                            style: TextStyle(
+                                            style: const TextStyle(
                                                 fontSize: 12,
                                                 fontWeight: FontWeight.bold,
                                                 color: Color.fromARGB(
@@ -209,7 +207,7 @@ class _StudentLeaveHistoryState extends State<StudentLeaveHistory> {
                                       ],
                                     ),
                                   ),
-                                    Container(
+                                    SizedBox(
                                     height: height * 0.05,
                                     width: width * 0.65,
                                     // color: Colors.amber,
@@ -221,7 +219,7 @@ class _StudentLeaveHistoryState extends State<StudentLeaveHistory> {
                                           alignment: Alignment.centerLeft,
                                           height: height * 0.05,
                                           width: width * 0.2,
-                                          child: Text(
+                                          child: const Text(
                                             "Roll Number:",
                                             style: TextStyle(
                                                 color: Colors.blue,
@@ -235,7 +233,7 @@ class _StudentLeaveHistoryState extends State<StudentLeaveHistory> {
                                           width: width * 0.3,
                                           child: Text(
                                             allapplication[index].studentrollnumber!,
-                                            style: TextStyle(
+                                            style: const TextStyle(
                                                 fontSize: 12,
                                                 fontWeight: FontWeight.bold,
                                                 color: Color.fromARGB(
@@ -245,7 +243,7 @@ class _StudentLeaveHistoryState extends State<StudentLeaveHistory> {
                                       ],
                                     ),
                                   ),
-                                  Container(
+                                  SizedBox(
                                     height: height * 0.05,
                                     width: width * 0.65,
                                     // color: Colors.amber,
@@ -257,7 +255,7 @@ class _StudentLeaveHistoryState extends State<StudentLeaveHistory> {
                                           alignment: Alignment.centerLeft,
                                           height: height * 0.05,
                                           width: width * 0.2,
-                                          child: Text(
+                                          child: const Text(
                                             "Semester:",
                                             style: TextStyle(
                                                 color: Colors.blue,
@@ -271,7 +269,7 @@ class _StudentLeaveHistoryState extends State<StudentLeaveHistory> {
                                           width: width * 0.3,
                                           child: Text(
                                             allapplication[index].studentsemester!,
-                                            style: TextStyle(
+                                            style: const TextStyle(
                                                 fontSize: 12,
                                                 fontWeight: FontWeight.bold,
                                                 color: Color.fromARGB(
@@ -281,7 +279,7 @@ class _StudentLeaveHistoryState extends State<StudentLeaveHistory> {
                                       ],
                                     ),
                                   ),
-                                    Container(
+                                    SizedBox(
                                     height: height * 0.05,
                                     width: width * 0.65,
                                     // color: Colors.amber,
@@ -293,7 +291,7 @@ class _StudentLeaveHistoryState extends State<StudentLeaveHistory> {
                                           alignment: Alignment.centerLeft,
                                           height: height * 0.05,
                                           width: width * 0.2,
-                                          child: Text(
+                                          child: const Text(
                                             "Session:",
                                             style: TextStyle(
                                                 color: Colors.blue,
@@ -307,7 +305,7 @@ class _StudentLeaveHistoryState extends State<StudentLeaveHistory> {
                                           width: width * 0.3,
                                           child: Text(
                                             allapplication[index].studentsession!,
-                                            style: TextStyle(
+                                            style: const TextStyle(
                                                 fontSize: 12,
                                                 fontWeight: FontWeight.bold,
                                                 color: Color.fromARGB(
@@ -317,7 +315,7 @@ class _StudentLeaveHistoryState extends State<StudentLeaveHistory> {
                                       ],
                                     ),
                                   ),
-                                    Container(
+                                    SizedBox(
                                     height: height * 0.05,
                                     width: width * 0.65,
                                     // color: Colors.amber,
@@ -329,7 +327,7 @@ class _StudentLeaveHistoryState extends State<StudentLeaveHistory> {
                                           alignment: Alignment.centerLeft,
                                           height: height * 0.05,
                                           width: width * 0.2,
-                                          child: Text(
+                                          child: const Text(
                                             "Leave Status:",
                                             style: TextStyle(
                                                 color: Colors.blue,
@@ -343,7 +341,7 @@ class _StudentLeaveHistoryState extends State<StudentLeaveHistory> {
                                           width: width * 0.3,
                                           child: Text(
                                             allapplication[index].studentleavestatus!,
-                                            style: TextStyle(
+                                            style: const TextStyle(
                                                 fontSize: 12,
                                                 fontWeight: FontWeight.bold,
                                                 color: Color.fromARGB(
@@ -353,7 +351,7 @@ class _StudentLeaveHistoryState extends State<StudentLeaveHistory> {
                                       ],
                                     ),
                                   ),
-                                    Container(
+                                    SizedBox(
                                     height: height * 0.05,
                                     width: width * 0.65,
                                     // color: Colors.amber,
@@ -365,7 +363,7 @@ class _StudentLeaveHistoryState extends State<StudentLeaveHistory> {
                                           alignment: Alignment.centerLeft,
                                           height: height * 0.05,
                                           width: width * 0.2,
-                                          child: Text(
+                                          child: const Text(
                                             " Leave Duration:",
                                             style: TextStyle(
                                                 color: Colors.blue,
@@ -379,7 +377,7 @@ class _StudentLeaveHistoryState extends State<StudentLeaveHistory> {
                                           width: width * 0.3,
                                           child: Text(
                                             allapplication[index].studentleaveduration!,
-                                            style: TextStyle(
+                                            style: const TextStyle(
                                                 fontSize: 12,
                                                 fontWeight: FontWeight.bold,
                                                 color: Color.fromARGB(
@@ -396,17 +394,17 @@ class _StudentLeaveHistoryState extends State<StudentLeaveHistory> {
                                         color: Colors.blue,
                                         borderRadius: BorderRadius.circular(5)),
                                     child: Center(
-                                      child: Container(
+                                      child: SizedBox(
                                         height: height * 0.05,
                                         width: width * 0.5,
-                                        child: Container(
+                                        child: SizedBox(
                                           height: height * 0.05,
                                           width: width * 0.4,
                                           child: Padding(
                                             padding: const EdgeInsets.all(8.0),
                                             child: Row(
                                               children: [
-                                                Text(
+                                                const Text(
                                                   "Applied Date : ",
                                                   style: TextStyle(
                                                       color: Color.fromARGB(
@@ -417,7 +415,7 @@ class _StudentLeaveHistoryState extends State<StudentLeaveHistory> {
                                                 ),
                                                 Text(
                                                 allapplication[index].applydate!,
-                                                  style: TextStyle(
+                                                  style: const TextStyle(
                                                       fontSize: 12,
                                                       fontWeight: FontWeight.bold,
                                                      color: Colors.white),

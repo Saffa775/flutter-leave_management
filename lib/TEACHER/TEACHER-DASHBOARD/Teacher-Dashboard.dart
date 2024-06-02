@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 import 'package:leave_manegment/MODELS/AdminModel.dart';
 import 'package:leave_manegment/PAINTERS/Lower-Painter-Dashboard.dart';
@@ -36,7 +38,7 @@ class _TeacherDashboardState extends State<TeacherDashboard> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    Container(
+                    SizedBox(
                       height: height * 0.06,
                       width: width,
                       // color: Colors.amber,
@@ -49,13 +51,13 @@ class _TeacherDashboardState extends State<TeacherDashboard> {
                               onTap: () {
                                 Navigator.pop(context);
                               },
-                              child: Icon(
+                              child: const Icon(
                                 Icons.arrow_back,
                                 size: 30,
                                 color: Color.fromARGB(255, 6, 47, 80),
                               ),
                             ),
-                            Icon(Icons.more_vert,
+                            const Icon(Icons.more_vert,
                                 size: 30,
                                 color: Color.fromARGB(
                                   255,
@@ -72,7 +74,7 @@ class _TeacherDashboardState extends State<TeacherDashboard> {
                       height: height * 0.06,
                       width: width,
                       // color: Colors.amber,
-                      child: Text(
+                      child: const Text(
                         "Welcome to Dashboard",
                         style: TextStyle(
                             color: Color.fromARGB(
@@ -85,7 +87,7 @@ class _TeacherDashboardState extends State<TeacherDashboard> {
                             fontSize: 25),
                       ),
                     ),
-                    Container(
+                    SizedBox(
                       height: height * 0.15,
                       width: width,
                       // color: Colors.amber,
@@ -97,15 +99,15 @@ class _TeacherDashboardState extends State<TeacherDashboard> {
                             height: height * 0.1,
                             width: width * 0.25,
                             decoration: BoxDecoration(
-                                color: Color.fromARGB(
+                                color: const Color.fromARGB(
                                   255,
                                   6,
                                   47,
                                   80,
                                 ),
                                 borderRadius: BorderRadius.circular(10)),
-                            child: Padding(
-                              padding: const EdgeInsets.all(8.0),
+                            child: const Padding(
+                              padding: EdgeInsets.all(8.0),
                               child: Column(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceAround,
@@ -132,15 +134,15 @@ class _TeacherDashboardState extends State<TeacherDashboard> {
                             height: height * 0.1,
                             width: width * 0.25,
                             decoration: BoxDecoration(
-                                color: Color.fromARGB(
+                                color: const Color.fromARGB(
                                   255,
                                   6,
                                   47,
                                   80,
                                 ),
                                 borderRadius: BorderRadius.circular(10)),
-                            child: Padding(
-                              padding: const EdgeInsets.all(8.0),
+                            child: const Padding(
+                              padding: EdgeInsets.all(8.0),
                               child: Column(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceAround,
@@ -167,15 +169,15 @@ class _TeacherDashboardState extends State<TeacherDashboard> {
                             height: height * 0.1,
                             width: width * 0.25,
                             decoration: BoxDecoration(
-                                color: Color.fromARGB(
+                                color: const Color.fromARGB(
                                   255,
                                   6,
                                   47,
                                   80,
                                 ),
                                 borderRadius: BorderRadius.circular(10)),
-                            child: Padding(
-                              padding: const EdgeInsets.all(8.0),
+                            child: const Padding(
+                              padding: EdgeInsets.all(8.0),
                               child: Column(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceAround,
@@ -212,7 +214,7 @@ class _TeacherDashboardState extends State<TeacherDashboard> {
                     width: width,
                     decoration: BoxDecoration(
                         color: Colors.grey[300],
-                        borderRadius: BorderRadius.only(
+                        borderRadius: const BorderRadius.only(
                             topLeft: Radius.circular(30),
                             topRight: Radius.circular(30))),
                     child: Container(
@@ -248,7 +250,7 @@ class _TeacherDashboardState extends State<TeacherDashboard> {
                             Container(
                               height: height * 0.15,
                               width: width * 0.4,
-                              decoration: BoxDecoration(
+                              decoration: const BoxDecoration(
                                   color: Colors.white,
                                   borderRadius: BorderRadius.only(
                                       topLeft: Radius.circular(20),
@@ -262,7 +264,7 @@ class _TeacherDashboardState extends State<TeacherDashboard> {
                               alignment: Alignment.center,
                               height: height * 0.04,
                               width: width * 0.5,
-                              child: Text(
+                              child: const Text(
                                 "Apply for leave",
                                 style: TextStyle(
                                     color: Color.fromARGB(255, 6, 47, 80),
@@ -290,7 +292,7 @@ class _TeacherDashboardState extends State<TeacherDashboard> {
                           Container(
                             height: height * 0.15,
                             width: width * 0.4,
-                            decoration: BoxDecoration(
+                            decoration: const BoxDecoration(
                                 color: Colors.white,
                                 borderRadius: BorderRadius.only(
                                     topLeft: Radius.circular(20),
@@ -304,7 +306,7 @@ class _TeacherDashboardState extends State<TeacherDashboard> {
                             alignment: Alignment.center,
                             height: height * 0.04,
                             width: width * 0.5,
-                            child: Text(
+                            child: const Text(
                               "Your activity",
                               style: TextStyle(
                                   color: Color.fromARGB(255, 6, 47, 80),
@@ -333,13 +335,13 @@ class _TeacherDashboardState extends State<TeacherDashboard> {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => TeacherApplyHistory()
+                                    builder: (context) => const TeacherApplyHistory()
                                   ));
                             },
                             child: Container(
                               height: height * 0.15,
                               width: width * 0.4,
-                              decoration: BoxDecoration(
+                              decoration: const BoxDecoration(
                                   color: Colors.white,
                                   borderRadius: BorderRadius.only(
                                       topLeft: Radius.circular(20),
@@ -354,7 +356,7 @@ class _TeacherDashboardState extends State<TeacherDashboard> {
                             alignment: Alignment.center,
                             height: height * 0.04,
                             width: width * 0.5,
-                            child: Text(
+                            child: const Text(
                               "Leave history",
                               style: TextStyle(
                                   color: Color.fromARGB(255, 6, 47, 80),
@@ -381,7 +383,7 @@ class _TeacherDashboardState extends State<TeacherDashboard> {
                           Container(
                             height: height * 0.15,
                             width: width * 0.4,
-                            decoration: BoxDecoration(
+                            decoration: const BoxDecoration(
                                 color: Colors.white,
                                 borderRadius: BorderRadius.only(
                                     topLeft: Radius.circular(20),
@@ -395,7 +397,7 @@ class _TeacherDashboardState extends State<TeacherDashboard> {
                             alignment: Alignment.center,
                             height: height * 0.04,
                             width: width * 0.5,
-                            child: Text(
+                            child: const Text(
                               "Eligibility",
                               style: TextStyle(
                                   color: Color.fromARGB(255, 6, 47, 80),

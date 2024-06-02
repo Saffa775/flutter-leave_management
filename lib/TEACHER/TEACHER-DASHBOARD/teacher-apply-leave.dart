@@ -1,3 +1,5 @@
+// ignore_for_file: annotate_overrides, prefer_typing_uninitialized_variables, non_constant_identifier_names, file_names
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:leave_manegment/OTHER/Flush.dart';
@@ -32,14 +34,12 @@ class _TeacherApplyLeaveState extends State<TeacherApplyLeave> {
     _dropdownMenuItems = buildDropDownMenuItems(
       _dropdownItems,
     );
-    print(_dropdownItems.length);
     _selectedItem1 = _dropdownMenuItems![0].value!;
 
     ///////////////////reason//////////////
     _reasondropdownMenuItems = buildreasonDropDownMenuItems(
       _reasondropdownItems,
     );
-    print(_dropdownItems.length);
     _selectedreasonItem1 = _reasondropdownMenuItems![0].value!;
     super.initState();
   }
@@ -49,7 +49,7 @@ class _TeacherApplyLeaveState extends State<TeacherApplyLeave> {
   final departmentcontroller = TextEditingController();
   final leavestatuscontroller = TextEditingController();
   final leavedurationcontroller = TextEditingController();
-  List<DepList> _dropdownItems = [
+  final List<DepList> _dropdownItems = [
     ///////////departement
     DepList(1, "software engineering"),
     DepList(2, "artificial intelligence"),
@@ -57,7 +57,7 @@ class _TeacherApplyLeaveState extends State<TeacherApplyLeave> {
     DepList(4, "information tecgnology")
   ];
 
-  List<DepList> _reasondropdownItems = [
+  final List<DepList> _reasondropdownItems = [
     ///////reason/leave-status
     DepList(1, "Sick leave"),
     DepList(2, "Casual Leave"),
@@ -76,8 +76,8 @@ class _TeacherApplyLeaveState extends State<TeacherApplyLeave> {
     for (DepList listItem in listItems) {
       items.add(
         DropdownMenuItem(
-          child: Text(listItem.name),
           value: listItem,
+          child: Text(listItem.name),
         ),
       );
     }
@@ -89,8 +89,8 @@ class _TeacherApplyLeaveState extends State<TeacherApplyLeave> {
     for (DepList listItem in listItems) {
       items.add(
         DropdownMenuItem(
-          child: Text(listItem.name),
           value: listItem,
+          child: Text(listItem.name),
         ),
       );
     }
@@ -121,13 +121,13 @@ class _TeacherApplyLeaveState extends State<TeacherApplyLeave> {
                   height: height * 0.2,
                   width: width,
                   decoration: BoxDecoration(
-                      color: Color.fromARGB(255, 6, 47, 80),
+                      color: const Color.fromARGB(255, 6, 47, 80),
                       borderRadius: BorderRadius.circular(30)),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
+                      const Padding(
+                        padding: EdgeInsets.all(8.0),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -149,7 +149,7 @@ class _TeacherApplyLeaveState extends State<TeacherApplyLeave> {
                         height: height * 0.12,
                         width: width * 0.4,
                         // color: Colors.amber,
-                        child: Text(
+                        child: const Text(
                           "Add Details",
                           style: TextStyle(
                               color: Colors.white,
@@ -163,7 +163,7 @@ class _TeacherApplyLeaveState extends State<TeacherApplyLeave> {
                 Container(
                   height: height * 0.73,
                   width: width,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                       color: Color.fromARGB(255, 6, 47, 80),
                       borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(30),
@@ -195,11 +195,11 @@ class _TeacherApplyLeaveState extends State<TeacherApplyLeave> {
                                     color: Colors.white),
                                 child: TextFormField(
                                   keyboardType: TextInputType.text,
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                     color: Color.fromARGB(255, 6, 47, 80),
                                   ),
                                   controller: fullnamecontroller,
-                                  decoration: InputDecoration(
+                                  decoration: const InputDecoration(
                                     border: InputBorder.none,
                                     // fillColor: Colors.red,
                                     // filled: true,
@@ -237,11 +237,11 @@ class _TeacherApplyLeaveState extends State<TeacherApplyLeave> {
                                     color: Colors.white),
                                 child: TextFormField(
                                   keyboardType: TextInputType.text,
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                     color: Color.fromARGB(255, 6, 47, 80),
                                   ),
                                   controller: CNICcontroller,
-                                  decoration: InputDecoration(
+                                  decoration: const InputDecoration(
                                     border: InputBorder.none,
                                     // fillColor: Colors.red,
                                     // filled: true,
@@ -275,12 +275,12 @@ class _TeacherApplyLeaveState extends State<TeacherApplyLeave> {
                                     borderRadius: BorderRadius.circular(15)),
                                 child: Padding(
                                   padding: const EdgeInsets.all(8.0),
-                                  child: Container(
+                                  child: SizedBox(
                                     height: height * 0.04,
                                     width: width * 0.5,
                                     child: DropdownButton<DepList>(
                                         isExpanded: true,
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                           color: Color.fromARGB(255, 6, 47, 80),
                                         ),
                                         value: _selectedItem1!,
@@ -301,12 +301,12 @@ class _TeacherApplyLeaveState extends State<TeacherApplyLeave> {
                                     borderRadius: BorderRadius.circular(15)),
                                 child: Padding(
                                   padding: const EdgeInsets.all(8.0),
-                                  child: Container(
+                                  child: SizedBox(
                                     height: height * 0.04,
                                     width: width * 0.5,
                                     child: DropdownButton<DepList>(
                                         isExpanded: true,
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                           color: Color.fromARGB(255, 6, 47, 80),
                                         ),
                                         value: _selectedreasonItem1!,
@@ -331,11 +331,11 @@ class _TeacherApplyLeaveState extends State<TeacherApplyLeave> {
                                     color: Colors.white),
                                 child: TextFormField(
                                   keyboardType: TextInputType.text,
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                     color: Color.fromARGB(255, 6, 47, 80),
                                   ),
                                   controller: leavedurationcontroller,
-                                  decoration: InputDecoration(
+                                  decoration: const InputDecoration(
                                     border: InputBorder.none,
                                     // fillColor: Colors.red,
                                     // filled: true,
@@ -365,13 +365,12 @@ class _TeacherApplyLeaveState extends State<TeacherApplyLeave> {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                      builder: (context) => TeacherActivity(),
+                                      builder: (context) => const TeacherActivity(),
                                     ));
-                                var reqId = Uuid();
+                                var reqId = const Uuid();
                                 String id = reqId.v4();
-                                print(widget.modeladmin);
 
-                                var teacherapplyId = Uuid();
+                                var teacherapplyId = const Uuid();
                                 String tid = teacherapplyId.v4();
                                 var now = DateTime.now();
                                 String date =
@@ -390,7 +389,6 @@ class _TeacherApplyLeaveState extends State<TeacherApplyLeave> {
                                   teacherapplydate: date,
                                   applystatus: "Pending",
                                 );
-                                print(widget.modeladmin);
 
                                 FirebaseFirestore.instance
                                     .collection("Teacher-LeaveApplications")
@@ -399,7 +397,7 @@ class _TeacherApplyLeaveState extends State<TeacherApplyLeave> {
                                 MyFlushBar.showSimpleFlushBar(
                                     "Leave Applied successfully",
                                     context,
-                                    Color.fromARGB(255, 6, 47, 80),
+                                    const Color.fromARGB(255, 6, 47, 80),
                                     Colors.white);
                               },
                               child: Container(
@@ -409,7 +407,7 @@ class _TeacherApplyLeaveState extends State<TeacherApplyLeave> {
                                 decoration: BoxDecoration(
                                     color: Colors.white,
                                     borderRadius: BorderRadius.circular(10)),
-                                child: Text(
+                                child: const Text(
                                   "Apply",
                                   style: TextStyle(
                                       color: Color.fromARGB(255, 6, 47, 80),

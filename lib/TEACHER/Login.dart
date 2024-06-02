@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously, non_constant_identifier_names, file_names
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:leave_manegment/MODELS/Teacher-Model.dart';
@@ -29,7 +31,7 @@ class _TeacherLoginState extends State<TeacherLogin> {
             Container(
               height: height,
               width: width,
-              color: Color.fromARGB(255, 6, 47, 80),
+              color: const Color.fromARGB(255, 6, 47, 80),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -38,8 +40,8 @@ class _TeacherLoginState extends State<TeacherLogin> {
                     onTap: () {
                       Navigator.pop(context);
                     },
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
+                    child: const Padding(
+                      padding: EdgeInsets.all(8.0),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -52,11 +54,11 @@ class _TeacherLoginState extends State<TeacherLogin> {
                       ),
                     ),
                   ),
-                  Container(
+                  SizedBox(
                     height: height * 0.09,
                     width: width,
                     // color: Colors.amber,
-                    child: Column(
+                    child: const Column(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         Text(
@@ -79,7 +81,7 @@ class _TeacherLoginState extends State<TeacherLogin> {
                   Container(
                     height: height * 0.6,
                     width: width,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.only(
                             topLeft: Radius.circular(20),
@@ -111,11 +113,11 @@ class _TeacherLoginState extends State<TeacherLogin> {
                                       color: Colors.white),
                                   child: TextFormField(
                                     keyboardType: TextInputType.text,
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                       color: Color.fromARGB(255, 6, 47, 80),
                                     ),
                                     controller: CNICcontroller,
-                                    decoration: InputDecoration(
+                                    decoration: const InputDecoration(
                                       border: InputBorder.none,
                                       // fillColor: Colors.red,
                                       // filled: true,
@@ -153,11 +155,11 @@ class _TeacherLoginState extends State<TeacherLogin> {
                                       color: Colors.white),
                                   child: TextFormField(
                                     keyboardType: TextInputType.text,
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                       color: Color.fromARGB(255, 6, 47, 80),
                                     ),
                                     controller: Passwordcontroller,
-                                    decoration: InputDecoration(
+                                    decoration: const InputDecoration(
                                       border: InputBorder.none,
                                       // fillColor: Colors.red,
                                       // filled: true,
@@ -195,19 +197,16 @@ class _TeacherLoginState extends State<TeacherLogin> {
                                                   Passwordcontroller.text)
                                           .get();
                                   if (Snapshot.docs.isEmpty) {
-                                    print("Invalid cnic or password");
                                   } else {
                                     TeacherModel model = TeacherModel.fromMap(
                                         Snapshot.docs[0].data()
                                             as Map<String, dynamic>);
-                                    print("Login Succesfull");
-                                    print(model.toString());
                                     StaticData.modelt = model;
                                     Navigator.push(
                                         context,
                                         MaterialPageRoute(
                                           builder: (context) =>
-                                              TeacherDashboard(),
+                                              const TeacherDashboard(),
                                         ));
                                   }
                                 },
@@ -216,9 +215,9 @@ class _TeacherLoginState extends State<TeacherLogin> {
                                   height: height * 0.06,
                                   width: width * 0.3,
                                   decoration: BoxDecoration(
-                                      color: Color.fromARGB(255, 6, 47, 80),
+                                      color: const Color.fromARGB(255, 6, 47, 80),
                                       borderRadius: BorderRadius.circular(10)),
-                                  child: Text(
+                                  child: const Text(
                                     "Login",
                                     style: TextStyle(
                                         color: Colors.white,
@@ -230,21 +229,21 @@ class _TeacherLoginState extends State<TeacherLogin> {
                             ],
                           ),
                         ),
-                        Container(
+                        SizedBox(
                             height: height * 0.2,
                             width: width,
                             // color: Colors.amber,
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
-                                Text(
+                                const Text(
                                   "Forgot password?",
                                   style: TextStyle(
                                       color: Color.fromARGB(255, 6, 47, 80),
                                       fontWeight: FontWeight.bold,
                                       fontSize: 14),
                                 ),
-                                Container(
+                                SizedBox(
                                   height: height * 0.04,
                                   width: width * 0.7,
                                   child: Row(
@@ -255,7 +254,7 @@ class _TeacherLoginState extends State<TeacherLogin> {
                                         alignment: Alignment.topRight,
                                         height: height * 0.05,
                                         width: width * 0.5,
-                                        child: Text(
+                                        child: const Text(
                                           "Don't have an account?",
                                           style: TextStyle(
                                               color: Color.fromARGB(
@@ -274,10 +273,10 @@ class _TeacherLoginState extends State<TeacherLogin> {
                                                 context,
                                                 MaterialPageRoute(
                                                   builder: (context) =>
-                                                      TeacherSignUp(),
+                                                      const TeacherSignUp(),
                                                 ));
                                           },
-                                          child: Text(
+                                          child: const Text(
                                             "Sign Up",
                                             style: TextStyle(
                                                 color: Color.fromARGB(
@@ -303,7 +302,7 @@ class _TeacherLoginState extends State<TeacherLogin> {
               child: Container(
                 height: height * 0.1,
                 width: width * 0.2,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                     shape: BoxShape.circle,
                     image: DecorationImage(
                         image: AssetImage("images/signup.jpeg"),

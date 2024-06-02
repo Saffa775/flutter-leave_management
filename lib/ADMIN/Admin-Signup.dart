@@ -1,3 +1,5 @@
+// ignore_for_file: non_constant_identifier_names
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:leave_manegment/ADMIN/Admin-Login.dart';
@@ -25,24 +27,24 @@ class _AdminSignupState extends State<AdminSignup> {
         child: Container(
           height: height,
           width: width,
-          color: Color.fromARGB(255, 6, 47, 80),
+          color: const Color.fromARGB(255, 6, 47, 80),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Padding(
-                padding: const EdgeInsets.all(8.0),
+              const Padding(
+                padding: EdgeInsets.all(8.0),
                 child: Icon(
                   Icons.arrow_back,
                   size: 30,
                   color: Colors.white,
                 ),
               ),
-              Container(
+              SizedBox(
                 height: height * 0.1,
                 width: width,
                 // color: Colors.amber,
-                child: Column(
+                child: const Column(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     Text(
@@ -65,7 +67,7 @@ class _AdminSignupState extends State<AdminSignup> {
               Container(
                 height: height * 0.75,
                 width: width,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(20),
@@ -97,11 +99,11 @@ class _AdminSignupState extends State<AdminSignup> {
                                   color: Colors.white),
                               child: TextFormField(
                                 keyboardType: TextInputType.text,
-                                style: TextStyle(
+                                style: const TextStyle(
                                   color: Color.fromARGB(255, 6, 47, 80),
                                 ),
                                 controller: Fullnamecontroller,
-                                decoration: InputDecoration(
+                                decoration: const InputDecoration(
                                   border: InputBorder.none,
                                   // fillColor: Colors.red,
                                   // filled: true,
@@ -139,11 +141,11 @@ class _AdminSignupState extends State<AdminSignup> {
                                   color: Colors.white),
                               child: TextFormField(
                                 keyboardType: TextInputType.text,
-                                style: TextStyle(
+                                style: const TextStyle(
                                   color: Color.fromARGB(255, 6, 47, 80),
                                 ),
                                 controller: Emailcontroller,
-                                decoration: InputDecoration(
+                                decoration: const InputDecoration(
                                   border: InputBorder.none,
                                   // fillColor: Colors.red,
                                   // filled: true,
@@ -181,11 +183,11 @@ class _AdminSignupState extends State<AdminSignup> {
                                   color: Colors.white),
                               child: TextFormField(
                                 keyboardType: TextInputType.text,
-                                style: TextStyle(
+                                style: const TextStyle(
                                   color: Color.fromARGB(255, 6, 47, 80),
                                 ),
                                 controller: Passwordcontroller,
-                                decoration: InputDecoration(
+                                decoration: const InputDecoration(
                                   border: InputBorder.none,
                                   // fillColor: Colors.red,
                                   // filled: true,
@@ -213,7 +215,7 @@ class _AdminSignupState extends State<AdminSignup> {
                           
                           InkWell(
                             onTap: () {
-                              var id = Uuid();
+                              var id = const Uuid();
                               String uid = id.v4();
                               AdminModel modeladmin = AdminModel(
                                 adminname: Fullnamecontroller.text,
@@ -222,8 +224,6 @@ class _AdminSignupState extends State<AdminSignup> {
                                 adminpassword: Passwordcontroller.text,
                                
                               );
-                              print(modeladmin.toMap());
-                              print(uid);
                               FirebaseFirestore.instance
                                   .collection("Admin-Registration")
                                   .doc(uid)
@@ -232,7 +232,7 @@ class _AdminSignupState extends State<AdminSignup> {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => AdminLogin(),
+                                    builder: (context) => const AdminLogin(),
                                   ));
                             },
                             child: Container(
@@ -240,9 +240,9 @@ class _AdminSignupState extends State<AdminSignup> {
                               height: height * 0.06,
                               width: width * 0.1,
                               decoration: BoxDecoration(
-                                  color: Color.fromARGB(255, 6, 47, 80),
+                                  color: const Color.fromARGB(255, 6, 47, 80),
                                   borderRadius: BorderRadius.circular(10)),
-                              child: Text(
+                              child: const Text(
                                 "Register",
                                 style: TextStyle(
                                     color: Colors.white,
@@ -251,7 +251,7 @@ class _AdminSignupState extends State<AdminSignup> {
                               ),
                             ),
                           ),
-                          Container(
+                          SizedBox(
                             height: height * 0.06,
                             width: width * 0.7,
                             child: Row(
@@ -261,7 +261,7 @@ class _AdminSignupState extends State<AdminSignup> {
                                   alignment: Alignment.centerRight,
                                   height: height * 0.05,
                                   width: width * 0.4,
-                                  child: Text(
+                                  child: const Text(
                                     "Already have an account?",
                                     style: TextStyle(
                                         color: Color.fromARGB(255, 6, 47, 80),
@@ -279,9 +279,9 @@ class _AdminSignupState extends State<AdminSignup> {
                                           context,
                                           MaterialPageRoute(
                                               builder: (context) =>
-                                                  AdminLogin()));
+                                                  const AdminLogin()));
                                     },
-                                    child: Text(
+                                    child: const Text(
                                       "Login",
                                       style: TextStyle(
                                           color:

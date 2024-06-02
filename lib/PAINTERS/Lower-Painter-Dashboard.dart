@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -7,9 +9,9 @@ class LowerPainter extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     var height = size.height;
     var width = size.width;
-    var paint2 = Paint()..color = Color.fromARGB(255, 33, 92, 140);
+    var paint2 = Paint()..color = const Color.fromARGB(255, 33, 92, 140);
 
-    var paint3 = Paint()..color = Color.fromARGB(255, 6, 47, 80);
+    var paint3 = Paint()..color = const Color.fromARGB(255, 6, 47, 80);
 
     Path path2 = Path();
     path2.moveTo(width, height);
@@ -32,7 +34,7 @@ class LowerPainter extends CustomPainter {
 
   @override
   bool shouldRepaint(covariant CustomPainter oldDelegate) {
-    // TODO: implement shouldRepaint
+   
     // throw UnimplementedError();
     return false;
   }
