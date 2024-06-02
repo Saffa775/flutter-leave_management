@@ -508,6 +508,7 @@ class _ApplyLeaveState extends State<ApplyLeave> {
                                   studentsemester: _selectedsmesterItem1!.name,
                                   studentsession: _selectedsessionItem1!.name,
                                   applydate: date,
+                                  applystatus: "Approved",
                                 );
                                 print(widget.modeladmin);
 

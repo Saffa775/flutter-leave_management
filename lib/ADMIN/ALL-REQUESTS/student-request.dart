@@ -8,7 +8,6 @@ import 'package:uuid/uuid.dart';
 
 // ignore: must_be_immutable
 class StudentLeaveRequest extends StatefulWidget {
- 
   StudentLeaveRequest({super.key});
 
   @override
@@ -441,6 +440,42 @@ class _StudentLeaveRequestState extends State<StudentLeaveRequest> {
                                       ],
                                     ),
                                   ),
+                                  Container(
+                                    height: height * 0.05,
+                                    width: width * 0.65,
+                                    // color: Colors.amber,
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceAround,
+                                      children: [
+                                        Container(
+                                          alignment: Alignment.centerLeft,
+                                          height: height * 0.05,
+                                          width: width * 0.2,
+                                          child: Text(
+                                            "Application status:",
+                                            style: TextStyle(
+                                                color: Colors.blue,
+                                                fontSize: 14,
+                                                fontWeight: FontWeight.bold),
+                                          ),
+                                        ),
+                                        Container(
+                                          alignment: Alignment.centerLeft,
+                                          height: height * 0.05,
+                                          width: width * 0.3,
+                                          child: Text(
+                                            studentreq[index].applystatus!,
+                                            style: TextStyle(
+                                                fontSize: 12,
+                                                fontWeight: FontWeight.bold,
+                                                color: Color.fromARGB(
+                                                    255, 6, 47, 80)),
+                                          ),
+                                        )
+                                      ],
+                                    ),
+                                  ),
                                   Row(
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceAround,
@@ -450,36 +485,38 @@ class _StudentLeaveRequestState extends State<StudentLeaveRequest> {
                                           var AId = Uuid();
                                           String id = AId.v4();
 
-                                          ApprovedModel model = ApprovedModel(
+                                          StudentApplyModel model = StudentApplyModel(
                                               studentname:
                                                   studentreq[index].studentname,
                                               studentid:
                                                   studentreq[index].studentid,
-                                              adminname: StaticData
-                                                  .modelapprove!.adminname,
-                                              adminid: id);
+                                              applyid: id,
+                                              adminid: id,
+                                              applydate:
+                                                  studentreq[index].applydate,
+                                              studentdept:
+                                                  studentreq[index].studentdept,
+                                              studentleaveduration:
+                                                  studentreq[index]
+                                                      .studentleaveduration,
+                                              studentleavestatus:
+                                                  studentreq[index]
+                                                      .studentleavestatus,
+                                              studentsemester: studentreq[index]
+                                                  .studentsemester,
+                                              studentrollnumber:
+                                                  studentreq[index]
+                                                      .studentrollnumber,
+                                              studentsession: studentreq[index]
+                                                  .studentsession,
+                                              applystatus: StaticData
+                                                  .modelapply!.applystatus);
 
                                           FirebaseFirestore.instance /////
-                                              .collection("Approved")
+                                              .collection(
+                                                  "Student-Approved-Leaves")
                                               .doc(id)
                                               .set(model.toMap());
-                                          var AId1 = Uuid();
-                                          String id2 = AId1.v4();
-
-                                          ApprovedModel modelapprove =
-                                              ApprovedModel(
-                                                  adminname: StaticData
-                                                      .modelapprove!.adminname,
-                                                  adminid: StaticData
-                                                      .modelapprove!.adminid,
-                                                  studentname: studentreq[index]
-                                                      .studentname,
-                                                  studentid: id2);
-
-                                          FirebaseFirestore.instance /////
-                                              .collection("Approved")
-                                              .doc(id2)
-                                              .set(modelapprove.toMap());
                                         },
                                         child: Container(
                                           alignment: Alignment.center,

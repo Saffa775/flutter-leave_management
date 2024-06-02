@@ -13,6 +13,7 @@ class StudentApplyModel {
   String? applyid;
     String? applydate;
   String? studentleaveduration;
+  String? applystatus;
 
   StudentApplyModel({
     this.adminid,
@@ -26,6 +27,7 @@ class StudentApplyModel {
     this.applyid,
     this.applydate,
     this.studentleaveduration,
+    this.applystatus,
   });
 
   StudentApplyModel copyWith({
@@ -40,6 +42,7 @@ class StudentApplyModel {
     String? applyid,
     String? applydate,
     String? studentleaveduration,
+    String? applystatus,
   }) {
     return StudentApplyModel(
       adminid: adminid ?? this.adminid,
@@ -53,6 +56,7 @@ class StudentApplyModel {
       applyid: applyid ?? this.applyid,
       applydate: applydate ?? this.applydate,
       studentleaveduration: studentleaveduration ?? this.studentleaveduration,
+      applystatus: applystatus ?? this.applystatus,
     );
   }
 
@@ -69,6 +73,7 @@ class StudentApplyModel {
       'applyid': applyid,
       'applydate': applydate,
       'studentleaveduration': studentleaveduration,
+      'applystatus': applystatus,
     };
   }
 
@@ -85,6 +90,7 @@ class StudentApplyModel {
       applyid: map['applyid'] != null ? map['applyid'] as String : null,
       applydate: map['applydate'] != null ? map['applydate'] as String : null,
       studentleaveduration: map['studentleaveduration'] != null ? map['studentleaveduration'] as String : null,
+      applystatus: map['applystatus'] != null ? map['applystatus'] as String : null,
     );
   }
 
@@ -94,7 +100,7 @@ class StudentApplyModel {
 
   @override
   String toString() {
-    return 'StudentApplyModel(adminid: $adminid, studentname: $studentname, studentid: $studentid, studentrollnumber: $studentrollnumber, studentdept: $studentdept, studentsemester: $studentsemester, studentsession: $studentsession, studentleavestatus: $studentleavestatus, applyid: $applyid, applydate: $applydate, studentleaveduration: $studentleaveduration)';
+    return 'StudentApplyModel(adminid: $adminid, studentname: $studentname, studentid: $studentid, studentrollnumber: $studentrollnumber, studentdept: $studentdept, studentsemester: $studentsemester, studentsession: $studentsession, studentleavestatus: $studentleavestatus, applyid: $applyid, applydate: $applydate, studentleaveduration: $studentleaveduration, applystatus: $applystatus)';
   }
 
   @override
@@ -112,7 +118,8 @@ class StudentApplyModel {
       other.studentleavestatus == studentleavestatus &&
       other.applyid == applyid &&
       other.applydate == applydate &&
-      other.studentleaveduration == studentleaveduration;
+      other.studentleaveduration == studentleaveduration &&
+      other.applystatus == applystatus;
   }
 
   @override
@@ -127,6 +134,7 @@ class StudentApplyModel {
       studentleavestatus.hashCode ^
       applyid.hashCode ^
       applydate.hashCode ^
-      studentleaveduration.hashCode;
+      studentleaveduration.hashCode ^
+      applystatus.hashCode;
   }
   }

@@ -2,6 +2,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:leave_manegment/MODELS/TeacherApplyModel.dart';
+import 'package:leave_manegment/OTHER/staticdata.dart';
+import 'package:uuid/uuid.dart';
 
 class TeacherLeaveRequest extends StatefulWidget {
   const TeacherLeaveRequest({super.key});
@@ -127,7 +129,8 @@ class _TeacherLeaveRequestState extends State<TeacherLeaveRequest> {
                             child: Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: Column(
-                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Row(
@@ -138,14 +141,15 @@ class _TeacherLeaveRequestState extends State<TeacherLeaveRequest> {
                                         height: height * 0.06,
                                         width: width * 0.2,
                                         decoration: BoxDecoration(
-                                           color: Color.fromARGB(255, 6, 47, 80),
+                                            color:
+                                                Color.fromARGB(255, 6, 47, 80),
                                             borderRadius:
                                                 BorderRadius.circular(5)),
                                         child: Center(
                                           child: Container(
                                             height: height * 0.05,
                                             width: width * 0.3,
-                                          // color: Color.fromARGB(255, 6, 47, 80),
+                                            // color: Color.fromARGB(255, 6, 47, 80),
                                             child: Container(
                                               height: height * 0.05,
                                               width: width * 0.4,
@@ -160,8 +164,7 @@ class _TeacherLeaveRequestState extends State<TeacherLeaveRequest> {
                                                         fontSize: 14,
                                                         fontWeight:
                                                             FontWeight.bold,
-                                                            color: Colors.white
-                                                      ),
+                                                        color: Colors.white),
                                                   ),
                                                 ],
                                               ),
@@ -203,8 +206,7 @@ class _TeacherLeaveRequestState extends State<TeacherLeaveRequest> {
                                           height: height * 0.05,
                                           width: width * 0.3,
                                           child: Text(
-                                            teachertreq[index]
-                                                .teacherCNIC!,
+                                            teachertreq[index].teacherCNIC!,
                                             style: TextStyle(
                                                 fontSize: 12,
                                                 fontWeight: FontWeight.bold,
@@ -278,7 +280,8 @@ class _TeacherLeaveRequestState extends State<TeacherLeaveRequest> {
                                           height: height * 0.05,
                                           width: width * 0.3,
                                           child: Text(
-                                            teachertreq[index].teacherleavestatus!,
+                                            teachertreq[index]
+                                                .teacherleavestatus!,
                                             style: TextStyle(
                                                 fontSize: 12,
                                                 fontWeight: FontWeight.bold,
@@ -314,7 +317,8 @@ class _TeacherLeaveRequestState extends State<TeacherLeaveRequest> {
                                           height: height * 0.05,
                                           width: width * 0.3,
                                           child: Text(
-                                            teachertreq[index].teacherleaveduration!,
+                                            teachertreq[index]
+                                                .teacherleaveduration!,
                                             style: TextStyle(
                                                 fontSize: 12,
                                                 fontWeight: FontWeight.bold,
@@ -362,36 +366,108 @@ class _TeacherLeaveRequestState extends State<TeacherLeaveRequest> {
                                       ],
                                     ),
                                   ),
-                               
-                             
+                                  Container(
+                                    height: height * 0.05,
+                                    width: width * 0.65,
+                                    // color: Colors.amber,
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceAround,
+                                      children: [
+                                        Container(
+                                          alignment: Alignment.centerLeft,
+                                          height: height * 0.05,
+                                          width: width * 0.2,
+                                          child: Text(
+                                            "Application status:",
+                                            style: TextStyle(
+                                                color: Colors.blue,
+                                                fontSize: 14,
+                                                fontWeight: FontWeight.bold),
+                                          ),
+                                        ),
+                                        Container(
+                                          alignment: Alignment.centerLeft,
+                                          height: height * 0.05,
+                                          width: width * 0.3,
+                                          child: Text(
+                                            teachertreq[index]
+                                                .applystatus!,
+                                            style: TextStyle(
+                                                fontSize: 12,
+                                                fontWeight: FontWeight.bold,
+                                                color: Color.fromARGB(
+                                                    255, 6, 47, 80)),
+                                          ),
+                                        )
+                                      ],
+                                    ),
+                                  ),
                                   Row(
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceAround,
                                     children: [
+                                      InkWell(
+                                          onTap: () {
+                                          var AId = Uuid();
+                                          String id = AId.v4();
+
+                                          TeacherApplyModel model = TeacherApplyModel(
+                                              teachername:
+                                                  teachertreq[index].teachername,
+                                              teacherid:
+                                                  teachertreq[index].teacherid,
+                                              teacherapplyid: id,
+                                              adminid: id,
+                                              teacherapplydate:
+                                                  teachertreq[index].teacherapplydate,
+                                              teacherdept:
+                                                  teachertreq[index].teacherdept,
+                                              teacherleaveduration:
+                                                  teachertreq[index]
+                                                      .teacherleaveduration,
+                                              teacherleavestatus:
+                                                  teachertreq[index]
+                                                      .teacherleavestatus,
+                                              teacherCNIC: teachertreq[index]
+                                                  .teacherCNIC,
+                                            
+                                                 
+                                              applystatus: StaticData
+                                                  .modelteacherapply!.applystatus);
+
+                                          FirebaseFirestore.instance /////
+                                              .collection(" Teacher-Approved-Leaves")
+                                              .doc(id)
+                                              .set(model.toMap());
+                                        },
+                                        child: Container(
+                                          alignment: Alignment.center,
+                                          height: height * 0.07,
+                                          width: width * 0.1,
+                                          decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(10),
+                                            color: Color.fromARGB(255, 6, 47, 80),
+                                          ),
+                                          child: Text(
+                                            "Approve",
+                                            style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 14,
+                                                fontWeight: FontWeight.bold),
+                                          ),
+                                        ),
+                                      ),
                                       Container(
                                         alignment: Alignment.center,
                                         height: height * 0.07,
                                         width: width * 0.1,
                                         decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(10),
-                                            color: Color.fromARGB(255, 6, 47, 80),),
-                                        child: Text(
-                                          "Approve",
-                                          style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 14,
-                                              fontWeight: FontWeight.bold),
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                          color: Color.fromARGB(255, 6, 47, 80),
                                         ),
-                                      ),
-                                       Container(
-                                        alignment: Alignment.center,
-                                        height: height * 0.07,
-                                        width: width * 0.1,
-                                        decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(10),
-                                            color: Color.fromARGB(255, 6, 47, 80),),
                                         child: Text(
                                           "Reject",
                                           style: TextStyle(

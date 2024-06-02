@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:leave_manegment/OTHER/Flush.dart';
 import 'package:leave_manegment/MODELS/AdminModel.dart';
 import 'package:leave_manegment/MODELS/TeacherApplyModel.dart';
-import 'package:leave_manegment/TEACHER/TEACHER-ACTIVITY.dart';
+import 'package:leave_manegment/TEACHER/TEACHER-DASHBOARD/TEACHER-ACTIVITY.dart';
 
 import 'package:leave_manegment/OTHER/staticdata.dart';
 import 'package:uuid/uuid.dart';
@@ -388,6 +388,7 @@ class _TeacherApplyLeaveState extends State<TeacherApplyLeave> {
                                       _selectedreasonItem1!.name,
                                   teacherCNIC: CNICcontroller.text,
                                   teacherapplydate: date,
+                                  applystatus: "Pending",
                                 );
                                 print(widget.modeladmin);
 

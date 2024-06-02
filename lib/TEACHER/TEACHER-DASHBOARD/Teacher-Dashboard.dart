@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:leave_manegment/MODELS/AdminModel.dart';
 import 'package:leave_manegment/PAINTERS/Lower-Painter-Dashboard.dart';
 import 'package:leave_manegment/TEACHER/TEACHER-DASHBOARD/teacher-apply-leave.dart';
-import 'package:leave_manegment/TEACHER/TEACHER-LEAVE-HISTORY.dart';
+import 'package:leave_manegment/TEACHER/TEACHER-DASHBOARD/TEACHER-LEAVE-HISTORY.dart';
 
 class TeacherDashboard extends StatefulWidget {
   const TeacherDashboard({super.key});
