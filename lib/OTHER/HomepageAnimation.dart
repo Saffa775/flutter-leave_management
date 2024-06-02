@@ -1,12 +1,14 @@
 // ignore_for_file: file_names
 
+
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
-
-import 'package:leave_manegment/ADMIN/Admin.dart';
+import 'package:leave_manegment/ADMIN/Admin-Login.dart';
 import 'package:leave_manegment/OTHER/Homepage_Features.dart';
 import 'package:leave_manegment/OTHER/responsive.dart';
 import 'package:lottie/lottie.dart';
+
+
 
 class SplashScreen extends StatefulWidget {
   // ignore: use_key_in_widget_constructors
@@ -37,8 +39,8 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
-    // return MyAdmin();
     return 
+  
   
     AnimatedSplashScreen(
       animationDuration: const Duration(seconds: 3),
@@ -56,7 +58,7 @@ class _SplashScreenState extends State<SplashScreen> {
       ),
       nextScreen:
           Responsive.isMobile(context) ? const Homepage() : const
-          MyAdmin(),
+          AdminLogin(),
       backgroundColor: const Color.fromARGB(255, 14, 90, 152),
       splashIconSize: 300,
     );
