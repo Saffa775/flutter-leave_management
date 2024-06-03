@@ -2,10 +2,11 @@
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:leave_manegment/MODELS/Student-Model.dart';
 import 'package:leave_manegment/OTHER/Flush.dart';
 import 'package:leave_manegment/MODELS/AdminModel.dart';
 import 'package:leave_manegment/MODELS/StudentApplyModel.dart';
-import 'package:leave_manegment/STUDENT/STUDENT-DASHBOARD/Youractivity.dart';
+import 'package:leave_manegment/STUDENT/STUDENT-DASHBOARD/ACTIVITY/YOUR-ACTIVITY.dart';
 
 import 'package:leave_manegment/OTHER/staticdata.dart';
 import 'package:uuid/uuid.dart';
@@ -479,7 +480,7 @@ class _ApplyLeaveState extends State<ApplyLeave> {
                               ),
                             ),
                             InkWell(
-                              onTap: () {
+                              onTap: () async {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
@@ -507,13 +508,32 @@ class _ApplyLeaveState extends State<ApplyLeave> {
                                   studentsemester: _selectedsmesterItem1!.name,
                                   studentsession: _selectedsessionItem1!.name,
                                   applydate: date,
-                                  applystatus: "Approved",
+                                  applystatus: "Pending",
                                 );
 
                                 FirebaseFirestore.instance
                                     .collection("Student-LeaveApplications")
                                     .doc(id)
                                     .set(model.toMap());
+                                FirebaseFirestore.instance
+                                    .collection("Student-Registration")
+                                    .doc(StaticData.modelstu!.studentid)
+                                    .update({
+                                  "leavecount":
+                                      StaticData.modelstu!.leavecount! + 1
+                                });
+
+                                QuerySnapshot snapshot = await FirebaseFirestore
+                                    .instance
+                                    .collection("Student-Registration")
+                                    .where("studentid",
+                                        isEqualTo:
+                                            StaticData.modelstu!.studentid)
+                                    .get();
+                                StudentModel stmodel = StudentModel.fromMap(
+                                    snapshot.docs[0].data()
+                                        as Map<String, dynamic>);
+                                StaticData.modelstu = stmodel;
                                 MyFlushBar.showSimpleFlushBar(
                                     "Leave Applied successfully",
                                     context,

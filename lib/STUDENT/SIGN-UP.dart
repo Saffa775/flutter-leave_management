@@ -312,6 +312,7 @@ class _StudentsSignUpState extends State<StudentsSignUp> {
                                 studentname: Fullnamecontroller.text,
                                 studentpassword: Passwordcontroller.text,
                                 studentrollnumber: RollNumbercontroller.text,
+                                leavecount: 0
                               );
                               FirebaseFirestore.instance
                                   .collection("Student-Registration")

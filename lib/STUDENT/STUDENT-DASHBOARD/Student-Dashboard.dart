@@ -1,12 +1,13 @@
-// ignore_for_file: file_names
+// ignore_for_file: file_names, prefer_const_constructors
 
 import 'package:flutter/material.dart';
 import 'package:leave_manegment/MODELS/AdminModel.dart';
 
 import 'package:leave_manegment/PAINTERS/Lower-Painter-Dashboard.dart';
 import 'package:leave_manegment/STUDENT/STUDENT-DASHBOARD/Applyleave.dart';
+import 'package:leave_manegment/STUDENT/STUDENT-DASHBOARD/Leave-Eligibility.dart';
 import 'package:leave_manegment/STUDENT/STUDENT-DASHBOARD/Leave-history.dart';
-
+import 'package:leave_manegment/STUDENT/STUDENT-DASHBOARD/ACTIVITY/YOUR-ACTIVITY.dart';
 
 class StudentDashboard extends StatefulWidget {
   const StudentDashboard({super.key});
@@ -289,34 +290,42 @@ class _StudentDashboardState extends State<StudentDashboard> {
                           border: Border.all(color: Colors.black),
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(20)),
-                      child: Column(
-                        children: [
-                          Container(
-                            height: height * 0.15,
-                            width: width * 0.4,
-                            decoration: const BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.only(
-                                    topLeft: Radius.circular(20),
-                                    topRight: Radius.circular(20)),
-                                image: DecorationImage(
-                                  image: AssetImage("images/activity.jpeg"),
-                                  fit: BoxFit.cover,
-                                )),
-                          ),
-                          Container(
-                            alignment: Alignment.center,
-                            height: height * 0.04,
-                            width: width * 0.5,
-                            child: const Text(
-                              "Your activity",
-                              style: TextStyle(
-                                  color: Color.fromARGB(255, 6, 47, 80),
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 14),
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const MyActivity()));
+                        },
+                        child: Column(
+                          children: [
+                            Container(
+                              height: height * 0.15,
+                              width: width * 0.4,
+                              decoration: const BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.only(
+                                      topLeft: Radius.circular(20),
+                                      topRight: Radius.circular(20)),
+                                  image: DecorationImage(
+                                    image: AssetImage("images/activity.jpeg"),
+                                    fit: BoxFit.cover,
+                                  )),
                             ),
-                          )
-                        ],
+                            Container(
+                              alignment: Alignment.center,
+                              height: height * 0.04,
+                              width: width * 0.5,
+                              child: const Text(
+                                "Your activity",
+                                style: TextStyle(
+                                    color: Color.fromARGB(255, 6, 47, 80),
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 14),
+                              ),
+                            )
+                          ],
+                        ),
                       ),
                     ),
                   ),
@@ -337,7 +346,8 @@ class _StudentDashboardState extends State<StudentDashboard> {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => const MyApplyHistory(),
+                                    builder: (context) =>
+                                        const MyApplyHistory(),
                                   ));
                             },
                             child: Container(
@@ -382,18 +392,28 @@ class _StudentDashboardState extends State<StudentDashboard> {
                           borderRadius: BorderRadius.circular(20)),
                       child: Column(
                         children: [
-                          Container(
-                            height: height * 0.15,
-                            width: width * 0.4,
-                            decoration: const BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.only(
-                                    topLeft: Radius.circular(20),
-                                    topRight: Radius.circular(20)),
-                                image: DecorationImage(
-                                  image: AssetImage("images/eligibility.jpeg"),
-                                  fit: BoxFit.cover,
-                                )),
+                          InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => MyEligibility(),
+                                  ));
+                            },
+                            child: Container(
+                              height: height * 0.15,
+                              width: width * 0.4,
+                              decoration: const BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.only(
+                                      topLeft: Radius.circular(20),
+                                      topRight: Radius.circular(20)),
+                                  image: DecorationImage(
+                                    image:
+                                        AssetImage("images/eligibility.jpeg"),
+                                    fit: BoxFit.cover,
+                                  )),
+                            ),
                           ),
                           Container(
                             alignment: Alignment.center,

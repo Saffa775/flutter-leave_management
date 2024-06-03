@@ -202,6 +202,9 @@ class _StudentLoginState extends State<StudentLogin> {
                                         Snapshot.docs[0].data()
                                             as Map<String, dynamic>);
                                     StaticData.modelstu = model;
+                                    print(model);
+                                    print("----------");
+                                    print(StaticData.modelstu);
                                     Navigator.push(
                                         context,
                                         MaterialPageRoute(

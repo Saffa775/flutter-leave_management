@@ -7,15 +7,16 @@ class StudentModel {
   String? studentemail;
   String? studentrollnumber;
   String? studentpassword;
- 
-
+  int? leavecount;
   StudentModel({
     this.studentname,
     this.studentid,
     this.studentemail,
     this.studentrollnumber,
     this.studentpassword,
+    this.leavecount,
   });
+ 
 
   StudentModel copyWith({
     String? studentname,
@@ -23,6 +24,7 @@ class StudentModel {
     String? studentemail,
     String? studentrollnumber,
     String? studentpassword,
+    int? leavecount,
   }) {
     return StudentModel(
       studentname: studentname ?? this.studentname,
@@ -30,6 +32,7 @@ class StudentModel {
       studentemail: studentemail ?? this.studentemail,
       studentrollnumber: studentrollnumber ?? this.studentrollnumber,
       studentpassword: studentpassword ?? this.studentpassword,
+      leavecount: leavecount ?? this.leavecount,
     );
   }
 
@@ -40,6 +43,7 @@ class StudentModel {
       'studentemail': studentemail,
       'studentrollnumber': studentrollnumber,
       'studentpassword': studentpassword,
+      'leavecount': leavecount,
     };
   }
 
@@ -50,6 +54,7 @@ class StudentModel {
       studentemail: map['studentemail'] != null ? map['studentemail'] as String : null,
       studentrollnumber: map['studentrollnumber'] != null ? map['studentrollnumber'] as String : null,
       studentpassword: map['studentpassword'] != null ? map['studentpassword'] as String : null,
+      leavecount: map['leavecount'] != null ? map['leavecount'] as int : null,
     );
   }
 
@@ -59,7 +64,7 @@ class StudentModel {
 
   @override
   String toString() {
-    return 'StudentModel(studentname: $studentname, studentid: $studentid, studentemail: $studentemail, studentrollnumber: $studentrollnumber, studentpassword: $studentpassword)';
+    return 'StudentModel(studentname: $studentname, studentid: $studentid, studentemail: $studentemail, studentrollnumber: $studentrollnumber, studentpassword: $studentpassword, leavecount: $leavecount)';
   }
 
   @override
@@ -71,7 +76,8 @@ class StudentModel {
       other.studentid == studentid &&
       other.studentemail == studentemail &&
       other.studentrollnumber == studentrollnumber &&
-      other.studentpassword == studentpassword;
+      other.studentpassword == studentpassword &&
+      other.leavecount == leavecount;
   }
 
   @override
@@ -80,6 +86,7 @@ class StudentModel {
       studentid.hashCode ^
       studentemail.hashCode ^
       studentrollnumber.hashCode ^
-      studentpassword.hashCode;
+      studentpassword.hashCode ^
+      leavecount.hashCode;
   }
-  }
+}

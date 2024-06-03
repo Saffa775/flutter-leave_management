@@ -1,19 +1,18 @@
 // ignore_for_file: prefer_const_constructors, file_names
 
 import 'package:flutter/material.dart';
-import 'package:leave_manegment/OTHER/staticdata.dart';
 import 'package:leave_manegment/STUDENT/STUDENT-DASHBOARD/ACTIVITY/Approved-requests.dart';
 import 'package:leave_manegment/STUDENT/STUDENT-DASHBOARD/ACTIVITY/Pendingreq.dart';
 import 'package:leave_manegment/STUDENT/STUDENT-DASHBOARD/ACTIVITY/Rejected-requests.dart';
 
-class MyEligibility extends StatefulWidget {
-  const MyEligibility({super.key});
+class MyActivity extends StatefulWidget {
+  const MyActivity({super.key});
 
   @override
-  State<MyEligibility> createState() => _MyEligibilityState();
+  State<MyActivity> createState() => _MyActivityState();
 }
 
-class _MyEligibilityState extends State<MyEligibility> {
+class _MyActivityState extends State<MyActivity> {
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
@@ -75,13 +74,13 @@ class _MyEligibilityState extends State<MyEligibility> {
                                   child: Container(
                                     alignment: Alignment.center,
                                     height: height * 0.07,
-                                    width: width * 0.5,
+                                    width: width * 0.4,
                                     decoration: BoxDecoration(
                                         color: Colors.white,
                                         borderRadius:
                                             BorderRadius.circular(10)),
                                     child: Text(
-                                      "Total Leaves Allowed :  5",
+                                      "Pending Requests",
                                       style: TextStyle(
                                           color: Colors.black,
                                           fontSize: 14,
@@ -101,13 +100,13 @@ class _MyEligibilityState extends State<MyEligibility> {
                                   child: Container(
                                     alignment: Alignment.center,
                                     height: height * 0.07,
-                                    width: width * 0.5,
+                                    width: width * 0.4,
                                     decoration: BoxDecoration(
                                         color: Colors.white,
                                         borderRadius:
                                             BorderRadius.circular(10)),
                                     child: Text(
-                                      "Remainaing Leaves : ${5-StaticData.modelstu!.leavecount!}",
+                                      "Approved Requests",
                                       style: TextStyle(
                                           color: Colors.black,
                                           fontSize: 14,
@@ -127,13 +126,13 @@ class _MyEligibilityState extends State<MyEligibility> {
                                   child: Container(
                                     alignment: Alignment.center,
                                     height: height * 0.07,
-                                    width: width * 0.5,
+                                    width: width * 0.4,
                                     decoration: BoxDecoration(
                                         color: Colors.white,
                                         borderRadius:
                                             BorderRadius.circular(10)),
                                     child: Text(
-                                      "Consumed Leaves :${StaticData.modelstu!.leavecount!}",
+                                      "Rejected Requests",
                                       style: TextStyle(
                                           color: Colors.black,
                                           fontSize: 14,
