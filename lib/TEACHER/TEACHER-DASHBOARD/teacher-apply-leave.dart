@@ -1,7 +1,8 @@
-// ignore_for_file: annotate_overrides, prefer_typing_uninitialized_variables, non_constant_identifier_names, file_names
+// ignore_for_file: annotate_overrides, prefer_typing_uninitialized_variables, non_constant_identifier_names, file_names, use_build_context_synchronously, prefer_const_constructors
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:leave_manegment/MODELS/Teacher-Model.dart';
 import 'package:leave_manegment/OTHER/Flush.dart';
 import 'package:leave_manegment/MODELS/AdminModel.dart';
 import 'package:leave_manegment/MODELS/TeacherApplyModel.dart';
@@ -126,15 +127,20 @@ class _TeacherApplyLeaveState extends State<TeacherApplyLeave> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      const Padding(
+                       Padding(
                         padding: EdgeInsets.all(8.0),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Icon(
-                              Icons.arrow_back,
-                              color: Colors.white,
-                              size: 30,
+                            InkWell(
+                              onTap: () {
+                                Navigator.pop(context);
+                              },
+                              child: Icon(
+                                Icons.arrow_back,
+                                color: Colors.white,
+                                size: 30,
+                              ),
                             ),
                             Icon(
                               Icons.menu,
@@ -361,7 +367,7 @@ class _TeacherApplyLeaveState extends State<TeacherApplyLeave> {
                               ),
                             ),
                             InkWell(
-                              onTap: () {
+                              onTap: () async{
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
@@ -394,6 +400,13 @@ class _TeacherApplyLeaveState extends State<TeacherApplyLeave> {
                                     .collection("Teacher-LeaveApplications")
                                     .doc(id)
                                     .set(model.toMap());
+                                    FirebaseFirestore.instance.collection("Teacher-Registration").doc(StaticData.modelt!.teacherid).update({
+                                      
+                                    "leavecount"  :StaticData.modelt!.leavecount! + 1
+                                    });
+                                    QuerySnapshot snapshot= await FirebaseFirestore.instance.collection("Teacher-Registration").where("teacherid",isEqualTo: StaticData.modelt!.teacherid).get();
+                                    TeacherModel modelt= TeacherModel.fromMap(snapshot.docs[0].data()as Map<String,dynamic>);
+                                    StaticData.modelt = modelt;
                                 MyFlushBar.showSimpleFlushBar(
                                     "Leave Applied successfully",
                                     context,

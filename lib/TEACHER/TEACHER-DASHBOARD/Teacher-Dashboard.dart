@@ -1,8 +1,10 @@
-// ignore_for_file: file_names
+// ignore_for_file: file_names, prefer_const_constructors
 
 import 'package:flutter/material.dart';
 import 'package:leave_manegment/MODELS/AdminModel.dart';
 import 'package:leave_manegment/PAINTERS/Lower-Painter-Dashboard.dart';
+import 'package:leave_manegment/TEACHER/TEACHER-DASHBOARD/Eligibility.dart';
+import 'package:leave_manegment/TEACHER/TEACHER-DASHBOARD/TEACHER-ACTIVITY.dart';
 import 'package:leave_manegment/TEACHER/TEACHER-DASHBOARD/teacher-apply-leave.dart';
 import 'package:leave_manegment/TEACHER/TEACHER-DASHBOARD/TEACHER-LEAVE-HISTORY.dart';
 
@@ -289,18 +291,26 @@ class _TeacherDashboardState extends State<TeacherDashboard> {
                           borderRadius: BorderRadius.circular(20)),
                       child: Column(
                         children: [
-                          Container(
-                            height: height * 0.15,
-                            width: width * 0.4,
-                            decoration: const BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.only(
-                                    topLeft: Radius.circular(20),
-                                    topRight: Radius.circular(20)),
-                                image: DecorationImage(
-                                  image: AssetImage("images/activity.jpeg"),
-                                  fit: BoxFit.cover,
-                                )),
+                          InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => TeacherActivity()));
+                            },
+                            child: Container(
+                              height: height * 0.15,
+                              width: width * 0.4,
+                              decoration: const BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.only(
+                                      topLeft: Radius.circular(20),
+                                      topRight: Radius.circular(20)),
+                                  image: DecorationImage(
+                                    image: AssetImage("images/activity.jpeg"),
+                                    fit: BoxFit.cover,
+                                  )),
+                            ),
                           ),
                           Container(
                             alignment: Alignment.center,
@@ -335,8 +345,8 @@ class _TeacherDashboardState extends State<TeacherDashboard> {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => const TeacherApplyHistory()
-                                  ));
+                                      builder: (context) =>
+                                          const TeacherApplyHistory()));
                             },
                             child: Container(
                               height: height * 0.15,
@@ -393,16 +403,25 @@ class _TeacherDashboardState extends State<TeacherDashboard> {
                                   fit: BoxFit.cover,
                                 )),
                           ),
-                          Container(
-                            alignment: Alignment.center,
-                            height: height * 0.04,
-                            width: width * 0.5,
-                            child: const Text(
-                              "Eligibility",
-                              style: TextStyle(
-                                  color: Color.fromARGB(255, 6, 47, 80),
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 14),
+                          InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          TeacherEligibility()));
+                            },
+                            child: Container(
+                              alignment: Alignment.center,
+                              height: height * 0.04,
+                              width: width * 0.5,
+                              child: const Text(
+                                "Eligibility",
+                                style: TextStyle(
+                                    color: Color.fromARGB(255, 6, 47, 80),
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 14),
+                              ),
                             ),
                           )
                         ],

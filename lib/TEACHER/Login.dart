@@ -1,4 +1,4 @@
-// ignore_for_file: use_build_context_synchronously, non_constant_identifier_names, file_names
+// ignore_for_file: use_build_context_synchronously, non_constant_identifier_names, file_names, avoid_print
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -202,6 +202,9 @@ class _TeacherLoginState extends State<TeacherLogin> {
                                         Snapshot.docs[0].data()
                                             as Map<String, dynamic>);
                                     StaticData.modelt = model;
+                                    print(model);
+                                    print("..............");
+                                    print(StaticData.modelt);
                                     Navigator.push(
                                         context,
                                         MaterialPageRoute(

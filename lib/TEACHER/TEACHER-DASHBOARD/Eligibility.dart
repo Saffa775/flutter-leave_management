@@ -1,21 +1,20 @@
-// ignore_for_file: prefer_const_constructors, file_names, unused_import
+// ignore_for_file: prefer_const_constructors, file_names
 
 import 'package:flutter/material.dart';
-import 'package:leave_manegment/STUDENT/STUDENT-DASHBOARD/ACTIVITY/Approved-requests.dart';
-import 'package:leave_manegment/STUDENT/STUDENT-DASHBOARD/ACTIVITY/Pendingreq.dart';
-import 'package:leave_manegment/STUDENT/STUDENT-DASHBOARD/ACTIVITY/Rejected-requests.dart';
+import 'package:leave_manegment/OTHER/staticdata.dart';
+
 import 'package:leave_manegment/TEACHER/TEACHER-DASHBOARD/Approvedrequests.dart';
 import 'package:leave_manegment/TEACHER/TEACHER-DASHBOARD/Rejectedrequests.dart';
 import 'package:leave_manegment/TEACHER/TEACHER-DASHBOARD/pending%20requests.dart';
 
-class TeacherActivity extends StatefulWidget {
-  const TeacherActivity({super.key});
+class TeacherEligibility extends StatefulWidget {
+  const TeacherEligibility({super.key});
 
   @override
-  State<TeacherActivity> createState() => _TeacherActivityState();
+  State<TeacherEligibility> createState() => _TeacherEligibilityState();
 }
 
-class _TeacherActivityState extends State<TeacherActivity> {
+class _TeacherEligibilityState extends State<TeacherEligibility> {
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
@@ -77,13 +76,13 @@ class _TeacherActivityState extends State<TeacherActivity> {
                                   child: Container(
                                     alignment: Alignment.center,
                                     height: height * 0.07,
-                                    width: width * 0.4,
+                                    width: width * 0.5,
                                     decoration: BoxDecoration(
                                         color: Colors.white,
                                         borderRadius:
                                             BorderRadius.circular(10)),
                                     child: Text(
-                                      "Pending Requests",
+                                      "Total Leaves Allowed :  5",
                                       style: TextStyle(
                                           color: Colors.black,
                                           fontSize: 14,
@@ -103,13 +102,13 @@ class _TeacherActivityState extends State<TeacherActivity> {
                                   child: Container(
                                     alignment: Alignment.center,
                                     height: height * 0.07,
-                                    width: width * 0.4,
+                                    width: width * 0.5,
                                     decoration: BoxDecoration(
                                         color: Colors.white,
                                         borderRadius:
                                             BorderRadius.circular(10)),
                                     child: Text(
-                                      "Approved Requests",
+                                      "Remainaing Leaves : ${5 - StaticData.modelt!.leavecount!}",
                                       style: TextStyle(
                                           color: Colors.black,
                                           fontSize: 14,
@@ -129,13 +128,13 @@ class _TeacherActivityState extends State<TeacherActivity> {
                                   child: Container(
                                     alignment: Alignment.center,
                                     height: height * 0.07,
-                                    width: width * 0.4,
+                                    width: width * 0.5,
                                     decoration: BoxDecoration(
                                         color: Colors.white,
                                         borderRadius:
                                             BorderRadius.circular(10)),
                                     child: Text(
-                                      "Rejected Requests",
+                                      "Consumed Leaves :${StaticData.modelt!.leavecount!}",
                                       style: TextStyle(
                                           color: Colors.black,
                                           fontSize: 14,

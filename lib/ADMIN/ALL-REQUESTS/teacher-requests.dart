@@ -26,7 +26,6 @@ class _TeacherLeaveRequestState extends State<TeacherLeaveRequest> {
           TeacherApplyModel.fromMap(data.data() as Map<String, dynamic>);
       setState(() {
         teachertreq.add(modelTeacherLeaveRequests);
-      
       });
     }
   }
@@ -141,8 +140,8 @@ class _TeacherLeaveRequestState extends State<TeacherLeaveRequest> {
                                         height: height * 0.06,
                                         width: width * 0.2,
                                         decoration: BoxDecoration(
-                                            color:
-                                                const Color.fromARGB(255, 6, 47, 80),
+                                            color: const Color.fromARGB(
+                                                255, 6, 47, 80),
                                             borderRadius:
                                                 BorderRadius.circular(5)),
                                         child: Center(
@@ -391,8 +390,7 @@ class _TeacherLeaveRequestState extends State<TeacherLeaveRequest> {
                                           height: height * 0.05,
                                           width: width * 0.3,
                                           child: Text(
-                                            teachertreq[index]
-                                                .applystatus!,
+                                            teachertreq[index].applystatus!,
                                             style: const TextStyle(
                                                 fontSize: 12,
                                                 fontWeight: FontWeight.bold,
@@ -408,37 +406,46 @@ class _TeacherLeaveRequestState extends State<TeacherLeaveRequest> {
                                         MainAxisAlignment.spaceAround,
                                     children: [
                                       InkWell(
-                                          onTap: () {
+                                        onTap: () {
                                           // ignore: non_constant_identifier_names
                                           var AId = const Uuid();
                                           String id = AId.v4();
 
-                                          TeacherApplyModel model = TeacherApplyModel(
-                                              teachername:
-                                                  teachertreq[index].teachername,
-                                              teacherid:
-                                                  teachertreq[index].teacherid,
-                                              teacherapplyid: id,
-                                              adminid: id,
-                                              teacherapplydate:
-                                                  teachertreq[index].teacherapplydate,
-                                              teacherdept:
-                                                  teachertreq[index].teacherdept,
-                                              teacherleaveduration:
-                                                  teachertreq[index]
-                                                      .teacherleaveduration,
-                                              teacherleavestatus:
-                                                  teachertreq[index]
-                                                      .teacherleavestatus,
-                                              teacherCNIC: teachertreq[index]
-                                                  .teacherCNIC,
-                                            
-                                                 
-                                              applystatus: StaticData
-                                                  .modelteacherapply!.applystatus);
+                                          TeacherApplyModel model =
+                                              TeacherApplyModel(
+                                                  teachername: teachertreq[
+                                                          index]
+                                                      .teachername,
+                                                  teacherid: teachertreq[index]
+                                                      .teacherid,
+                                                  teacherapplyid: id,
+                                                  adminid: id,
+                                                  teacherapplydate:
+                                                      teachertreq[
+                                                              index]
+                                                          .teacherapplydate,
+                                                  teacherdept:
+                                                      teachertreq[
+                                                              index]
+                                                          .teacherdept,
+                                                  teacherleaveduration:
+                                                      teachertreq[
+                                                              index]
+                                                          .teacherleaveduration,
+                                                  teacherleavestatus:
+                                                      teachertreq[
+                                                              index]
+                                                          .teacherleavestatus,
+                                                  teacherCNIC:
+                                                      teachertreq[index]
+                                                          .teacherCNIC,
+                                                  applystatus: StaticData
+                                                      .modelteacherapply!
+                                                      .applystatus);
 
                                           FirebaseFirestore.instance /////
-                                              .collection(" Teacher-Approved-Leaves")
+                                              .collection(
+                                                  " Teacher-Approved-Applications")
                                               .doc(id)
                                               .set(model.toMap());
                                         },
@@ -449,7 +456,8 @@ class _TeacherLeaveRequestState extends State<TeacherLeaveRequest> {
                                           decoration: BoxDecoration(
                                             borderRadius:
                                                 BorderRadius.circular(10),
-                                            color: const Color.fromARGB(255, 6, 47, 80),
+                                            color: const Color.fromARGB(
+                                                255, 6, 47, 80),
                                           ),
                                           child: const Text(
                                             "Approve",
@@ -460,21 +468,67 @@ class _TeacherLeaveRequestState extends State<TeacherLeaveRequest> {
                                           ),
                                         ),
                                       ),
-                                      Container(
-                                        alignment: Alignment.center,
-                                        height: height * 0.07,
-                                        width: width * 0.1,
-                                        decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(10),
-                                          color: const Color.fromARGB(255, 6, 47, 80),
-                                        ),
-                                        child: const Text(
-                                          "Reject",
-                                          style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 14,
-                                              fontWeight: FontWeight.bold),
+                                      InkWell(
+                                        onTap: () {
+                                          // ignore: non_constant_identifier_names
+                                          var AId = const Uuid();
+                                          String id = AId.v4();
+
+                                          TeacherApplyModel model =
+                                              TeacherApplyModel(
+                                                  teachername: teachertreq[
+                                                          index]
+                                                      .teachername,
+                                                  teacherid: teachertreq[index]
+                                                      .teacherid,
+                                                  teacherapplyid: id,
+                                                  adminid: id,
+                                                  teacherapplydate:
+                                                      teachertreq[
+                                                              index]
+                                                          .teacherapplydate,
+                                                  teacherdept:
+                                                      teachertreq[
+                                                              index]
+                                                          .teacherdept,
+                                                  teacherleaveduration:
+                                                      teachertreq[
+                                                              index]
+                                                          .teacherleaveduration,
+                                                  teacherleavestatus:
+                                                      teachertreq[
+                                                              index]
+                                                          .teacherleavestatus,
+                                                  teacherCNIC:
+                                                      teachertreq[index]
+                                                          .teacherCNIC,
+                                                  applystatus: StaticData
+                                                      .modelteacherapply!
+                                                      .applystatus);
+
+                                          FirebaseFirestore.instance /////
+                                              .collection(
+                                                  " Teacher-Rejected-Applications")
+                                              .doc(id)
+                                              .set(model.toMap());
+                                        },
+                                        child: Container(
+                                          alignment: Alignment.center,
+                                          height: height * 0.07,
+                                          width: width * 0.1,
+                                          decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(10),
+                                            color: const Color.fromARGB(
+                                                255, 6, 47, 80),
+                                          ),
+                                          child: const Text(
+                                            "Reject",
+                                            style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 14,
+                                                fontWeight: FontWeight.bold),
+                                          ),
                                         ),
                                       ),
                                     ],
